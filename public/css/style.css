@@ -1,11 +1,11 @@
 @font-face {
-	font-family: 'Niagara Engraved';
-	src: url('fonts/NiagaraEngraved-Reg.eot');
-	src: url('fonts/NiagaraEngraved-Reg.eot?#iefix') format('embedded-opentype'),
-		url('fonts/NiagaraEngraved-Reg.woff') format('woff'),
-		url('fonts/NiagaraEngraved-Reg.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Niagara Engraved';
+    src: url('fonts/NiagaraEngraved-Reg.eot');
+    src: url('fonts/NiagaraEngraved-Reg.eot?#iefix') format('embedded-opentype'),
+        url('fonts/NiagaraEngraved-Reg.woff') format('woff'),
+        url('fonts/NiagaraEngraved-Reg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
@@ -675,8 +675,7 @@ section#welcome {
     font-weight: initial;
     width: 100%;
     float: left;
-    padding-bottom: 0;
-    margin-bottom: 0;
+    padding-bottom: 15px;
     font-size: 15px;
 }
 .form-fields input, .form-fields select, .form-fields textarea {
@@ -689,7 +688,7 @@ section#welcome {
 .form-fields {
     float: left;
     width: 100%;
-    margin:  10px 0;
+    margin: 51px 0;
 }
 .form-fields input[type="Submit"] {
     background: #ff8868;
@@ -1078,7 +1077,7 @@ a.stry {
     border-bottom: 2px solid #af472b;
 }
 a.stry:hover {
-	background: transparent;
+    background: transparent;
     border: 2px solid #fff;
     color: #fff;
     text-decoration: none;
@@ -1167,7 +1166,7 @@ tr.fir-ch th {
     width: 27%;
 }
 .contact-uu input[type="Submit"]:hover {
-	background: transparent !important;
+    background: transparent !important;
     border: 2px solid #ff8868;
     transition: all ease 500ms;
     color: #ff8868;
@@ -1698,7 +1697,7 @@ h1.mess {
         float: left;
 }
 .slider-center-button input[type="submit"]:hover {
-	background: transparent;
+    background: transparent;
     border:2px solid #ff8868;
     transition: all ease 500ms;
     cursor: pointer;
@@ -1889,7 +1888,7 @@ border-top: 1px solid #ccc;
     max-width: 181px;
 }
 .correct-ans a:hover {
-	color: #ff8868;
+    color: #ff8868;
     border: 2px solid #ff8868;
     transition: all ease 500ms;
     background: inherit;
@@ -1916,7 +1915,7 @@ border-top: 1px solid #ccc;
     max-width: 181px;
 }
 .wrong-ans a:hover {
-	color: #5a5a5a;
+    color: #5a5a5a;
     border: 2px solid #5a5a5a;
     transition: all ease 500ms;
     background: inherit;
@@ -2182,7 +2181,7 @@ button.theme-btn {
 }
 button.theme-btn:hover {
     background: #fff;
-    color: #ff8868;		
+    color: #ff8868;     
     font-size: 18px;
     font-weight: 600;
     border-color:#ff8868 ;
@@ -2711,46 +2710,46 @@ label.setapp {
 
 /* entire container, keeps perspective */
 .flip-container {
-	perspective: 1000px;
+    perspective: 1000px;
 }
-	/* flip the pane when hovered */
-	/*.flip-container:hover .flipper, */.flip-container.hover .flipper {
-		transform: rotateY(180deg);
-	}
+    /* flip the pane when hovered */
+    /*.flip-container:hover .flipper, */.flip-container.hover .flipper {
+        transform: rotateY(180deg);
+    }
 
 .flip-container, .front, .back {
-	width: 100%;
-	height: 302px;
+    width: 100%;
+    height: 302px;
 }
 
 /* flip speed goes here */
 .flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
+    transition: 0.6s;
+    transform-style: preserve-3d;
 
-	position: relative;
+    position: relative;
 }
 
 /* hide back of pane during swap */
 .front, .back {
-	backface-visibility: hidden;
-	background-color: #ff8868;
-	position: absolute;
-	top: 0;
-	left: 0;
-	 border: 1px solid #e5c6bd;
+    backface-visibility: hidden;
+    background-color: #ff8868;
+    position: absolute;
+    top: 0;
+    left: 0;
+     border: 1px solid #e5c6bd;
 }
 
 /* front pane, placed above back */
 .front {
-	z-index: 2;
-	/* for firefox 31 */
-	transform: rotateY(0deg);
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
 .back {
-	transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 button.flyButton {
@@ -2773,7 +2772,559 @@ button.flyButton i {
     border-color: #ff8868;
     box-shadow:none;
 }
-.registration-form .form-horizontal{
+#login .modal-header {
+    background: #ff8868;
+    color: #fff;
+    padding: 7px 11px;
+}
+.modal-header {
+    border: none;
+}#login .modal-header h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 31px;
+    text-transform: capitalize;
+}
+#login .login-fileds {
+    max-width: 316px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 34px;
+    margin-top: 25px;
+}
+#login .login-fileds h1 a{
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    text-align: center;
+}
+#login .login-fileds h1 a:hover{
+    color: #ff8868;
+    text-decoration: none;
+    transition: all ease 0.2s;
+}
+#login .login-fileds h1 {
+    text-align: center;
+    line-height: normal;
+    font-size: inherit;
+}
+#login .login-fileds p a {
+    color: #ff8868;
+    text-align: left;
+    margin-bottom: 29px;
+}
+#login .login-fileds p a:hover {
+     color: #000;
+    text-decoration: none;
+    transition: all ease 0.2s;
+}
+#login .login-fileds input {
+    border: 2px solid #666;
+    padding: 11px 13px;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #666;
+}
+#login input.su {
+    background: #ff8868;
+    border-color: #000;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+        border-color: #ff8868;
+}
+#login input.su:hover {
+    background: transparent;
+    border-color: #ff8868;
+    color: #ff8868;
+}
+.modal-content {
+    border: none;
+    border-radius: 0;
+    border-bottom: 5px solid #ff8868;
+}
+#changepass .modal-header {
+    background: #ff8868;
+    color: #fff;
+    padding: 7px 11px;
+}
+.modal-header {
+    border: none;
+}#changepass .modal-header h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 31px;
+    text-transform: capitalize;
+}
+#changepass .login-fileds {
+    max-width: 316px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 34px;
+    margin-top: 25px;
+}
+#changepass .login-fileds h1 a{
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    text-align: center;
+}
+#changepass .login-fileds h1 a:hover{
+    color: #ff8868;
+    text-decoration: none;
+    transition: all ease 0.2s;
+}
+#changepass .login-fileds h1 {
+    text-align: center;
+    line-height: normal;
+    font-size: inherit;
+}
+#changepass .login-fileds p a {
+    color: #ff8868;
+    text-align: left;
+    margin-bottom: 29px;
+}
+#changepass .login-fileds p a:hover {
+     color: #000;
+    text-decoration: none;
+    transition: all ease 0.2s;
+}
+#changepass .login-fileds input {
+    border: 2px solid #666;
+    padding: 11px 13px;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #666;
+        background: #fff;
+}
+#changepass input.su {
+    background: #ff8868;
+    border-color: #000;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+        border-color: #ff8868;
+}
+#changepass input.su:hover {
+    background: transparent;
+    border-color: #ff8868;
+    color: #ff8868;
+}
+.modal-content {
+    border: none;
+    border-radius: 0;
+    border-bottom: 5px solid #ff8868;
+}
+a.changepass {
+    background: #ff8868;
+    color: #fff;
+    padding: 6px 0;
+    font-size: 100%;
+    font-weight: 600;
+    border: 2px solid #ff8868;
+    border-bottom: 2px solid #af472b;
+    transition: all ease 500ms;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
     float: left;
-    padding: 25px 0;
+    width: 40%;
+    text-align: center;
+    margin-bottom: 18px;
+    margin-left: 10px;
+    padding: 7px 0;
+}
+a.changepass:hover {
+
+    background: transparent;
+    border-bottom: none;
+    border: 2px solid #ff8868;
+    transition: all ease 500ms;
+    color: #ff8868;
+}
+input.savenaming {
+    float: left;
+    width: 26%;
+    padding: 7px 28px !important; 
+    font-size: 100% !important;
+}
+.form-fields.edit-profile-fields input[type="text"], .form-fields.edit-profile-fields input[type="password"], .form-fields.edit-profile-fields input[type="number"], .form-fields.edit-profile-fields input[type="email"], .form-fields.edit-profile-fields select {
+    background: #ffc3b3;
+    color: #939393;
+}
+body {
+    background: #fff;
+}
+.edit-profile-inner {
+    margin: 0 auto;
+    max-width: 145px;
+    width: 100%;
+}
+.edit-profile-inner .image-frame img:first-child {
+    position: absolute;
+    right: -19px;
+    top: 4px;
+    left: 0;
+    margin: 0 auto;
+}
+.edit-profile-inner .image-frame p {
+    color: #000;
+    position: relative;
+    bottom: 32px;
+    right: 0 !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 19px;
+    text-align: center !important;
+}
+.form-fields.edit-profile-fields {
+    margin-top: 0;
+}
+.edit-profile-img {
+    margin-top: 36px;
+}
+.edit-profile-inner .image-frame img:first-child {
+    position: absolute;
+    right: -19px;
+    top: 39px;
+    left: 0;
+    margin: 0 auto;
+}
+div#wpcf7-f2824-o1 input.wpcf7-form-control.wpcf7-submit {
+    font-size: 1em;
+    border-radius: 0 5px 5px 0;
+    height: 36px;
+    padding: 0 0px;
+    background-color: #E85F09;
+    background-image: linear-gradient(rgba(232, 95, 9, 0), #e22e0e);
+    font-family: 'Lato';
+    border: 1px solid #a0a0a0;
+    width: 100%;
+}
+span.wpcf7-form-control-wrap.text-223 input {
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #a0a0a0;
+    border-radius: 5px;
+    background: inherit;
+    width: 100%;
+    font-size: 12px;
+    margin-bottom: 12px;
+        border-right: none !important;
+}
+div#ppsPopupShell_100_818423 .wpcf7-form-control-wrap {
+    position: inherit !important;
+}
+.form-wi {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+div#wpcf7-f2824-o1 {
+    float: left;
+    width: 100%;
+}
+.course-tabs-nav li {
+    background: #ffc0af;
+    display: block !important;
+    padding: 27px 18px 27px 21px;
+    height: inherit !important;
+    border-left: 4px solid #d9681d;
+    border-bottom: 2px solid #dedede;
+}
+.course-tabs-nav li a {
+    font-size: 16px;
+    font-family: montserrat;
+    text-transform: uppercase;
+    color: #252525;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+.course-tabs-nav {
+    display: block;
+    border: 2px solid #dedede;
+    border-bottom: 0px;
+    padding: 0;
+}
+.course-tabs-nav li.active {
+    background: #ffddd2;
+    transition: all ease 0.5s;
+}
+.tab-pannel {
+    background: #ffddd2;
+    padding: 21px;
+    border: 2px solid #dedede;
+}
+form.about-course {
+    width: 100%;
+    float: left;
+    margin-top: 12px;
+}
+form.about-course label {
+    float: left;
+    width: 100%;
+    display: block;
+}
+form.about-course input, form.about-course textarea {
+    float: left;
+    width: 100%;
+}
+form.about-course label {
+    float: left;
+    width: 100%;
+    display: block;
+    font-size: 15px;
+    font-family: montserrat;
+    color: #4e4e4e;
+    margin-bottom: 0;
+    font-weight: 500;
+    padding-top: 13px;
+    padding-bottom: 2px;
+}
+form.about-course input, form.about-course textarea {
+    float: left;
+    width: 100%;
+    border: 1px solid #e5c6bd;
+    padding: 8px 10px;
+    border-radius: 0px;
+}
+.submit-btn {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+.submit-btn input {
+    background: #ff8868;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #ff8868 !important;
+    border-bottom: 2px solid #af472b !important;
+    transition: all ease 500ms;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 0 auto !important;
+    margin-top: 29px !important;
+    width: 100% !important;
+    max-width: 139px !important;
+    float: none !important;
+    text-transform: uppercase !important;
+}
+.submit-btn input:hover, p.add-week a:hover, li.add-btns a:hover {
+    background: transparent;
+    border:2px solid #ff8868 !important;
+    transition: all ease 500ms;
+    cursor: pointer;
+    color: #ff8868;
+}
+p.add-week a {
+    background: #ff8868;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #ff8868 !important;
+    border-bottom: 2px solid #af472b !important;
+    transition: all ease 500ms;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-transform: uppercase !important;
+    padding: 6px 16px;
+    border-radius: 0px;
+    float: right;
+    text-decoration: none !important;
+}
+div#add-week .modal-body, div#add-lesson .modal-body, div#add-coding .modal-body, div#add-quiz .modal-body {
+    padding: 30px;
+    padding-top: 0;
+}
+div#add-week .modal-header button.close, div#add-lesson .modal-header button.close, div#add-coding .modal-header button.close, div#add-quiz .modal-header button.close {
+    float: right;
+    width: 100%;
+    text-align: right;
+}
+.add-week-panel {
+    background: #ffeee9;
+    padding: 16px;
+    border: 1px solid #e5c6bd;
+    margin-top: 22px;
+    float: left;
+    width: 100%;
+}
+.and-all ul li {
+    display: inline-block;
+}
+.and-all ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.and-all {
+    float: left;
+    width: 100%;
+}
+.and-all ul li h4 {
+    color: #252525;
+    font-family: montserrat;
+    font-size: 19px;
+    margin-bottom: 0;
+}
+.and-all ul li p {
+    font-size: 16px;
+    font-family: montserrat;
+    color: #444444;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+li.dissmis-li-edit {
+    float: right;
+}
+li.dissmis-li-edit a {
+    font-size: 16px;
+    font-family: montserrat;
+    color: #444444;
+    font-weight: 500;
+    text-decoration: none;
+}
+li.dissmis-li-edit button.close {
+    opacity: 1;
+}
+li.dissmis-li-edit button span {
+    color: #fff;
+    border-radius: 50%;
+    background: #ee0808;
+    width: 18px !important;
+    display: block;
+    height: 18px;
+    font-size: 18px;
+    line-height: inherit;
+    text-align: center;
+}
+button.close {
+    margin-left: 9px;
+    opacity: 1;
+    padding-top: 2px;
+}
+.add-lesson-quiz-coding ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.add-lesson-quiz-coding {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+        margin-bottom: 17px;
+}
+.add-lesson-quiz-coding ul li {
+    display: inline-block;
+}
+li.add-btns a {
+    background: #ff8868;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #ff8868 !important;
+    border-bottom: 2px solid #af472b !important;
+    transition: all ease 500ms;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-transform: uppercase !important;
+    border-radius: 0px;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+        padding: 8px 0;
+
+}
+li.add-btns {
+    width: 100%;
+    max-width: 144px;
+    margin-right: 6px;
+}
+.inner-tabs-m ul {
+    text-align: center;
+    display: block;
+}
+.inner-tabs-m ul li {
+    display: inline-block;
+}
+.inner-tabs-m {
+    margin-top: 20px;
+}
+.add-mcq-fill .quest-ans {
+    background: white;    
+    border: 1px solid #ddd;    
+}
+form.about-course ul li label {
+    padding-top: inherit !important;
+    padding-bottom: inherit !important;
+    line-height: normal !important;
+    padding-left: 13px;
+}
+form.about-course ul li label{
+    color: #4e4e4e !important;
+    font-family: montserrat !important;
+    font-size: 1rem !IMPORTANT;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+}
+form.about-course ul li input {
+    margin-top: 4px !important;
+}
+form.about-course ul {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 571px;
+}form.about-course ul li {
+    display: -webkit-box;
+    text-align: left;
+    margin-bottom: 5px;
+}
+form.about-course ul li input, form.about-course ul li label {
+    width: inherit !important;
+    float: inherit !important;
+    display: block !important;
+}
+.matc {
+    margin-top: 26px;
+    border-color: #ddd;
+}
+.mat-ul ul:first-child li:hover {
+    cursor: pointer;
+}
+.doc-img img {
+    text-align: center;
+    background: #ffc0af;
+    padding: 17px 0;
+    border: 1px solid #ffc0af;
+}
+.doc-img {
+    text-align: center;
+    background: #ffc0af;
+    border-left: 5px solid #d9681d;
+    padding: 5px;
+}
+.add-curriculm-eg .curriculm-summary {
+    background: #ffddd2;
+    padding: 27px 14px 0px 14px;
+        border: 1px solid #e5e5e5;
+}
+.add-curriculm-eg .and-all ul li {
+    display: block;
+}
+.and-all ul li h5 {
+    color: #ff8868;
+    font-family: montserrat;
+    font-size: 17px;
+    margin-bottom: 0;
+}
+.fils {
+    margin-bottom: 32px;
+}
+.add-curriculm-eg {
+    margin-bottom: 3px;
 }

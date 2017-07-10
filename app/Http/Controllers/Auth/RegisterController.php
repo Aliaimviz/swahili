@@ -74,6 +74,7 @@ class RegisterController extends Controller
                 'email' => 'required|string|email|max:50|unique:users',
                 'password' => 'required|string|min:6|confirmed',
                 'language' => 'required',
+                'country' => 'required',
                 'userType' => 'required',
             ]);
         if($request->userType == 'IT'){
@@ -88,6 +89,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'language' => $request->language,
+            'country' => $request->country,
             'user_type' => $userType,
         ]);
         $user->attachRole($userType);

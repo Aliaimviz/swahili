@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="{{ asset('public/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/custom.css') }}" rel="stylesheet">
 
 
     <!-- scripts -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script>
     
 </head>
 <body>
@@ -33,11 +34,11 @@
                 <div class="main_menu col-xs-12 col-sm-12 col-md-6 col-lg-8 float-right">
                     <ul class="main-nav">
                         <li><a href="{{ url('/') }}">HOME</a></li>
-                        <li><a href="#">COURSES</a></li>
+                        <li><a href="{{ url('instructor/add-course/') }}">COURSES</a></li>
                         <li><a href="#">LANGUAGE TUTORS</a></li>
                         <li><a href="#">FAQ</a></li>
                         @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">LOGIN</a></li>
+                        <li><a href="" data-toggle="modal" data-target="#login">LOGIN</a></li>
                         <li class="sign-in-button"><a href="{{ route('register') }}">REGISTER</a></li>
                         @else
                         <li>
@@ -48,9 +49,71 @@
                         </li>
                         @endif
                     </ul>
+                    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1>login</h1>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="login-fileds">
+                                        <h1>Don’t have Account?</h1>              
+                                        <div class="text-center">
+                                            <a href="{{ route('register') }}">Create Account</a>
+                                        </div>
+                                        <form method="POST" action="{{ route('login') }}">
+                                            {{ csrf_field() }}
+                                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                                <label for="email" class="col-md-12 control-label">E-Mail Address</label>
+
+                                                <div class="col-md-12">
+                                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+
+                                                    @if ($errors->has('email'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('email') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                                <label for="password" class="col-md-12 control-label">Password</label>
+
+                                                <div class="col-md-12">
+                                                    <input id="password" type="password" class="form-control" name="password" required>
+
+                                                    @if ($errors->has('password'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('password') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12 col-md-offset-4">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Login
+                                                    </button>
+
+                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                        Forgot Your Password?
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </header>
-        </div>
+        </div>        
+        <div class="clearfix"></div>
         @yield('content')
         <footer id="main-footer">
             <div id="container">
@@ -88,8 +151,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ asset('public/js/tether.min.js') }}"></script>    
+    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/js/app.js') }}"></script>
 </body>
 </html>
