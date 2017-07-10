@@ -41,7 +41,7 @@ class Course extends Controller
     			'prerequisite' => $request->coursePrerequisites,
     		]);
     	if($course){
-    		return redirect('/instructor/add-course')->with('success', 'Couse has been created successfully! Proceed to Curriculum');
+    		return redirect('/instructor/add-course/'.$course->id)->with('success', 'Couse has been created successfully! Proceed to Curriculum');
     	}
     	else{
     		return redirect('/instructor/add-course')->with('success', 'Sorry course can not be created, please try again!');
