@@ -7,6 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="_token" content="{{ Session::token() }}"/>
 
     <title>Swahili - @yield('title')</title>
 
@@ -16,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="{{ asset('public/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('public/css/custom.css') }}" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" type="text/css">    
 
 
     <!-- scripts -->
@@ -154,5 +156,8 @@
     <script src="{{ asset('public/js/tether.min.js') }}"></script>    
     <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('public/js/app.js') }}"></script>
+    <!-- Toaster Alert Files -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 </body>
 </html>

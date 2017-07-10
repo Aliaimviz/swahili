@@ -37,8 +37,8 @@
 
 			<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 				<ul class="nav nav-pills nav-stacked  course-tabs-nav ">
-					<li class="active" href="#tab_a" data-toggle="pill"><a href="#tab_a" data-toggle="pill">Course:</a></li>
-					<li href="#tab_b" data-toggle="pill"><a href="#tab_b" data-toggle="pill">Curriculum:</a></li>
+					<li class="active" href="#tab_a" data-toggle="pill"><a id="tabA" href="#tab_a" data-toggle="pill">Course:</a></li>
+					<li href="#tab_b" data-toggle="pill"><a id="tabB" href="#tab_b" data-toggle="pill">Curriculum:</a></li>
 					<li href="#tab_c" data-toggle="pill"><a href="#tab_c" data-toggle="pill">Price:</a></li>
 					<li href="#tab_d" data-toggle="pill"><a href="#tab_d" data-toggle="pill">Student Enroll</a></li>
 					<li href="#tab_e" data-toggle="pill"><a href="#tab_e" data-toggle="pill">Discussion</a></li>
@@ -59,9 +59,9 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
-								<form class="about-course" action="{{ route('addCourseForm') }}" method="POST">
-									{{ csrf_field() }}
-									<input type="hidden" name="courseID" value=""> 
+								<form id="courseAddForm" class="about-course" method="POST">
+									
+									<input type="hidden" name="courseID" value="">
 									<label for="enter-the-course-title">Enter the course title</label>
 									<input type="text" id="enter-the-course-title" name="courseName" value="@if($course['title']){{$course['title']}}@endif">
 									<label for="description">Description</label>
@@ -88,61 +88,10 @@
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 float-left">
 								<p class="add-week"><a href="#" data-toggle="modal" data-target="#add-week">Add week</a></p>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
-								<div class="add-week-panel ">
-									<div class="and-all lesson-add">
-										<ul>
-											<li>
-												<h4>Lesson. 1:</h4>
-											</li>
-											<li>
-												<p>Title Of Lesson</p>
-											</li>
-											<li class="dissmis-li-edit"><a href="#">Edit</a> <button type="button" class="close" data-dismiss="#" aria-label="Close">
-												<span aria-hidden="true">&times;</span></button>
-											</li>
-										</ul>
-									</div>
-									<div class="and-all quiz-add">
-										<ul>
-											<li>
-												<h4>Quiz. 1:</h4>
-											</li>
-											<li>
-												<p>Title Of Quiz</p>
-											</li>
-											<li class="dissmis-li-edit"><a href="#">Edit</a> <button type="button" class="close" data-dismiss="#" aria-label="Close">
-												<span aria-hidden="true">&times;</span></button>
-											</li>
-										</ul>
-									</div>
-									<div class="and-all coding-add">
-										<ul>
-											<li>
-												<h4>Coding. 1:</h4>
-											</li>
-											<li>
-												<p>Title Of Coding</p>
-											</li>
-											<li class="dissmis-li-edit"><a href="#">Edit</a> <button type="button" class="close" data-dismiss="#" aria-label="Close">
-												<span aria-hidden="true">&times;</span></button>
-											</li>
-										</ul>
-									</div>
-									<div class="add-lesson-quiz-coding">
-										<ul>
-											<li class="add-btns"><a href="#" data-toggle="modal" data-target="#add-lesson">Lesson</a></li>
-											<li class="add-btns"><a href="#" data-toggle="modal" data-target="#add-quiz">Quiz</a></li>
-											<li class="add-btns"><a href="#" data-toggle="modal" data-target="#add-coding">Conding</a></li>
-											<li class="dissmis-li-edit" style="padding-top: 20px;"><a href="#">Edit</a> <button type="button" class="close" data-dismiss="#" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											</li>
-										</ul>
-									</div>
-								</div>
+						    <div id="weeksView">
 							</div>
 						</div>
+
 					</div>
 				</div>
 				<div class="tab-pane" id="tab_c">
@@ -172,13 +121,14 @@
 					</div>
 					<div class="modal-body">
 						<div class="add-week-fileds">
-							<h1 class="h1.user-lover-heading mess" style="font-size: 25px !important;">Add Course:</h1>
+							<h1 class="h1.user-lover-heading mess" style="font-size: 25px !important;">Add Weeks in Courses:</h1>
 							<div class="seprator new-sep ">&nbsp;</div>
-							<form class="about-course">
+							<form id="weekForm" class="about-course">
 								<label for="enter-the-week-title">Enter the week title</label>
-								<input type="text" id="enter-the-week-title" >
+								<input type="text" id="enter-the-week-title" name="title" >
 								<label for="description">Description</label>
-								<textarea id="description" rows="5"></textarea>
+								<input type="hidden" value="" id="courseId" name="courseId"/>
+								<textarea id="description" name="description"rows="5"></textarea>
 								<div class="submit-btn">
 									<input type="Submit" value="Save">	            						            					
 								</div>
@@ -304,4 +254,106 @@
 	</div>
 	<!-- add-quiz-model -->
 </section>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+		var course_id;
+		//Course Add Form
+		$("#courseAddForm").submit(function(e){
+			e.preventDefault();
+			console.log("course add form for user");
+			var formData = $("#courseAddForm").serialize();
+			console.log(formData);
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('addCourseForm') }}",
+		            type: 'post', 
+		            data: formData,
+			        success: function (data) { 
+			          console.log(data);
+		           	  toastr.success(data.msg);
+		           	  $("#tabA").toggleClass();
+		           	  course_id = data.course_id;
+		           	  $("#courseId").val(data.course_id);
+		           	  $("#tabB").click();
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },	                    
+		           
+		        });
+		});
+
+		//Week addition in Course
+
+		$("#weekForm").submit(function(e){
+			e.preventDefault();
+			console.log("week add form intot the course");
+			var formData = $("#weekForm").serialize();
+			console.log(formData);
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('addWeekForm') }}",
+		            type: 'post', 
+		            data: formData,
+			        success: function (data) { 
+			          console.log(data);
+		           	  toastr.success(data.msg);
+		           	  
+		           	  //Updating course week view
+		           	  weekView(data.course_id);
+		           	  //course id assign
+		           	  //week assign
+
+		           	  $('#add-week').modal('toggle');
+		           	  
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+		});
+
+	//Reload Ajax Weeks View	
+
+	function weekView(courseId){
+		console.log("course idzzz" + courseId);
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('getUpdateWeeks') }}",
+		            type: 'post', 
+		            data: {'courseId': courseId},
+			        success: function (data) { 
+			          console.log(data.weekView);
+			          $("#weeksView").html(data.weekView);
+		           	  
+			        },
+		        	error: function (data) { 
+		        	//  console.log(data);
+		           	 // toastr.error(data.msg);        		
+			        },		           
+		        });
+
+	}
+
+});
+
+
+</script>
 @endsection
