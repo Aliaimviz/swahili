@@ -16,11 +16,12 @@ class Course extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsign();
-            $table->integer('week_id')->unsign()->nullable();
             $table->string('title');
             $table->longText('description');
             $table->string('enroll_users')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
