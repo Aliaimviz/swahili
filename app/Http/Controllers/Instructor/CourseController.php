@@ -21,7 +21,7 @@ class CourseController extends Controller
     	$this->middleware('auth');
     }
 
-    /*irfan mumtaz*/
+    /*irfan mumtaz course view*/
     public function viewAllCourses(){
         $courses = Courses::leftjoin('weeks', 'courses.id', '=', 'weeks.course_id')
                     ->leftjoin('users', 'courses.user_id', '=', 'users.id')

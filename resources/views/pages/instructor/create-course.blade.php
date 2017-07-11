@@ -138,6 +138,7 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- add-week-model -->
 		<div class="modal fade" id="add-coding" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
@@ -155,6 +156,7 @@
 								<label for="enter-the-week-title">Enter the resource title</label>
 								<input type="text" id="enter-the-week-title" >
 								<label for="attach-file">Attach files</label>
+								<input type="hidden" value="" id="weekValue" name="weekValue"/>								
 								<input type="file" id="attach-file" >
 								<div class="submit-btn">
 									<input type="Submit" value="Save">	            						            					
@@ -312,7 +314,7 @@ $(document).ready(function(){
 		            type: 'post', 
 		            data: formData,
 			        success: function (data) { 
-			          console.log(data);
+
 		           	  toastr.success(data.msg);
 		           	  $("#tabA").toggleClass();
 		           	  course_id = data.course_id;
@@ -344,16 +346,18 @@ $(document).ready(function(){
 		            type: 'post', 
 		            data: formData,
 			        success: function (data) { 
-			          console.log(data);
+
 		           	  toastr.success(data.msg);
 		           	  
 		           	  //Updating course week view
 		           	  weekView(data.course_id);
-		           	  //course id assign
-		           	  //week assign
+
+		           	  //Assigning week id to week forms        	  
+		           	  $("#weekIdLesson").val(data.week_id);
 
 		           	  $('#add-week').modal('toggle');
 		           	  
+
 			        },
 		        	error: function (data) { 
 		        	  console.log(data);
@@ -361,6 +365,7 @@ $(document).ready(function(){
 			        },		           
 		        });
 		});
+
 
 	//Reload Ajax Weeks View	
 	function weekView(courseId){
@@ -375,11 +380,12 @@ $(document).ready(function(){
 		            type: 'post', 
 		            data: {'courseId': courseId},
 			        success: function (data) { 
-			          console.log(data.weekView);
-			          //Assign Week Id to Course Forms
 
+			          //Loading html view
 			          $("#weeksView").html(data.weekView);
-		           	  
+		           	  weekLessonFormFunction();
+
+
 			        },
 		        	error: function (data) { 
 		        	//  console.log(data);
@@ -389,14 +395,13 @@ $(document).ready(function(){
 
 	}
 
-
-//WeekLessonForm 
-
+	//WeekLessonForm added with context to Add --------- Farhan
+	function weekLessonFormFunction(){
+		
 		$("#weekLessonForm").submit(function(e){
 			e.preventDefault();
 			console.log("lesson for particular week of the course");
-			var formData = $("#weekForm").serialize();
-			console.log(formData);
+			var formData = $("#weekLessonForm").serialize();
 
 			  $.ajaxSetup({
 		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
@@ -407,13 +412,15 @@ $(document).ready(function(){
 		            type: 'post', 
 		            data: formData,
 			        success: function (data) {
-			          console.log(data);
-		           	  toastr.success(data.msg);
-		           	  
-		           	  //Updating course week view
-		           	  weekView(data.course_id);
-		           	  //Adding Week id to week submission buttons
-		           	  $("#weekValue").val(data.week_id);	
+			        	console.log(data);
+		           	    toastr.success(data.msg);
+		           	    
+		           	    //hide lesson modal 
+		           	    $('.add-lesson').modal('toggle');
+
+		           	    //Updating weeks view		           	    
+		           	    weekView(data.course_id);
+
 			        },
 		        	error: function (data) { 
 		        	  console.log(data);
@@ -421,6 +428,7 @@ $(document).ready(function(){
 			        },		           
 		        });
 		});
+    }
 
 });
 
