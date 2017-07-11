@@ -13,13 +13,13 @@ class CourseWeek extends Migration
      */
     public function up()
     {
-        Schema::create('weekCourses', function (Blueprint $table) {
+        Schema::create('weeks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('course_id')->unsign(); //course id
-            $table->integer('lesson_id')->unsign();
             $table->string('title');
             $table->longText('description');
             $table->timestamps();
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade')->onUpdate('cascade');
             
         });
     }
@@ -31,6 +31,6 @@ class CourseWeek extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('weekCourses');
+        Schema::dropIfExists('weeks');
     }
 }

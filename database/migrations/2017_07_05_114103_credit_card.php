@@ -20,6 +20,8 @@ class CreditCard extends Migration
             $table->string('expiration');
             $table->integer('cvc');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

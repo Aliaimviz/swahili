@@ -198,63 +198,98 @@
 	</div>
 	<!-- add-lesson-model -->
 	<div class="modal fade" id="add-quiz" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="add-week-fileds">
-						<h1 class="h1.user-lover-heading mess" style="font-size: 25px !important;">Add Questions:</h1>
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 	 <span aria-hidden="true">&times;</span>
+                	</button>
+              	</div>
+                  <div class="modal-body">
+                    <div class="add-week-fileds">
+                        <h1 class="h1.user-lover-heading mess" style="font-size: 25px !important;">Add Questions:</h1>
 						<div class="seprator new-sep ">&nbsp;</div>
 						<div class="inner-tabs-m col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
-							<ul class="nav nav-pills nav-stacked ">
-								<li class="active add-btns"><a href="#tab_aa" data-toggle="pill">Blanks</a></li>
-								<li class="add-btns"><a href="#tab_bb" data-toggle="pill">Mcq’s</a></li>
-								<li class="add-btns"><a href="#tab_cc" data-toggle="pill">Matches</a></li>
-							</ul>
+						<ul class="nav nav-pills nav-stacked ">
+						  <li class="active add-btns" href="#tab-a" data-toggle="tab"><a href="#tab-a" data-toggle="tab">Blanks</a></li>
+						  <li class="add-btns" href="#tab-b" data-toggle="tab"><a href="#tab-b" data-toggle="tab">Mcq’s</a></li>
+						  <li class="add-btns" href="#tab-c" data-toggle="tab"><a href="#tab-c" data-toggle="tab">Matches</a></li>						  
+						</ul>
 						</div>
 						<div class="inner-tabs-m col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
 							<div class="tab-content ">
-								<div class="tab-pane active" id="tab_aa">
-									<div class="add-mcq-fill">
-										<div class="quest-ans">
-											<span>1.</span>
-											<p style="float: left; width: 95%; padding-top: 6px;">dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor dolorem protos electure decor.Prem ipsum quia dolor. dolorem ipsum quia dolor dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor dolorem protos electure decor. Prem ipsum quia dolor. dolorem ipsum quia dolor ?</p>
+						        <div class="tab-pane active" id="tab-a">
+						        	<div class="add-mcq-fill">
+						            	<div class="add-blanks">
+						            		<div class="quest-ans">
+								            	<span>1.</span>    
+												<p>dolorem ipsum quia dolor. <input type="text"> ipsum quia dol dolor dolorem protos ellum electure decor.Prem ipsum quia dolor. <input type="text"> ipsum quia dolor dolorem ipsum quia dolor. <input type="text"> quia dolor dolor dolorem protos electure decor. Prem ipsum quia dolor. dolorem ipsum quia dolor</p>
+												<form class="about-course">												     				
+						            				<div class="submit-btn">
+						        						<input type="Submit" value="Save">	            						            					
+						        					</div>
+						            			</form>
+											</div>
+						            	</div>
+									</div>
+						        </div>
+						        <div class="tab-pane" id="tab-b">
+						            <div class="add-mcq-fill">
+						            	<div class="add-mcqs">
+						            		<div class="quest-ans">
+											<span>1.</span><p style="float: left; width: 95%; padding-top: 6px;">dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor dolorem protos electure decor.Prem ipsum quia dolor. dolorem ipsum quia dolor dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor dolorem protos electure decor. Prem ipsum quia dolor. dolorem ipsum quia dolor ?</p>
 											<hr>
 											<form class="about-course">
-												<input type="checkbox" id="dolorem-ipsum-quia-dolor" ><label for="dolorem-ipsum-quia-dolor">Dolorem ipsum quia dolor</label>
-												<input type="checkbox" id="um-quia-dolorem" ><label for="um-quia-dolorem">Um quia dolorem </label>
-												<input type="checkbox" id="dolorem-ipsum-quia-dolor" ><label for="dolorem-ipsum-quia-dolor">Dolorem ipsum quia dolor</label>
-												<div class="submit-btn">
-													<input type="Submit" value="Save">	            						            					
-												</div>
-											</form>
+												<ul>
+													<li><input type="checkbox"  id="dolorem-ipsum-quia-dolor" value="Dolorem ipsum quia dolor" ><label for="dolorem-ipsum-quia-dolor">Dolorem ipsum quia dolor</label></li>
+													<li><input type="checkbox"  id="um-quia-dolorem" value="Um quia dolorem"  ><label for="um-quia-dolorem">Um quia dolorem </label></li>
+													<li><input type="checkbox"  id="Quia-dolor-isyequer" value="Quia dolor isyequer"  ><label for="Quia-dolor-isyequer">Quia dolor isyequer</label></li>
+												</ul>		         				
+					            				<div class="submit-btn">
+					        						<input type="Submit" value="Save">	            						            					
+					        					</div>
+					            			</form>
 										</div>
-									</div>
-								</div>
-								<div class="tab-pane" id="tab_bb">
-									<h4>Pane B</h4>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-								</div>
-								<div class="tab-pane" id="tab_cc">
-									<h4>Pane C</h4>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-								</div>
-								<div class="tab-pane" id="tab_dd">
-									<h4>Pane D</h4>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-								</div>
-							</div>
-							<!-- tab content -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+						            	</div>
+						            </div>	
+						        </div>
+						        <div class="tab-pane" id="tab-c">
+						        	<div class="add-mcqs">
+						        		<div class="matc">
+											<div class="matc-inner">
+												<div class="mat-ul">
+													<ul>
+														<li class="draggable" drag" data-id="a"><a href="#">Good  bye!</a></li>
+														<li class="draggable" drag" data-id="b"><a href="#">fine</a></li>
+														<li class="draggable" drag" data-id="c"><a href="#">good night</a></li>
+														<li class="draggable" drag" data-id="d"><a href="#">i am</a></li>
+														<li class="draggable" drag" data-id="e"><a href="#">yes</a></li>
+													</ul>
+													<ul class="ul-sc"> 
+														<li class="droppable" data-id="d"><a href="#">Oui</a></li>
+														<li class="droppable" data-id="e"><a href="#">Bonne nuit</a></li>
+														<li class="droppable" data-id="c"><a href="#">Au revoir!</a></li>
+														<li class="droppable" data-id="a"><a href="#" >D’accord</a></li>
+														<li class="droppable" data-id="b"><a href="#">Je suis</a></li>
+													</ul>
+												</div>	
+											</div>
+											<form class="about-course">												     				
+						            				<div class="submit-btn">
+						        						<input type="Submit" value="Save">	            						            					
+						        					</div>
+						            			</form>
+										</div>
+						        	</div>						            
+						        </div>						        
+							</div><!-- tab content -->
+						</div>					
+						
+ 	                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 	<!-- add-quiz-model -->
 </section>
 
