@@ -1,14 +1,14 @@
 @foreach ($weeks as $week)
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
-								<!-- <div class="add-week-panel ">
+								<div class="add-week-panel ">
 									<div class="and-all lesson-add">
 										<ul>
 											<li>
 												<h4>Lesson. 1:</h4>
 											</li>
 											<li>
-												<p>Title of Lesson</p>
+												<p>Title of Lesson.</p>
 											</li>
 											<li class="dissmis-li-edit"><a href="#">Edit</a> <button type="button" class="close" data-dismiss="#" aria-label="Close">
 												<span aria-hidden="true">&times;</span></button>
@@ -50,7 +50,7 @@
 											</li>
 										</ul>
 									</div>
-								</div> -->
+								</div>
 							</div>
 						</div>
 @endforeach						

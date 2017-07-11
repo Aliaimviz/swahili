@@ -85,4 +85,19 @@ class CourseController extends Controller
         }
 
     }
+
+    public function addLessonForm(Request $request){
+
+        if($request->has('courseId')){
+            $course_id = $request->input('courseId');
+            $weeks = Week::where('course_id', $course_id)->get();
+
+            $weekView = view('pages.instructor.ajax_weeks')->with('weeks', $weeks)->render();
+
+            return \Response::json(array('success' => true, 'weekView' => $weekView,
+                                                     'week_id'=> $weeks->id), 200);
+        }else{
+            return \Response::json(array('success' => false, 'msg' => 'Week view not Updated! '), 422);  
+        }        
+    }
 }

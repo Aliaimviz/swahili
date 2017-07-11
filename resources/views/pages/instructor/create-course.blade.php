@@ -179,11 +179,12 @@
 					<div class="add-week-fileds">
 						<h1 class="h1.user-lover-heading mess" style="font-size: 25px !important;">Add Lesson:</h1>
 						<div class="seprator new-sep ">&nbsp;</div>
-						<form class="about-course">
+						<form id="weekLessonForm" class="about-course">
 							<label for="enter-the-week-title">Enter the lesson title</label>
-							<input type="text" id="enter-the-week-title" >
+							<input type="text" id="lessonTitle" name="lessonTitle">
+							<input type="hidden" value="" id="weekValue" name="weekValue"/>
 							<label for="attach-file">Attach files</label>
-							<input type="file" id="attach-file" >
+							<input type="file" id="lessonFile" name="lessonFile">
 							<div class="submit-btn">
 								<input type="Submit" value="Save">	            						            					
 							</div>
@@ -327,7 +328,6 @@ $(document).ready(function(){
 		});
 
 	//Reload Ajax Weeks View	
-
 	function weekView(courseId){
 		console.log("course idzzz" + courseId);
 
@@ -341,6 +341,8 @@ $(document).ready(function(){
 		            data: {'courseId': courseId},
 			        success: function (data) { 
 			          console.log(data.weekView);
+			          //Assign Week Id to Course Forms
+
 			          $("#weeksView").html(data.weekView);
 		           	  
 			        },
@@ -351,6 +353,39 @@ $(document).ready(function(){
 		        });
 
 	}
+
+
+//WeekLessonForm 
+
+		$("#weekLessonForm").submit(function(e){
+			e.preventDefault();
+			console.log("lesson for particular week of the course");
+			var formData = $("#weekForm").serialize();
+			console.log(formData);
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('addLessonForm') }}",
+		            type: 'post', 
+		            data: formData,
+			        success: function (data) {
+			          console.log(data);
+		           	  toastr.success(data.msg);
+		           	  
+		           	  //Updating course week view
+		           	  weekView(data.course_id);
+		           	  //Adding Week id to week submission buttons
+		           	  $("#weekValue").val(data.week_id);	
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+		});
 
 });
 
