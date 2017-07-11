@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Courses;
 use App\Week;
 use Auth;
+use DB;
 
 class CourseController extends Controller
 {
@@ -15,8 +16,18 @@ class CourseController extends Controller
     public function loggedID(){
         return Auth::user()->id;
     }
-     public function __construct(){
+
+    public function __construct(){
     	$this->middleware('auth');
+    }
+
+    /*irfan mumtaz*/
+    public function viewAllCourses(){
+        $courses = Courses::leftjoin('weeks', 'courses.id', '=', 'weeks.course_id')
+                    ->leftjoin('users', 'courses.user_id', '=', 'users.id')
+                    ->groupBy('courses.id','courses.title', 'courses.price', 'users.first_name', 'users.last_name')
+                    ->get(['courses.id','courses.title', 'courses.price', 'users.first_name', 'users.last_name', DB::raw('count(weeks.id) as weeks')]);
+        return view('pages.instructor.viewAllCourses', ['course' => $courses]);
     }
 
     public function addCourseView($id = null){

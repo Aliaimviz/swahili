@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/profile', 'GeneralController@profile')->name('profile_view');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/instructor/add-course/{id?}', 'Instructor\CourseController@addCourseView');
+Route::get('/instructor/courses', 'Instructor\CourseController@viewAllCourses')->name('viewAllCourses');
 
 
 Route::post('/registration', 'Auth\RegisterController@create')->name('registration');
