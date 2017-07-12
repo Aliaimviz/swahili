@@ -263,13 +263,13 @@
 														<li class="draggable" drag" data-id="b"><a href="#">fine</a></li>
 														<li class="draggable" drag" data-id="c"><a href="#">good night</a></li>
 														<li class="draggable" drag" data-id="d"><a href="#">i am</a></li>
-														<li class="draggable" drag" data-id="e"><a href="#">yes</a></li>
+														<li class="draggable" drag data-id="e"><a href="#">yes</a></li>
 													</ul>
 													<ul class="ul-sc"> 
-														<li class="droppable" data-id="d"><a href="#">Oui</a></li>
+														<li class="droppable" data-id="d"><a href="#">Ouiz</a></li>
 														<li class="droppable" data-id="e"><a href="#">Bonne nuit</a></li>
 														<li class="droppable" data-id="c"><a href="#">Au revoir!</a></li>
-														<li class="droppable" data-id="a"><a href="#" >D’accord</a></li>
+														<li class="droppable" data-id="a"><a href="#" >Daccord</a></li>
 														<li class="droppable" data-id="b"><a href="#">Je suis</a></li>
 													</ul>
 												</div>	
@@ -401,8 +401,8 @@ $(document).ready(function(){
 		$("#weekLessonForm").submit(function(e){
 			e.preventDefault();
 			console.log("lesson for particular week of the course");
-			var formData = $("#weekLessonForm").serialize();
-
+		//	var formData = $("#weekLessonForm").serialize();
+            var formData = new FormData(this);			
 			  $.ajaxSetup({
 		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
 		      });
@@ -411,12 +411,47 @@ $(document).ready(function(){
 		            url: "{{ route('addLessonForm') }}",
 		            type: 'post', 
 		            data: formData,
+		            processData: false,
+		            contentType: false, 
 			        success: function (data) {
 			        	console.log(data);
 		           	    toastr.success(data.msg);
 		           	    
 		           	    //hide lesson modal 
-		           	    $('.add-lesson').modal('toggle');
+		           	    //$('.add-lesson').modal('toggle');
+
+		           	    //Updating weeks view		           	    
+		           	    weekView(data.course_id);
+
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+		});
+
+	  $("#weekCondingForm").submit(function(e){
+			e.preventDefault();
+			console.log("Resource Form");
+		//	var formData = $("#weekLessonForm").serialize();
+            var formData = new FormData(this);			
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('addResourceForm') }}",
+		            type: 'post', 
+		            data: formData,
+		            processData: false,
+		            contentType: false, 
+			        success: function (data) {
+			        	console.log(data);
+		           	    toastr.success(data.msg);
+		           	    
+		           	    //hide lesson modal 
+		           	    //$('.add-lesson').modal('toggle');
 
 		           	    //Updating weeks view		           	    
 		           	    weekView(data.course_id);

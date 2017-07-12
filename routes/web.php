@@ -38,3 +38,7 @@ Route::post('/getUpdateWeeks', 'Instructor\CourseController@getWeekView')->name(
 //Get Lesson to Week 
 
 Route::post('/addLessonForm', 'Instructor\CourseController@addLessonForm')->name('addLessonForm');
+
+//Get Resource to Week
+
+Route::post('/addResourceForm', 'Instructor\CourseController@addResourceForm')->name('addResourceForm');

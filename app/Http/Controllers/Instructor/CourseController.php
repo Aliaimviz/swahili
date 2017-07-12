@@ -9,6 +9,7 @@ use App\Week;
 use App\Lesson;
 use Auth;
 use Illuminate\Support\Facades\Input;
+use App\Resource;
 
 class CourseController extends Controller
 {
@@ -76,10 +77,15 @@ class CourseController extends Controller
 
         if($request->has('courseId')){
             $course_id = $request->input('courseId');
-
-            // $weeks = Week::select('weeks.id', 'weeks.title', '')->
-            // join('lessons', 'weeks.id', '=', 'lessons.week_id')->where('course_id', $course_id)->get();
-
+            //dd($course_id);
+            $weeks = Week::select('weeks.id as week_id', 'weeks.title as week_title', 'lessons.id as lesson_id', 
+                'lessons.title as lesson_title')
+            ->join('lessons', 'weeks.id', '=', 'lessons.week_id')
+            //->where('weeks.course_id', 69)
+          //  ->limit(3)
+            ->groupBy('week_id')
+            ->get();
+            dd($weeks);
             $weekView = view('pages.instructor.ajax_weeks')->with('weeks', $weeks)->render();
 
             return \Response::json(array('success' => true, 'weekView' => $weekView,
@@ -110,6 +116,8 @@ class CourseController extends Controller
 
             //Getting CourseId of the Week
             $weekz = Week::where('id', $request->input('weekValue') )->first(['id','course_id']); 
+            
+
 
             if($lesson->save()){
                 return \Response::json(array('success' => true, 'msg' => 'Lesson Added!', 
@@ -120,7 +128,40 @@ class CourseController extends Controller
 
         }else{
           return \Response::json(array('success' => false, 'msg' => 'Lesson updated! '), 422);   
-        }     
-         
+        }       
+    }
+
+    public function addResourceForm(Request $request){
+
+        if($request->ajax()) {
+           $resource = new Resource();
+           $resource->title = $request->input('resourceTitle');
+           $resource->week_id = $request->input('weekValue');
+
+           //File Storage
+            if(Input::hasFile('resourceFile')) {
+                $file = Input::file('resourceFile');
+                $tmpFilePath = '/files/resources/';
+                $tmpFileName = time() . '-' . $file->getClientOriginalName();
+                $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
+                $path =   $tmpFileName;
+                $finalpath = $path;
+                $resource->file = $finalpath;
+            }
+
+            //Getting CourseId of the Week
+            $weekz = Week::where('id', $request->input('weekValue') )->first(['id','course_id']); 
+        
+            if($resource->save()){
+                return \Response::json(array('success' => true, 'msg' => 'Resource Added!', 
+                        'course_id' => $weekz->course_id, 'week_id' => $weekz->id), 200);
+            }else{
+                return \Response::json(array('success' => false, 'msg' => 'Lesson couldnot be Added'), 422);
+            }                
+
+        }else{
+          return \Response::json(array('success' => false, 'msg' => 'Lesson updated! '), 422);   
+        }   
+
     }
 }
