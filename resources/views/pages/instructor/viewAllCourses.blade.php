@@ -49,7 +49,9 @@
 											<div class="and-all">
 												<ul>
 													<li>
-														<h4>{{$co->title}}</h4>
+														<h4>
+															<a href="">{{$co->title}}</a>
+														</h4>
 													</li>
 													<li>
 														<p>Posted by: {{ $co->first_name}} {{ $co->last_name}}</p>
