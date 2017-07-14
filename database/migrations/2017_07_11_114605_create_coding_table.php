@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTableLesson extends Migration
+class CreateCodingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,13 @@ class AddTableLesson extends Migration
      */
     public function up()
     {
-        Schema::create('lessons2', function (Blueprint $table) {
+        Schema::create('resources', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('week_id')->unsign();
             $table->string('title');
             $table->string('file');
             $table->timestamps();
         });
-
-        // Schema::table('lessons', function(Blueprint $table){
-        //      $table->foreign('week_id')->references('id')->on('weeks')->onDelete('cascade');
-        // });
-
     }
 
     /**

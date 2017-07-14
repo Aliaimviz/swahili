@@ -39,3 +39,17 @@ Route::post('/getUpdateWeeks', 'Instructor\CourseController@getWeekView')->name(
 //Get Lesson to Week 
 
 Route::post('/addLessonForm', 'Instructor\CourseController@addLessonForm')->name('addLessonForm');
+
+//Get Resource to Week
+
+Route::post('/addResourceForm', 'Instructor\CourseController@addResourceForm')->name('addResourceForm');
+
+//Delete Week
+Route::post('/deleteWeek', 'Instructor\CourseController@delete_week')->name('delete_week');
+
+//Delete Lesson
+Route::post('/deletelesson', 'Instructor\CourseController@delete_lesson')->name('delete_lesson');
+
+//Resource Download
+
+Route::get('/resource_download/{path}', 'Instructor\CourseController@resource_download')->name('resource_download');
