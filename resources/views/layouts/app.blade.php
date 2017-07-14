@@ -36,7 +36,7 @@
                 <div class="main_menu col-xs-12 col-sm-12 col-md-6 col-lg-8 float-right">
                     <ul class="main-nav">
                         <li><a href="{{ url('/') }}">HOME</a></li>
-                        <li><a href="{{ url('instructor/add-course/') }}">COURSES</a></li>
+                        <li><a href="{{ route('viewAllCourses') }}">COURSES</a></li>
                         <li><a href="#">LANGUAGE TUTORS</a></li>
                         <li><a href="#">FAQ</a></li>
                         @if (Auth::guest())

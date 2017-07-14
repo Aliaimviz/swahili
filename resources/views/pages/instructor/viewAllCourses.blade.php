@@ -27,7 +27,7 @@
 					<div class="seprator new-sep ">&nbsp;</div>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 float-left" style="padding-right: 0;" >
-					<p class="add-week"><a href="#" data-toggle="modal" data-target="#add-week">Add Course</a></p>
+					<p class="add-week"><a href="{{ route('addCourseView') }}">Add Course</a></p>
 				</div>
 			</div>
 		</div>
