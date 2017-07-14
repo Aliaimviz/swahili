@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/profile', 'GeneralController@profile')->name('profile_view');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/instructor/add-course/{id?}', 'Instructor\CourseController@addCourseView');
+Route::get('/instructor/courses', 'Instructor\CourseController@viewAllCourses')->name('viewAllCourses');
 
 
 Route::post('/registration', 'Auth\RegisterController@create')->name('registration');
@@ -42,3 +43,13 @@ Route::post('/addLessonForm', 'Instructor\CourseController@addLessonForm')->name
 //Get Resource to Week
 
 Route::post('/addResourceForm', 'Instructor\CourseController@addResourceForm')->name('addResourceForm');
+
+//Delete Week
+Route::post('/deleteWeek', 'Instructor\CourseController@delete_week')->name('delete_week');
+
+//Delete Lesson
+Route::post('/deletelesson', 'Instructor\CourseController@delete_lesson')->name('delete_lesson');
+
+//Resource Download
+
+Route::get('/resource_download/{path}', 'Instructor\CourseController@resource_download')->name('resource_download');

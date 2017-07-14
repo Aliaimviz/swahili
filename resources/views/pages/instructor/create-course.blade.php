@@ -298,6 +298,9 @@
 $(document).ready(function(){
 
 		var course_id;
+
+	
+
 		//Course Add Form
 		$("#courseAddForm").submit(function(e){
 			e.preventDefault();
@@ -356,7 +359,7 @@ $(document).ready(function(){
 		           	  $("#weekIdLesson").val(data.week_id);
 
 		           	  $('#add-week').modal('toggle');
-		           	  
+		           	 
 
 			        },
 		        	error: function (data) { 
@@ -398,7 +401,7 @@ $(document).ready(function(){
 	//WeekLessonForm added with context to Add --------- Farhan
 	function weekLessonFormFunction(){
 		
-		$("#weekLessonForm").submit(function(e){
+		$(".weekLessonForm").submit(function(e){
 			e.preventDefault();
 			console.log("lesson for particular week of the course");
 		//	var formData = $("#weekLessonForm").serialize();
@@ -418,6 +421,7 @@ $(document).ready(function(){
 		           	    toastr.success(data.msg);
 		           	    
 		           	    //hide lesson modal 
+		           	    $('.add-lesson').modal('hide');
 		           	    //$('.add-lesson').modal('toggle');
 
 		           	    //Updating weeks view		           	    
@@ -431,7 +435,7 @@ $(document).ready(function(){
 		        });
 		});
 
-	  $("#weekCondingForm").submit(function(e){
+	  $(".weekCondingForm").submit(function(e){
 			e.preventDefault();
 			console.log("Resource Form");
 		//	var formData = $("#weekLessonForm").serialize();
@@ -448,12 +452,9 @@ $(document).ready(function(){
 		            contentType: false, 
 			        success: function (data) {
 			        	console.log(data);
-		           	    toastr.success(data.msg);
-		           	    
-		           	    //hide lesson modal 
-		           	    //$('.add-lesson').modal('toggle');
+		           	    toastr.success(data.msg);		           	    
 
-		           	    //Updating weeks view		           	    
+		           	    //Updating weeks view           	    
 		           	    weekView(data.course_id);
 
 			        },
@@ -463,6 +464,72 @@ $(document).ready(function(){
 			        },		           
 		        });
 		});
+
+	  //Delete Week
+	  $(".deleteWeek").on('click', function(e){
+			e.preventDefault();
+			console.log("delete week");
+		//	var formData = $("#weekLessonForm").serialize();
+            var formData = $(this).data('id');
+            console.log($(this).data('id'));
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('delete_week') }}",
+		            type: 'post', 
+		            data: { 'weekId' :formData},
+
+			        success: function (data) {
+			        	console.log(data);
+
+		           	   toastr.success(data.msg);
+
+			        	//Upating View
+			        	weekView(data.course_id);
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+		});
+
+	  //Delete Lesson
+	  	  //Delete Week
+	  $("#deleteLesson").on('click', function(e){
+			e.preventDefault();
+			console.log("delete lesson");
+		//	var formData = $("#weekLessonForm").serialize();
+            var formData = $(this).data('id');
+            console.log($(this).data('id'));
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('delete_lesson') }}",
+		            type: 'post', 
+		            data: { 'lessonId' :formData},
+
+			        success: function (data) {
+			        	console.log(data);
+
+		           	   toastr.success(data.msg);
+		           	    // $("#lessonClosed").click();
+			        	//Upating View
+			        	weekView(data.course_id);
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+		});
+
     }
 
 });
