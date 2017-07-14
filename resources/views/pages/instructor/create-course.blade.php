@@ -421,8 +421,8 @@ $(document).ready(function(){
 		           	    toastr.success(data.msg);
 		           	    
 		           	    //hide lesson modal 
-		           	    $('.add-lesson').modal('hide');
-		           	    //$('.add-lesson').modal('toggle');
+		           	      $('.add-lesson').modal('hide');
+		           	      //$('.add-lesson').modal('toggle');
 
 		           	    //Updating weeks view		           	    
 		           	    weekView(data.course_id);
