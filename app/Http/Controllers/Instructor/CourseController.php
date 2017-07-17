@@ -47,20 +47,31 @@ class CourseController extends Controller
 
     public function addCourseForm(Request $request){
 
-    	$this->validate($request,[
-    			'courseName' => 'required|string|max:191',
-    			'courseDescription' => 'required|string',
-    			'coursePrerequisites' => 'required|string',
-    		]);
+    	// $this->validate($request,[
+    	// 		'courseName' => 'required|string|max:191',
+    	// 		'courseDescription' => 'required|string',
+    	// 		'coursePrerequisites' => 'required|string',
+    	// 	]);
 
-    	$course = Courses::create([
-    			'user_id' => $this->loggedID(),
-    			'title' => $request->courseName,
-    			'description' => $request->courseDescription,
-    			'prerequisite' => $request->coursePrerequisites,
-    		]);
+                $course = new Courses();
 
-    	if($course){
+    			$course->user_id = $this->loggedID();
+    			$course->title = $request->courseName;
+    			$course->description = $request->courseDescription;
+    			$course->prerequisite = $request->coursePrerequisites;
+                $course->price =  $request->coursePrice;
+
+                if(Input::hasFile('courseThumb')) {
+                    $file = Input::file('courseThumb');
+                    $tmpFilePath = '/files/courses';
+                    $tmpFileName = time() . '-' . $file->getClientOriginalName();
+                    $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
+                    $path =   $tmpFileName;
+                    $finalpath = $path;
+                    $course->thumbnail = $finalpath;
+                }                
+
+    	if($course->save()){
             return \Response::json(array('success' => true, 'msg' => 'Course Added!', 'course_id' => $course->id), 200);                		
     	}
     	else{
@@ -337,7 +348,7 @@ class CourseController extends Controller
             $lesson_update = Lesson::find($request->input('updateLessonId'));
             $lesson_update->title = $request->input('updateLessonTitle'); 
 
-                          //File Storage
+            //File Storage
             if(Input::hasFile('lessonFile')) {
                     $file = Input::file('lessonFile');
                     $tmpFilePath = '/files/lessons/';
@@ -362,6 +373,21 @@ class CourseController extends Controller
         }else{
          return \Response::json(array('success' => false, 'msg' => 'Lesson not Updated '), 422);            
         }
+   }
+
+   public function get_course_price(Request $request){
+
+        if($request->has('courseId')){
+
+        $course_id = $request->input('courseId');
+        $course_price = Courses::where('id', $course_id)->first(['price']);
+
+        return \Response::json(array('success' => true, 'msg' => 'Course Price', 
+            'price_html' => 'The Price of your Course is '.$course_price->price), 200);
+
+         }else{
+        return \Response::json(array('success' => false, 'msg' => 'Price not Found'), 422);              
+         }   
 
    }
 }

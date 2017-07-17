@@ -61,3 +61,7 @@ Route::post('/editlesson-submit', 'Instructor\CourseController@edit_lesson_submi
 
 //Resource delete
 Route::post('/deleteresource', 'Instructor\CourseController@delete_resource')->name('delete_resource');
+
+
+//Course Price
+Route::post('/course_price', 'Instructor\CourseController@get_course_price')->name('get_course_price');

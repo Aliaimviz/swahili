@@ -39,7 +39,7 @@
 				<ul class="nav nav-pills nav-stacked  course-tabs-nav ">
 					<li class="active" href="#tab_a" data-toggle="pill"><a id="tabA" href="#tab_a" data-toggle="pill">Course:</a></li>
 					<li href="#tab_b" data-toggle="pill"><a id="tabB" href="#tab_b" data-toggle="pill">Curriculum:</a></li>
-					<li href="#tab_c" data-toggle="pill"><a href="#tab_c" data-toggle="pill">Price:</a></li>
+					<li href="#tab_c" id="priceTab" data-id="" data-toggle="pill"><a href="#tab_c" data-toggle="pill">Price:</a></li>
 					<li href="#tab_d" data-toggle="pill"><a href="#tab_d" data-toggle="pill">Student Enroll</a></li>
 					<li href="#tab_e" data-toggle="pill"><a href="#tab_e" data-toggle="pill">Discussion</a></li>
 				</ul>
@@ -59,7 +59,7 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
-								<form id="courseAddForm" class="about-course" method="POST">
+								<form id="courseAddForm" class="about-course" method="POST" enctype="multipart/form-data">
 									
 									<input type="hidden" name="courseID" value="">
 									<label for="enter-the-course-title">Enter the course title</label>
@@ -68,6 +68,10 @@
 									<textarea id="description" rows="5" name="courseDescription">@if($course['description']){{$course['description']}}@endif</textarea>
 									<label for="pre-request">Prerequisites</label>
 									<input type="text" id="pre-request" value="@if($course['prerequisite']){{$course['prerequisite']}}@endif" name="coursePrerequisites">
+									<label for="pre-request">Price: </label>
+									<input type="number" id="course-price" value="" name="coursePrice">
+									<label for="pre-request">Thumbnail: </label>									
+									<input type="file" id="courseThumb" name="courseThumb">																			
 									<div class="submit-btn">
 										<input type="Submit" value="Save">			            						            					
 									</div>
@@ -96,7 +100,7 @@
 				</div>
 				<div class="tab-pane" id="tab_c">
 					<h4>Pane C</h4>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+					<p id="coursePricePane">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
 				</div>
 				<div class="tab-pane" id="tab_d">
 					<h4>Pane D</h4>
@@ -302,13 +306,12 @@ $(document).ready(function(){
 
 		var course_id;
 
-	
-
 		//Course Add Form
 		$("#courseAddForm").submit(function(e){
 			e.preventDefault();
 			console.log("course add form for user");
-			var formData = $("#courseAddForm").serialize();
+			//var formData = $("#courseAddForm").serialize();
+			var formData = new FormData(this);	
 			console.log(formData);
 
 			  $.ajaxSetup({
@@ -319,12 +322,17 @@ $(document).ready(function(){
 		            url: "{{ route('addCourseForm') }}",
 		            type: 'post', 
 		            data: formData,
+		            processData: false,
+		            contentType: false, 		            
 			        success: function (data) { 
 
 		           	  toastr.success(data.msg);
 		           	  $("#tabA").toggleClass();
 		           	  course_id = data.course_id;
 		           	  $("#courseId").val(data.course_id);
+		           	  //Adding course id in price pane
+		           	  $('#priceTab').data('id', data.course_id);
+
 		           	  $("#tabB").click();
 			        },
 		        	error: function (data) { 
@@ -633,7 +641,32 @@ $(document).ready(function(){
 		        });
 	  });
     }
+    //Course Price Pane
+    $("#priceTab").click(function(e){
+    	e.preventDefault();
+    	console.log("course price pane");
+    		var courseId = $(this).data('id');
+    		console.log("courseId" + courseId);
+		      $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
 
+		      $.ajax({
+		            url: "{{ route('get_course_price') }}",
+		            type: 'post', 
+		            data: {'courseId': courseId},
+
+			        success: function (data) {
+			        	console.log(data);
+			        	$("#coursePricePane").text(data.price_html);
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });    	
+
+    });
 });
 
 
