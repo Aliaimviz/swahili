@@ -12,7 +12,10 @@
 			<ul>
 				<li><a href="#"> <img src="{{ asset('public/img/coins2.png') }}"> 2000</a></li>
 				<li><a href="#"><img src="{{ asset('public/img/right-check.png') }}"><img src="{{ asset('public/img/mini-pr.png') }}"></a></li>
-				<li><a href="#">SARA Doe</a></li>
+				
+				@if(Auth::check())
+				<li><a href="#">{{ Auth::user()->first_name }}</a></li>
+				@endif
 				<li><a href="#"><i class="fa fa-cog" ></i></a> <a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 			</ul>
 		</div>
@@ -99,7 +102,7 @@
 					</div>
 				</div>
 				<div class="tab-pane" id="tab_c">
-					<h4>Pane C</h4>
+					<h4>PRICE:</h4>
 					<p id="coursePricePane">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
 				</div>
 				<div class="tab-pane" id="tab_d">
