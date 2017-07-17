@@ -675,7 +675,8 @@ section#welcome {
     font-weight: initial;
     width: 100%;
     float: left;
-    padding-bottom: 15px;
+    padding-bottom: 0;
+    margin-bottom: 0;
     font-size: 15px;
 }
 .form-fields input, .form-fields select, .form-fields textarea {
@@ -688,7 +689,7 @@ section#welcome {
 .form-fields {
     float: left;
     width: 100%;
-    margin: 51px 0;
+    margin: 10px 0;
 }
 .form-fields input[type="Submit"] {
     background: #ff8868;

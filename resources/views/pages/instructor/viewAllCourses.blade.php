@@ -27,7 +27,7 @@
 					<div class="seprator new-sep ">&nbsp;</div>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 float-left" style="padding-right: 0;" >
-					<p class="add-week"><a href="#" data-toggle="modal" data-target="#add-week">Add Course</a></p>
+					<p class="add-week"><a href="{{ route('addCourseView') }}">Add Course</a></p>
 				</div>
 			</div>
 		</div>
@@ -49,7 +49,9 @@
 											<div class="and-all">
 												<ul>
 													<li>
-														<h4>{{$co->title}}</h4>
+														<h4>
+															<a href="">{{$co->title}}</a>
+														</h4>
 													</li>
 													<li>
 														<p>Posted by: {{ $co->first_name}} {{ $co->last_name}}</p>
