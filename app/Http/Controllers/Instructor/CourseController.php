@@ -266,7 +266,7 @@ class CourseController extends Controller
 
                         if($lessons_del){
                         
-                         return \Response::json(array('success' => true, 'msg' => 'Lesson Deleted!', 'course_id' => $course_id->$course_id), 200);
+                         return \Response::json(array('success' => true, 'msg' => 'Lesson Deleted!', 'course_id' => $course_id->course_id), 200);
 
                         }else{
 
@@ -279,12 +279,89 @@ class CourseController extends Controller
         }    
    }
 
+   public function delete_resource(Request $request){
+
+        if($request->ajax() && $request->has('lessonId')) {
+            $res_id = $request->input('lessonId');
+            
+            //Validation/Auth to delete Week
+
+            //Getting Course Id  ::
+            $week_id = Resource::where('id', $res_id)->first(['week_id']);
+
+            $course_id = Week::where('id', $week_id->week_id)->first(['course_id']);
+
+            //deleting particular lesson
+            $lessons_del = Resource::where('id', $res_id)->delete();
+            
+
+                        if($lessons_del){
+                        
+                         return \Response::json(array('success' => true, 'msg' => 'Resource Deleted!', 'course_id' => $course_id->course_id), 200);
+
+                        }else{
+
+                         return \Response::json(array('success' => false, 'msg' => 'Resource not Deleted '), 422);    
+
+                        }
+
+        }else{
+             return \Response::json(array('success' => false, 'msg' => 'Resource not Deleted'), 422);  
+        }      
+   }
+
    public function resource_download($path){
 
     //File validation authentication
     $file= asset('/public/files/resources/'.$file_name);
 
     return response()->file($file);
+
+   }
+
+   //Edit Lesson Modal
+   public function edit_lesson_modal(Request $request){
+         //return $request->input();
+        //Validation / can edit
+     
+     if($request->has('lessonId')){
+        $lessonId = $request->input('lessonId');
+        $lesson = Lesson::find($lessonId);
+        return $lesson;
+     }
+   }
+
+   public function edit_lesson_submit(Request $request){
+        
+        if($request->has('updateLessonId')){
+            $lesson_update = Lesson::find($request->input('updateLessonId'));
+            $lesson_update->title = $request->input('updateLessonTitle'); 
+
+                          //File Storage
+            if(Input::hasFile('lessonFile')) {
+                    $file = Input::file('lessonFile');
+                    $tmpFilePath = '/files/lessons/';
+                    $tmpFileName = time() . '-' . $file->getClientOriginalName();
+                    $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
+                    $path =   $tmpFileName;
+                    $finalpath = $path;
+                    $lesson_update->file = $finalpath;
+            }
+
+            if($lesson_update->save()){
+
+             $course_id = Week::where('weeks.id', '=', $lesson_update->week_id)
+                                ->first(['course_id']);              
+
+              return \Response::json(array('success' => true, 'msg' => 'Lesson Successfully Updated'
+                , 'course_id' => $course_id->course_id), 200);
+            }else{
+              return \Response::json(array('success' => false, 'msg' => 'Lesson not Updated '), 422);  
+            }
+
+        }else{
+         return \Response::json(array('success' => false, 'msg' => 'Lesson not Updated '), 422);            
+        }
 
    }
 }

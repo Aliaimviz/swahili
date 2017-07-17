@@ -293,6 +293,9 @@
 	<!-- add-quiz-model -->
 </section>
 
+
+
+
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -422,7 +425,7 @@ $(document).ready(function(){
 		           	    
 		           	    //hide lesson modal 
 		           	      $('.add-lesson').modal('hide');
-		           	      //$('.add-lesson').modal('toggle');
+		           	      $('.modal-backdrop').css('display', 'none');
 
 		           	    //Updating weeks view		           	    
 		           	    weekView(data.course_id);
@@ -453,7 +456,7 @@ $(document).ready(function(){
 			        success: function (data) {
 			        	console.log(data);
 		           	    toastr.success(data.msg);		           	    
-
+		           	      $('.modal-backdrop').css('display', 'none');		           	    
 		           	    //Updating weeks view           	    
 		           	    weekView(data.course_id);
 
@@ -497,9 +500,9 @@ $(document).ready(function(){
 		        });
 		});
 
-	  //Delete Lesson
+	  //Delete Lesson 
 	  	  //Delete Week
-	  $("#deleteLesson").on('click', function(e){
+	  $(".deleteLesson").on('click', function(e){
 			e.preventDefault();
 			console.log("delete lesson");
 		//	var formData = $("#weekLessonForm").serialize();
@@ -530,6 +533,105 @@ $(document).ready(function(){
 		        });
 		});
 
+	  $(".deleteResource").on('click', function(e){
+			e.preventDefault();
+			console.log("delete resoruce");
+		//	var formData = $("#weekLessonForm").serialize();
+            var formData = $(this).data('id');
+            console.log($(this).data('id'));
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('delete_resource') }}",
+		            type: 'post', 
+		            data: { 'lessonId' :formData},
+
+			        success: function (data) {
+			        	console.log(data);
+
+		           	   toastr.success(data.msg);
+		           	    // $("#lessonClosed").click();
+			        	//Upating View
+			        	weekView(data.course_id);
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+		});
+
+	  //Load Edit Lessons modal
+	  $(".editLesson").click(function(e){
+	  	e.preventDefault();
+	  	var lessonId = $(this).data('id');
+	  	console.log("lessonId" + lessonId);
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('edit_lesson_modal') }}",
+		            type: 'post', 
+		            data: {'lessonId':lessonId},
+
+			        success: function (data) {
+			        	console.log(data);
+
+			        	//$("#editLessonForm")
+			        	$('#updateLessonTitle').val(data.title);
+			        	$('#updateLessonId').val(data.id);
+			        	//open edit lesson modal
+			        	$(".editLessonModal").modal('show');
+		           	    toastr.success(data.msg);
+
+			        	//Upating View
+			        	//weekView(data.course_id);
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });	  	
+
+	  });
+
+	  //Submitting Edit Lesson Modal
+	  $("#updateLessonForm").submit(function(e){
+	  		e.preventDefault();
+
+	  		console.log("edit lesson form");
+            var formData = new FormData(this);			
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('edit_lesson_submit') }}",
+		            type: 'post', 
+		            data: formData,
+		            processData: false,
+		            contentType: false, 
+			        success: function (data) {
+			        	console.log(data);
+			        	console.log("course_iddd" + data.course_id);
+		           	    //toastr.success(data.msg);		           	    
+		           	     
+		           	    $('.modal-backdrop').css('display', 'none');		           	    
+		           	    //Updating weeks view           	    
+		           	    weekView(data.course_id);
+
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+	  });
     }
 
 });

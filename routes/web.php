@@ -53,3 +53,11 @@ Route::post('/deletelesson', 'Instructor\CourseController@delete_lesson')->name(
 //Resource Download
 
 Route::get('/resource_download/{path}', 'Instructor\CourseController@resource_download')->name('resource_download');
+
+//Course Editing Routes
+Route::post('/editlesson', 'Instructor\CourseController@edit_lesson_modal')->name('edit_lesson_modal');
+
+Route::post('/editlesson-submit', 'Instructor\CourseController@edit_lesson_submit')->name('edit_lesson_submit');
+
+//Resource delete
+Route::post('/deleteresource', 'Instructor\CourseController@delete_resource')->name('delete_resource');
