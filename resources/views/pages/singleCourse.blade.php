@@ -24,7 +24,7 @@
 							</ul>
 							<ul class="course-price">
 								<li>
-									<p><i class="fa fa-pencil-square-o"></i> Created by Colt Steele </p>
+									<p><i class="fa fa-pencil-square-o"></i> Created by {{$course->first_name }} {{$course->last_name }}</p>
 								</li>
 								<li>
 									<?php $date = new DateTime($course->updated_at); ?>
@@ -63,104 +63,6 @@
 							</li>
 						</ul>
 					</div>
-					<div class="req-deta">
-						<h2>Releated Course:</h2>
-						<ul class="related-course">
-							<li>
-								<div class="frontend-box">
-									<a href="#">
-										<div class="frontend-box-inner">
-											<div class="img"><img src="{{ asset('public/img/course-image.png') }}"></div>
-											<div class="course-detail-front">
-												<h5>The Web Developer Bootcamp</h5>
-												<p>Lorem Ipsum</p>
-												<ul class="course-ratings">
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li>
-														<p>4.7 (28,127)</p>
-													</li>
-												</ul>
-												<ul class="course-price">
-													<li class="regular-price">
-														<p>$200</p>
-													</li>
-													<li class="sale-price">
-														<p>$10</p>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="frontend-box">
-									<a href="#">
-										<div class="frontend-box-inner">
-											<div class="img"><img src="{{ asset('public/img/course-image.png') }}"></div>
-											<div class="course-detail-front">
-												<h5>The Web Developer Bootcamp</h5>
-												<p>Lorem Ipsum</p>
-												<ul class="course-ratings">
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li>
-														<p>4.7 (28,127)</p>
-													</li>
-												</ul>
-												<ul class="course-price">
-													<li class="regular-price">
-														<p>$200</p>
-													</li>
-													<li class="sale-price">
-														<p>$10</p>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="frontend-box">
-									<a href="#">
-										<div class="frontend-box-inner">
-											<div class="img"><img src="{{ asset('public/img/course-image.png') }}"></div>
-											<div class="course-detail-front">
-												<h5>The Web Developer Bootcamp</h5>
-												<p>Lorem Ipsum</p>
-												<ul class="course-ratings">
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li>
-														<p>4.7 (28,127)</p>
-													</li>
-												</ul>
-												<ul class="course-price">
-													<li class="regular-price">
-														<p>$200</p>
-													</li>
-													<li class="sale-price">
-														<p>$10</p>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</a>
-								</div>
-							</li>
-						</ul>
-					</div>
 					<div class="what-will req-deta">
 						<h2>About the Author:</h2>
 						<div class="auther-detail-main">
@@ -182,9 +84,8 @@
 								</ul>
 							</div>
 							<div class="auther-detail">
-								<h2 style="color: #ff8868;">Maria Doe</h2>
-								<p>Sed ut perspiciatis unde omnis iste natus otam rem aperiam. Error sit voluptatem acct usant protium dolorem  beatae vitae explicabo. Totam rem aperiam aspernatur aut odit aut fugit enim ipsam voluptem.  Naque ipsa quae ab illo inventore veritatis. Sed ut perspiciatis unde omnis iste natus otam rem aperiam. Error sit voluptatem acct usant protium dolorem  beatae vitae explicabo. Totam rem aperiam aspernatur aut odit aut fugit enim ipsam voluptem.  Naque ipsa quae ab illo inventore veritatis.</p>
-								<p>Sed ut perspiciatis unde omnis iste natus otam rem aperiam. Error sit voluptatem acct usant protium dolorem  beatae vitae explicabo. Totam rem aperiam aspernatur aut odit aut fugit enim ipsam voluptem.  Naque ipsa quae ab illo inventore veritatis.perspiciatis unde omnis iste natus otam rem aperiam. Error sit voluptatem acct usant protium dolorem  beatae vitae explicabo. Totam rem aperiam aspernatur aut odit.</p>
+								<h2 style="color: #ff8868;">{{$course->first_name }} {{$course->last_name }}</h2>
+								<p>{{ $course->intro }}</p>
 							</div>
 						</div>
 					</div>
@@ -411,22 +312,22 @@
 							<div class="course-detail-front">
 								<ul class="course-price">
 									<li class="sale-price">
-										<p>$10</p>
+										<p>$ {{ $course->price}}</p>
 									</li>
-									<li class="regular-price">
+									<!-- <li class="regular-price">
 										<p style="color: #ff8868;">$200</p>
 									</li>
 									<li class="regular-price regular-price" style="text-decoration: inherit;">
 										<p style="color: #ff8868;">95% off</p>
-									</li>
+									</li> -->
 								</ul>
-								<p><i class="fa fa-clock-o"></i> Last updated 7/2017</p>
+								<p><i class="fa fa-clock-o"></i> Last updated {{$date->format('Y-m-d')}}</p>
 								<div class="req-deta" style="margin: 0;">
 									<h2>Includes:</h2>
 									<p style="color: #000;" class="incl">
 										<?php echo $excerpt = substr($course->description, 0, 350)?> ...
 									</p>
-									<p class="btn-course-aside"><a href="#">schedule now</a></p>
+									<p class="btn-course-aside"><a href="#">enrolled now</a></p>
 								</div>
 							</div>
 						</div>
