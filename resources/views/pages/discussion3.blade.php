@@ -76,21 +76,22 @@
 
 
 @if(isset($discussions))
-	@foreach($discussions as $discussion)
+	@foreach($discussions as $disc)
+	  @foreach($disc as $dis)
 
 <div class="chats">
-							<div class="chat-pro-img">
+		<div class="chat-pro-img">
 								<img src="{{ asset('public/img/discussion-prof-img.png') }}">
 							</div>
-							<div class="chat-all-here discussionBlock" data-id="{{ $discussion->discussion_id }}">
-								<h1>{{ $discussion->first_name }}. <span>( {{ $discussion->dis_title }} )</span></h1>
+							<div class="chat-all-here discussionBlock" data-id="{{ $dis->discussion_id }}">
+								<h1>{{ $dis->first_name }}. <span>( {{ $dis->dis_title }} )</span></h1>
 								<p>dolorem ipsum quia dolor. dolorem ipsum quia dolor dolorem ipsum quia dolor. dolorem ipsum prostoecturs Prem ipsum quia dolor. dolorem ipsum quia dolor dolorem ipsum quia</p>
 								<div class="re-com-im">
 									<div class="replies yes"><p> 16 Replies </p></div>
 									<div class="com-like">
 										<ul>
 											<li data-toggle="modal" data-target="#add-lesson"><a href="#"><i class="fa fa-upload"></i> Upload Image</a></li>
-											<li data-toggle="modal" data-target="#add-coding"><a href="#" class="discusComment" data-id="{{ $discussion->discussion_id }}"><i class="fa fa-comment-o"></i> Comment</a></li>
+											<li data-toggle="modal" data-target="#add-coding"><a href="#" class="discusComment" data-id="{{ $dis->discussion_id }}"><i class="fa fa-comment-o"></i> Comment</a></li>
 											<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-smile-o"></i> React</a></li>
 											<li><a href="#"><i class="fa fa-envelope-o"></i> Direct</a></li>
 										</ul>
@@ -152,7 +153,7 @@
 								</div>
 							</div>
 						</div>
-
+	 @endforeach
 	@endforeach
 @else
 
