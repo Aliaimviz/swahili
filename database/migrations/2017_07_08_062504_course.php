@@ -18,7 +18,7 @@ class Course extends Migration
             $table->integer('user_id')->unsign();
             $table->string('title');
             $table->longText('description');
-            $table->float('price', 5, 2)->nullable();
+            $table->float('price', 5, 2)->default(0);
             $table->string('enroll_users')->nullable();
             $table->timestamps();
 

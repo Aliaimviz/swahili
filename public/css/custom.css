@@ -9,3 +9,7 @@ section{
 .margin-auto{
 	margin: auto !important;
 }
+.marginTB15{
+	margin-top: 15px !important;
+	margin-bottom: 15px !important;
+}

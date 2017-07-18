@@ -104,6 +104,9 @@ class CourseController extends Controller
            // ->groupBy('week_id')
             ->get();
             //dd($weeks);
+            echo "<pre>";
+            print_r($weeks[0]->week_id);
+            echo "</pre>";
 
          //   $weeks = Week::where('course_id', $course_id)->get();
 

@@ -3329,3 +3329,301 @@ form.about-course ul li input, form.about-course ul li label {
 .add-curriculm-eg {
     margin-bottom: 3px;
 }
+
+/*****************************************************/
+form#course-search-form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 48%;
+}
+.frontend-box-inner {
+    background: #fff;
+    box-shadow: -1px 5px 3px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.15);
+}.frontend-box-inner {
+    background: #f8f8f8;
+    box-shadow: -1px 5px 3px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.15);
+    width: 100%;
+    float: left;
+}
+/*.frontend-box-inner .img img {
+    width: 100%;
+}*/
+.course-detail-front {
+    width: 100%;
+    float: left;
+    padding: 20px 10px;
+}
+.course-detail-front h5 {
+    color: #000 !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+.course-detail-front p {
+    font-family: 'Montserrat', sans-serif;
+    color: #414141;
+    font-size: 14px;
+    padding-bottom: 12px;
+    margin-bottom: 0;
+}
+ul.course-ratings {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.course-ratings li {
+    display: inline-block;
+    color: #ff8869;
+    font-size: 17px;
+}
+ul.course-ratings li p {
+    font-family: 'Montserrat', sans-serif;
+    color: #414141;
+}
+ul.course-price {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+li.regular-price p {
+    font-family: 'Montserrat', sans-serif;
+    color: #414141;
+    font-size: 16px;
+    text-decoration: line-through;
+    padding-bottom: 0px;
+}
+li.sale-price p {
+    font-family: 'Montserrat', sans-serif;
+    color: #414141;
+    font-size: 26px;
+    padding-bottom: 0px;
+    font-weight: bold;
+}
+
+ul.course-price li {
+    display: inline-block;
+    padding-left: 10px;
+}
+.frontend-box-inner .img img {
+    width: 100%;
+}
+.frontend-box {
+    margin-right: 10px;
+    width: 100%;
+    float: left;
+    margin-bottom: 11px;
+}
+.carosel-slider-about-us .fa.fa-angle-left, .fa.fa-angle-right {
+    font-size: 35px;
+    color: #d0d0d0;
+    font-weight: bold;
+}
+.carousel-item .frontend-box:last-child {
+    margin-right: 10px;
+}.carousel-item .frontend-box:first-child {
+   margin-left: 10px;
+}
+.carosel-slider-about-us .carousel-control {
+    position: absolute;
+    top: 43%;
+    display: block;
+    bottom: 0;
+}
+a.left.carousel-control {
+    left: -37px;
+}
+a.right.carousel-control {
+    right: -37px;
+}
+p.sf {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #030303;
+    padding-left: 11px;
+    margin-bottom: 21px;
+    margin-top: 36px;
+}
+div#slid-main-cont {
+    margin-bottom: 66px;
+    margin-top: 15px;
+}
+.back-layer-img2 .frontend-box-inner {
+    background: inherit !important;
+    box-shadow: none;
+}
+.back-layer-img2 .course-detail-front h5 {
+    color: #fff !important;
+   font-size: 37px;
+}
+.back-layer-img2 .course-detail-front p {   
+    color: #fff;
+    font-size: 19px;   
+}
+.back-layer-img2 ul.course-ratings li {   
+    font-size: 21px;
+}
+.back-layer-img2 ul.course-ratings li p {    
+    color: #fff;
+    font-size: 19px;
+    padding-left: 20px;
+}
+.back-layer-img2 ul.course-price {
+    float: left;
+}
+.back-layer-img2 ul.course-price li:first-child {
+    padding-left: 0;
+}
+.back-layer-img2 .course-detail-front p {    
+    padding-bottom: 17px;   
+}
+.what-will {
+    background: #f8f8f8;
+    padding: 32px 18px;
+    border: 2px solid #e1e1e1;
+    font-family: 'Montserrat', sans-serif;
+    float: left;
+    width: 100%;
+}
+.course-content-detail h2 {
+    color: #414141;
+    font-size: 22px;
+    margin-bottom: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+.course-content-detail p, .req-deta ul li p {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+        margin-bottom: 10px;
+}
+.course-content-detail p i, .what-will li i {
+    color: #ff8868;
+    padding-right: 9px;
+}
+.req-deta ul {
+    margin: 0;
+    padding-left: 22px;
+}
+.req-deta {
+    margin-top: 32px;
+    float: left;
+    width: 100%;
+}
+ul.related-course > li{
+    width: 32.3%;
+    display: inline-block;
+}
+ul.related-course {
+    padding: 0;
+    list-style: none;
+}
+.auther-img ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 1px;
+    margin-top: 20px;
+}
+.auther-img {
+    float: left;
+    width: 27%;
+}
+.auther-detail {
+    float: right;
+    width: 72%;
+}
+.auther-detail-main.reviews .auther-detail {
+    float: right;
+    width: 84%;
+}
+.auther-detail-main.reviews .auther-img {
+    float: left;
+    width: 16%;
+}
+.auther-detail-main.reviews ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li.date-time {
+    color: #7e7e7e;
+}
+.auther-detail-main.reviews .auther-detail > ul > li {
+    display: inline-block;
+    padding-right: 9px;
+}
+.auther-detail-main.reviews .auther-detail > ul > li:last-child {
+    float: right;
+}
+.what-will.req-deta.main-reviews {
+    padding: 14px 18px 0px 18px;
+}
+ul.incl li p {
+    padding: 0;
+    margin-bottom: 1px;
+}
+.aside-bar.course-content-detail ul.course-price {
+    float: left;
+    width: 100%;
+}
+.aside-bar.course-content-detail ul.course-price li p {
+    margin-bottom: 0;
+}
+.aside-bar.course-content-detail ul.course-price li {
+    padding-right: 10px;
+    padding-left: 0px;
+}
+p.btn-course-aside {
+    text-align: center;
+    margin-top: 23px;
+}
+p.btn-course-aside a {
+    background: #ff8868;
+    color: #fff;
+    padding: 12px 66px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all ease 500ms;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+p.btn-course-aside a:hover {
+    background: transparent;
+    border: 2px solid #ff8868;
+    transition: all ease 500ms;
+    cursor: pointer;
+    color: #ff8868;
+}
+/*p.btn-course-aside a:first-child {
+    display: none;
+}*/
+.aside-bar.course-content-detail {
+    position: relative;
+    bottom: 289px;
+}
+.auther-img h1 {
+    color: #414141;
+    font-size: 71px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-weight: normal;
+}
+.auther-img ul.course-ratings {
+    text-align: center;
+        margin-top: 0;
+}
+.auther-img ul.course-ratings li {
+    font-size: 29px;
+}
+ul.progress-bar-rating-main {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.progress-bar-rating-main li {
+    display: inline-block;
+}
+li.progress-bar-rating {
+    width: 69%;
+}
