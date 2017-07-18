@@ -395,14 +395,12 @@ class CourseController extends Controller
    public function get_discussion_view($id){
         $course_id = $id;
 
-        //weeks
+        //weeks   
             $discussions = Discussion::select('id')->where('course_id', $course_id)->get();
-
-               $discus_array = array();
 
                foreach ($discussions as $discussion) {
 
-                       $dis = Discussion::select('discussions.id as discussion_id')
+                       $dis = Discussion::select('discussions.id as discussion_id' , 'discussions.*', 'discussion_comments.*')
                                   ->leftjoin('users', 'users.id', '=', 'discussions.user_Id')
                                   ->leftjoin('discussion_comments', 'discussions.id', '=', 'discussion_comments.dis_id')
                                   ->where('discussions.id', $discussion->id)
@@ -456,7 +454,7 @@ class CourseController extends Controller
         //                          ->leftjoin('discussion_comments', 'discussion_comments.dis_id', '=', 'discussions.id')
         //                          ->select('discussions.id as discussion_id', 'discussions.*', 'users.*', 'discussion_comments.*')
         //                          ->where('discussions.course_id', $course_id)->get();
-       //dd($discus_array);
+       dd($discus_array);
       //return view('pages.discussion2')->with('course_id', $course_id);
 
         return view('pages.discussion3')->with('course_id', $course_id)

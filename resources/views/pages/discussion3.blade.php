@@ -79,7 +79,7 @@
 	@foreach($discussions as $disc)
 	  @foreach($disc as $dis)
 
-<div class="chats">
+      <div class="chats">
 		<div class="chat-pro-img">
 								<img src="{{ asset('public/img/discussion-prof-img.png') }}">
 							</div>
