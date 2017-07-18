@@ -105,6 +105,29 @@ class CourseController extends Controller
             //$course_id = $request->input('courseId');
             $course_id = $request->input('courseId');
 
+<<<<<<< HEAD
+            //dd($course_id);
+            $weeks = Week::select('weeks.id as week_id', 'weeks.title as week_title'
+
+                , 'lessons.id as lesson_id',
+                 'resources.id as resource_id', 'resources.file as resource_file', 'resources.title as resource_title', 
+               'lessons.title as lesson_title')
+           ->leftjoin('lessons', 'weeks.id', '=', 'lessons.week_id')
+           ->leftjoin('resources', 'weeks.id', '=', 'resources.week_id')
+            ->where('weeks.course_id', $course_id)
+          //  ->limit(3)
+           // ->groupBy('week_id')
+            ->get();
+            //dd($weeks);
+            echo "<pre>";
+            print_r($weeks[0]->week_id);
+            echo "</pre>";
+
+         //   $weeks = Week::where('course_id', $course_id)->get();
+
+
+            $weekView = view('pages.instructor.ajax_weeks')->with('weeks', $weeks)->render();
+=======
             $weeks = Week::select('id')->where('course_id', $course_id)->get();
                $lessons = array();
                foreach ($weeks as $week) {
@@ -138,6 +161,7 @@ class CourseController extends Controller
               // dd($weekz);
 
             $weekView = view('pages.instructor.ajax_weeks')->with('weeks', $lessons)->render();
+>>>>>>> 09ee0b9c2eaeed8053f07dc1ad21c963288afaaf
 
             return \Response::json(array('success' => true, 'weekView' => $weekView,
                                                      'course_id'=> $course_id), 200);

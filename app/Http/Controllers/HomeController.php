@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Courses;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,18 @@ class HomeController extends Controller
     public function index()
     {
         return view('pages.home');
+    }
+
+    public function viewAllCourses(){
+        $courses = Courses::orderBy('id', 'desc')->get();
+        return view('pages.courses', ['courses' => $courses]);
+    }
+
+    public function singleCourseView($id){
+        $course = Courses::where('id', $id)->first();
+        return view('pages.singleCourse', ['course' => $course]);
+        echo "<pre>";
+        print_r($course);
+        echo "</pre>";
     }
 }

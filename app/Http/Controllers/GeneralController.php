@@ -28,6 +28,7 @@ class GeneralController extends Controller
     	return view('pages.profile', ['user' => $user, 'lang' => $lang, 'coun' => $coun, 'card' => $card]);
     }
 
+    
     public function profileUpdate(Request $request){
         
         
