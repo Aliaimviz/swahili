@@ -65,3 +65,8 @@ Route::post('/deleteresource', 'Instructor\CourseController@delete_resource')->n
 
 //Course Price
 Route::post('/course_price', 'Instructor\CourseController@get_course_price')->name('get_course_price');
+
+Route::get('/discussions/{id?}', 'Instructor\CourseController@get_discussion_view')->name('discussion_view');
+
+//Course Discussion Page Route
+Route::post('/add-discussion', 'Instructor\CourseController@addDiscusForm')->name('addDiscusForm');

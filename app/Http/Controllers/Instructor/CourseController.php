@@ -11,6 +11,7 @@ use Auth;
 use Illuminate\Support\Facades\Input;
 use App\Resource;
 use App\Lesson;
+use App\Discussion;
 use DB;
 
 
@@ -383,11 +384,44 @@ class CourseController extends Controller
         $course_price = Courses::where('id', $course_id)->first(['price']);
 
         return \Response::json(array('success' => true, 'msg' => 'Course Price', 
-            'price_html' => 'The Price of your Course is '.$course_price->price), 200);
+            'price_html' => 'The Price of your Course is '.$course_price->price. 'You Course have been Created Successfully'), 200);
 
          }else{
         return \Response::json(array('success' => false, 'msg' => 'Price not Found'), 422);              
-         }   
+         }
+   }
+
+   public function get_discussion_view($id){
+      $course_id = $id;
+      return view('pages.discussion2')->with('course_id', $course_id);
+   }
+
+   public function addDiscusForm(Request $request) {
+
+         if($request->has('discuss_name') && $request->has('discus_desc')){
+
+            $discussion = new Discussion();
+            $discussion->dis_title = $request->discuss_name;
+            $discussion->dis_ques = $request->discus_desc; 
+            $discussion->user_id = Auth::user()->id; 
+            $discussion->course_id = $request->course_id;
+
+            if($discussion->save()){
+
+            return \Response::json(array('success' => true, 'msg' => 'Discussion added'), 200);  
+            
+            }else{
+
+            return \Response::json(array('success' => false, 'msg' => 'Discussion not added1'), 422);            
+            }     
+
+         }else{
+            return \Response::json(array('success' => false, 'msg' => 'Discussion not added2'), 422);              
+         }
+
+   }
+
+   public function addDiscusForm2(){
 
    }
 }

@@ -44,7 +44,8 @@
 					<li href="#tab_b" data-toggle="pill"><a id="tabB" href="#tab_b" data-toggle="pill">Curriculum:</a></li>
 					<li href="#tab_c" id="priceTab" data-id="" data-toggle="pill"><a href="#tab_c" data-toggle="pill">Price:</a></li>
 					<li href="#tab_d" data-toggle="pill"><a href="#tab_d" data-toggle="pill">Student Enroll</a></li>
-					<li href="#tab_e" data-toggle="pill"><a href="#tab_e" data-toggle="pill">Discussion</a></li>
+					<!--<li href="#tab_e" data-toggle="pill"><a href="#tab_e" data-toggle="pill">Discussion</a></li> -->
+					<li href=""><a id="discussTab" href="">Discussion</a></li>				
 				</ul>
 			</div>
 			<div class="tab-content col-xs-6 col-sm-6 col-md-8 col-lg-8 course-tabs-pane ">
@@ -106,13 +107,14 @@
 					<p id="coursePricePane">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
 				</div>
 				<div class="tab-pane" id="tab_d">
-					<h4>Pane D</h4>
+					<h4>Student Enroll</h4>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-				</div>
-				<div class="tab-pane" id="tab_e">
-					<h4>Pane E</h4>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-				</div>
+				</div>				
+					<div class="tab-pane" id="tab_e">
+						<h4>Pane E</h4>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+					</div>
+				
 			</div>
 			<!-- tab content -->
 		</div>
@@ -335,6 +337,10 @@ $(document).ready(function(){
 		           	  $("#courseId").val(data.course_id);
 		           	  //Adding course id in price pane
 		           	  $('#priceTab').data('id', data.course_id);
+		           	  //Adding Course discussion link to href
+		           	  var discusRoute = "{{route('discussion_view')}}/"+data.course_id;
+		              $('#discussTab').attr('href', discusRoute);
+		           	  //console.log("discusRoute" + discusRoute);
 
 		           	  $("#tabB").click();
 			        },
