@@ -87,7 +87,9 @@
 			<h1>{{ $disc[$i]->first_name }} {{ $disc[$i]->last_name }}. <span>( {{ $disc[$i]->dis_title }} )</span></h1>
 			<p>{{ $disc[$i]->dis_ques }}</p>
 			<div class="re-com-im">
-				<div class="replies yes"><p> {{ count($disc) }} Replies </p></div>
+				@if($disc[$i]->com_content || $disc[$i]->file)
+					<div class="replies yes"><p> {{ count($disc) }} Replies </p></div>
+				@endif
 				<div class="com-like">
 					<ul>
 						<li data-toggle="modal" data-target="#add-lesson"><a href="#"><i class="fa fa-upload"></i> Upload Image</a></li>

@@ -389,7 +389,7 @@ class CourseController extends Controller
                                  ->get();
                        $discus_array[] = $dis;          
                }
-               dd($discus_array);
+               //dd($discus_array);
         return view('pages.discussion3')->with('course_id', $course_id)
                                         ->with('discussions', $discus_array);
    }

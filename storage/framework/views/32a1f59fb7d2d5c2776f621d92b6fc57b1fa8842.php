@@ -86,7 +86,9 @@
 			<h1><?php echo e($disc[$i]->first_name); ?> <?php echo e($disc[$i]->last_name); ?>. <span>( <?php echo e($disc[$i]->dis_title); ?> )</span></h1>
 			<p><?php echo e($disc[$i]->dis_ques); ?></p>
 			<div class="re-com-im">
-				<div class="replies yes"><p> <?php echo e(count($disc)); ?> Replies </p></div>
+				<?php if($disc[$i]->com_content || $disc[$i]->file): ?>
+					<div class="replies yes"><p> <?php echo e(count($disc)); ?> Replies </p></div>
+				<?php endif; ?>
 				<div class="com-like">
 					<ul>
 						<li data-toggle="modal" data-target="#add-lesson"><a href="#"><i class="fa fa-upload"></i> Upload Image</a></li>
