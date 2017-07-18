@@ -83,3 +83,6 @@ Route::post('/add-discussion', 'Instructor\CourseController@addDiscusForm')->nam
 
 //Comment
 Route::post('/add-comment', 'Instructor\CourseController@addDiscusComment')->name('addDiscusComment');
+
+//Image
+Route::post('/add-image', 'Instructor\CourseController@addImageComment')->name('addImageComment');

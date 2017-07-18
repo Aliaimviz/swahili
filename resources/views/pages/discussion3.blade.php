@@ -90,7 +90,7 @@
 									<div class="replies yes"><p> 16 Replies </p></div>
 									<div class="com-like">
 										<ul>
-											<li data-toggle="modal" data-target="#add-lesson"><a href="#"><i class="fa fa-upload"></i> Upload Image</a></li>
+											<li data-toggle="modal" data-target="#add-lesson"><a href="#" class="discusImage" data-id="{{ $dis->discussion_id }}" ><i class="fa fa-upload"></i> Upload Image</a></li>
 											<li data-toggle="modal" data-target="#add-coding"><a href="#" class="discusComment" data-id="{{ $dis->discussion_id }}"><i class="fa fa-comment-o"></i> Comment</a></li>
 											<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-smile-o"></i> React</a></li>
 											<li><a href="#"><i class="fa fa-envelope-o"></i> Direct</a></li>
@@ -208,9 +208,10 @@
                         <div class="add-week-fileds">
 	                        <h1 class="h1.user-lover-heading mess" style="font-size: 25px !important;">Add Image:</h1>
 							<div class="seprator new-sep ">&nbsp;</div>
-                         	<form class="about-course">
+                         	<form class="about-course" id="imageForm" enctype="multipart/form-data">
             				<label for="upload-image">Upload Image</label>
-            					<input type="file" id="upload-image">
+            				<input type="hidden" value="" id="dis_id_img" name="dis_id_img"/>
+            					<input type="file" id="commentImage" name="commentImage" >
             				<div class="submit-btn">
         						<input type="Submit" value="Submit">	            						            					
         					</div>
@@ -317,7 +318,17 @@
 			var discusId = $(this).data('id');
 			$("#dis_id").val(discusId);
 	});
+ 
+ //Discuss Comment
+	$(".discusImage").click(function(e){
+		e.preventDefault();
+		console.log('discus image');
+			var discusId = $(this).data('id');
+			console.log("discusIdzzzzzzzzz" + discusId);
+			$("#dis_id_img").val(discusId);
+	});
 
+	//Comment Form
 	$("#commentForm").submit(function(e){
 
 		e.preventDefault();
@@ -333,6 +344,38 @@
 
 		      $.ajax({
 		            url: "{{ route('addDiscusComment') }}",
+		            type: 'post',
+		            data: formData,
+		            processData: false,
+		            contentType: false,		                      	            
+			        success: function (data) { 
+			          console.log(data);
+		           	  toastr.success(data.msg);
+		           	  
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },	                    
+		           
+		     }); 		
+
+	});
+
+	//image Form
+	$("#imageForm").submit(function(e){
+
+		e.preventDefault();
+		console.log('image form comment');
+
+			var formData = new FormData(this);	
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('addImageComment') }}",
 		            type: 'post',
 		            data: formData,
 		            processData: false,

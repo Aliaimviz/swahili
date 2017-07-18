@@ -105,7 +105,7 @@ class CourseController extends Controller
             //$course_id = $request->input('courseId');
             $course_id = $request->input('courseId');
 
-<<<<<<< HEAD
+
             //dd($course_id);
             $weeks = Week::select('weeks.id as week_id', 'weeks.title as week_title'
 
@@ -119,15 +119,15 @@ class CourseController extends Controller
            // ->groupBy('week_id')
             ->get();
             //dd($weeks);
-            echo "<pre>";
-            print_r($weeks[0]->week_id);
-            echo "</pre>";
+            // echo "<pre>";
+            // print_r($weeks[0]->week_id);
+            // echo "</pre>";
 
          //   $weeks = Week::where('course_id', $course_id)->get();
 
 
             $weekView = view('pages.instructor.ajax_weeks')->with('weeks', $weeks)->render();
-=======
+
             $weeks = Week::select('id')->where('course_id', $course_id)->get();
                $lessons = array();
                foreach ($weeks as $week) {
@@ -161,7 +161,7 @@ class CourseController extends Controller
               // dd($weekz);
 
             $weekView = view('pages.instructor.ajax_weeks')->with('weeks', $lessons)->render();
->>>>>>> 09ee0b9c2eaeed8053f07dc1ad21c963288afaaf
+
 
             return \Response::json(array('success' => true, 'weekView' => $weekView,
                                                      'course_id'=> $course_id), 200);
@@ -417,11 +417,13 @@ class CourseController extends Controller
    }
 
    public function get_discussion_view($id){
+       
         $course_id = $id;
 
         //weeks   
             $discussions = Discussion::select('id')->where('course_id', $course_id)->get();
 
+                 
                foreach ($discussions as $discussion) {
 
                        $dis = Discussion::select('discussions.id as discussion_id' , 'discussions.*', 'discussion_comments.*')
@@ -478,7 +480,7 @@ class CourseController extends Controller
         //                          ->leftjoin('discussion_comments', 'discussion_comments.dis_id', '=', 'discussions.id')
         //                          ->select('discussions.id as discussion_id', 'discussions.*', 'users.*', 'discussion_comments.*')
         //                          ->where('discussions.course_id', $course_id)->get();
-       dd($discus_array);
+       //dd($discus_array);
       //return view('pages.discussion2')->with('course_id', $course_id);
 
         return view('pages.discussion3')->with('course_id', $course_id)
@@ -530,5 +532,36 @@ class CourseController extends Controller
       }else{
             return \Response::json(array('success' => false, 'msg' => 'Comment not added1'), 422);
       }
+   }
+
+   public function addImageComment(Request $request){
+
+      if($request->has('dis_id_img')){
+
+         $discus_id = $request->input('dis_id_img'); 
+
+         $discussion_comment = new Discussion_comment();
+         $discussion_comment->dis_id = $discus_id;  
+         $discussion_comment->user_id = Auth::user()->id; 
+            //File Storage
+            if(Input::hasFile('commentImage')) {
+                    $file = Input::file('commentImage');
+                    $tmpFilePath = '/files/comment_images/';
+                    $tmpFileName = time() . '-' . $file->getClientOriginalName();
+                    $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
+                    $path =   $tmpFileName;
+                    $finalpath = $path;
+                    $discussion_comment->file = $finalpath;
+            }
+
+            if($discussion_comment->save()){
+
+              return \Response::json(array('success' => true, 'msg' => 'Image Updated'), 200);
+            }else{
+              return \Response::json(array('success' => false, 'msg' => 'Image not Updated '), 422);  
+            }
+      }else{
+            return \Response::json(array('success' => false, 'msg' => 'Image not added1'), 422);
+      }    
    }
 }
