@@ -63,3 +63,23 @@ Route::post('/deletelesson', 'Instructor\CourseController@delete_lesson')->name(
 //Resource Download
 
 Route::get('/resource_download/{path}', 'Instructor\CourseController@resource_download')->name('resource_download');
+
+//Course Editing Routes
+Route::post('/editlesson', 'Instructor\CourseController@edit_lesson_modal')->name('edit_lesson_modal');
+
+Route::post('/editlesson-submit', 'Instructor\CourseController@edit_lesson_submit')->name('edit_lesson_submit');
+
+//Resource delete
+Route::post('/deleteresource', 'Instructor\CourseController@delete_resource')->name('delete_resource');
+
+
+//Course Price
+Route::post('/course_price', 'Instructor\CourseController@get_course_price')->name('get_course_price');
+
+Route::get('/discussions/{id?}', 'Instructor\CourseController@get_discussion_view')->name('discussion_view');
+
+//Course Discussion Page Route
+Route::post('/add-discussion', 'Instructor\CourseController@addDiscusForm')->name('addDiscusForm');
+
+//Comment
+Route::post('/add-comment', 'Instructor\CourseController@addDiscusComment')->name('addDiscusComment');

@@ -12,7 +12,10 @@
 			<ul>
 				<li><a href="#"> <img src="{{ asset('public/img/coins2.png') }}"> 2000</a></li>
 				<li><a href="#"><img src="{{ asset('public/img/right-check.png') }}"><img src="{{ asset('public/img/mini-pr.png') }}"></a></li>
-				<li><a href="#">SARA Doe</a></li>
+				
+				@if(Auth::check())
+				<li><a href="#">{{ Auth::user()->first_name }}</a></li>
+				@endif
 				<li><a href="#"><i class="fa fa-cog" ></i></a> <a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 			</ul>
 		</div>
@@ -39,9 +42,10 @@
 				<ul class="nav nav-pills nav-stacked  course-tabs-nav ">
 					<li class="active" href="#tab_a" data-toggle="pill"><a id="tabA" href="#tab_a" data-toggle="pill">Course:</a></li>
 					<li href="#tab_b" data-toggle="pill"><a id="tabB" href="#tab_b" data-toggle="pill">Curriculum:</a></li>
-					<li href="#tab_c" data-toggle="pill"><a href="#tab_c" data-toggle="pill">Price:</a></li>
+					<li href="#tab_c" id="priceTab" data-id="" data-toggle="pill"><a href="#tab_c" data-toggle="pill">Price:</a></li>
 					<li href="#tab_d" data-toggle="pill"><a href="#tab_d" data-toggle="pill">Student Enroll</a></li>
-					<li href="#tab_e" data-toggle="pill"><a href="#tab_e" data-toggle="pill">Discussion</a></li>
+					<!--<li href="#tab_e" data-toggle="pill"><a href="#tab_e" data-toggle="pill">Discussion</a></li> -->
+					<li href=""><a id="discussTab" href="">Discussion</a></li>				
 				</ul>
 			</div>
 			<div class="tab-content col-xs-6 col-sm-6 col-md-8 col-lg-8 course-tabs-pane ">
@@ -59,7 +63,7 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
-								<form id="courseAddForm" class="about-course" method="POST">
+								<form id="courseAddForm" class="about-course" method="POST" enctype="multipart/form-data">
 									
 									<input type="hidden" name="courseID" value="">
 									<label for="enter-the-course-title">Enter the course title</label>
@@ -68,6 +72,10 @@
 									<textarea id="description" rows="5" name="courseDescription">@if($course['description']){{$course['description']}}@endif</textarea>
 									<label for="pre-request">Prerequisites</label>
 									<input type="text" id="pre-request" value="@if($course['prerequisite']){{$course['prerequisite']}}@endif" name="coursePrerequisites">
+									<label for="pre-request">Price: </label>
+									<input type="number" id="course-price" value="" name="coursePrice">
+									<label for="pre-request">Thumbnail: </label>									
+									<input type="file" id="courseThumb" name="courseThumb">																			
 									<div class="submit-btn">
 										<input type="Submit" value="Save">			            						            					
 									</div>
@@ -95,17 +103,18 @@
 					</div>
 				</div>
 				<div class="tab-pane" id="tab_c">
-					<h4>Pane C</h4>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+					<h4>PRICE:</h4>
+					<p id="coursePricePane">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
 				</div>
 				<div class="tab-pane" id="tab_d">
-					<h4>Pane D</h4>
+					<h4>Student Enroll</h4>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-				</div>
-				<div class="tab-pane" id="tab_e">
-					<h4>Pane E</h4>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-				</div>
+				</div>				
+					<div class="tab-pane" id="tab_e">
+						<h4>Pane E</h4>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+					</div>
+				
 			</div>
 			<!-- tab content -->
 		</div>
@@ -293,19 +302,21 @@
 	<!-- add-quiz-model -->
 </section>
 
+
+
+
 <script type="text/javascript">
 
 $(document).ready(function(){
 
 		var course_id;
 
-	
-
 		//Course Add Form
 		$("#courseAddForm").submit(function(e){
 			e.preventDefault();
 			console.log("course add form for user");
-			var formData = $("#courseAddForm").serialize();
+			//var formData = $("#courseAddForm").serialize();
+			var formData = new FormData(this);	
 			console.log(formData);
 
 			  $.ajaxSetup({
@@ -316,12 +327,21 @@ $(document).ready(function(){
 		            url: "{{ route('addCourseForm') }}",
 		            type: 'post', 
 		            data: formData,
+		            processData: false,
+		            contentType: false, 		            
 			        success: function (data) { 
 
 		           	  toastr.success(data.msg);
 		           	  $("#tabA").toggleClass();
 		           	  course_id = data.course_id;
 		           	  $("#courseId").val(data.course_id);
+		           	  //Adding course id in price pane
+		           	  $('#priceTab').data('id', data.course_id);
+		           	  //Adding Course discussion link to href
+		           	  var discusRoute = "{{route('discussion_view')}}/"+data.course_id;
+		              $('#discussTab').attr('href', discusRoute);
+		           	  //console.log("discusRoute" + discusRoute);
+
 		           	  $("#tabB").click();
 			        },
 		        	error: function (data) { 
@@ -421,8 +441,8 @@ $(document).ready(function(){
 		           	    toastr.success(data.msg);
 		           	    
 		           	    //hide lesson modal 
-		           	    $('.add-lesson').modal('hide');
-		           	    //$('.add-lesson').modal('toggle');
+		           	      $('.add-lesson').modal('hide');
+		           	      $('.modal-backdrop').css('display', 'none');
 
 		           	    //Updating weeks view		           	    
 		           	    weekView(data.course_id);
@@ -453,7 +473,7 @@ $(document).ready(function(){
 			        success: function (data) {
 			        	console.log(data);
 		           	    toastr.success(data.msg);		           	    
-
+		           	      $('.modal-backdrop').css('display', 'none');		           	    
 		           	    //Updating weeks view           	    
 		           	    weekView(data.course_id);
 
@@ -497,9 +517,9 @@ $(document).ready(function(){
 		        });
 		});
 
-	  //Delete Lesson
+	  //Delete Lesson 
 	  	  //Delete Week
-	  $("#deleteLesson").on('click', function(e){
+	  $(".deleteLesson").on('click', function(e){
 			e.preventDefault();
 			console.log("delete lesson");
 		//	var formData = $("#weekLessonForm").serialize();
@@ -530,8 +550,132 @@ $(document).ready(function(){
 		        });
 		});
 
-    }
+	  $(".deleteResource").on('click', function(e){
+			e.preventDefault();
+			console.log("delete resoruce");
+		//	var formData = $("#weekLessonForm").serialize();
+            var formData = $(this).data('id');
+            console.log($(this).data('id'));
 
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('delete_resource') }}",
+		            type: 'post', 
+		            data: { 'lessonId' :formData},
+
+			        success: function (data) {
+			        	console.log(data);
+
+		           	   toastr.success(data.msg);
+		           	    // $("#lessonClosed").click();
+			        	//Upating View
+			        	weekView(data.course_id);
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+		});
+
+	  //Load Edit Lessons modal
+	  $(".editLesson").click(function(e){
+	  	e.preventDefault();
+	  	var lessonId = $(this).data('id');
+	  	console.log("lessonId" + lessonId);
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('edit_lesson_modal') }}",
+		            type: 'post', 
+		            data: {'lessonId':lessonId},
+
+			        success: function (data) {
+			        	console.log(data);
+
+			        	//$("#editLessonForm")
+			        	$('#updateLessonTitle').val(data.title);
+			        	$('#updateLessonId').val(data.id);
+			        	//open edit lesson modal
+			        	$(".editLessonModal").modal('show');
+		           	    toastr.success(data.msg);
+
+			        	//Upating View
+			        	//weekView(data.course_id);
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });	  	
+
+	  });
+
+	  //Submitting Edit Lesson Modal
+	  $("#updateLessonForm").submit(function(e){
+	  		e.preventDefault();
+
+	  		console.log("edit lesson form");
+            var formData = new FormData(this);			
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('edit_lesson_submit') }}",
+		            type: 'post', 
+		            data: formData,
+		            processData: false,
+		            contentType: false, 
+			        success: function (data) {
+			        	console.log(data);
+			        	console.log("course_iddd" + data.course_id);
+		           	    //toastr.success(data.msg);		           	    
+		           	     
+		           	    $('.modal-backdrop').css('display', 'none');		           	    
+		           	    //Updating weeks view           	    
+		           	    weekView(data.course_id);
+
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+	  });
+    }
+    //Course Price Pane
+    $("#priceTab").click(function(e){
+    	e.preventDefault();
+    	console.log("course price pane");
+    		var courseId = $(this).data('id');
+    		console.log("courseId" + courseId);
+		      $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('get_course_price') }}",
+		            type: 'post', 
+		            data: {'courseId': courseId},
+
+			        success: function (data) {
+			        	console.log(data);
+			        	$("#coursePricePane").text(data.price_html);
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });    	
+
+    });
 });
 
 
