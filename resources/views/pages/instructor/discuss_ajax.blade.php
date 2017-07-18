@@ -12,10 +12,10 @@
 									<div class="replies"><p><a href="#"> 16 Replies </a></p></div>
 									<div class="com-like">
 										<ul>
-											<li data-toggle="modal" data-target="#add-lesson"><i class="fa fa-upload"></i> Upload Image</li>
-											<li data-toggle="modal" data-target="#add-coding"><i class="fa fa-comment-o" ></i> Comment</li>
-											<li><i class="fa fa-smile-o"></i> React</li>
-											<li><i class="fa fa-envelope-o"></i> Direct</li>
+											<li data-toggle="modal" data-target="#add-lesson"><a href="#"><i class="fa fa-upload"></i> Upload Image</a></li>
+											<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-comment-o" ></i> Comment</a></li>
+											<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-smile-o"></i> React</a></a></li>
+											<li><a href="#"><i class="fa fa-envelope-o"></i> Direct</a></li>
 										</ul>
 									</div>
 								</div>
@@ -33,10 +33,10 @@
 									<div class="replies"><p><a href="#"> 16 Replies </a></p></div>
 									<div class="com-like">
 										<ul>
-											<li><i class="fa fa-upload"></i> Upload Image</li>
-											<li><i class="fa fa-comment-o"></i> Comment</li>
-											<li><i class="fa fa-smile-o"></i> React</li>
-											<li><i class="fa fa-envelope-o"></i> Direct</li>
+											<li data-toggle="modal" data-target="#add-lesson"><a href="#"><i class="fa fa-upload"></i> Upload Image</a></li>
+											<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-comment-o" ></i> Comment</a></li>
+											<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-smile-o"></i> React</a></a></li>
+											<li><a href="#"><i class="fa fa-envelope-o"></i> Direct</a></li>
 										</ul>
 									</div>
 								</div>
@@ -52,13 +52,13 @@
 								<h1>Rebecca M. <span>(title of Post Goes here)</span></h1>
 								<p>dolorem ipsum quia dolor. dolorem ipsum quia dolor dolorem ipsum quia dolor. dolorem ipsum prostoecturs Prem ipsum quia dolor. dolorem ipsum quia dolor dolorem ipsum quia</p>
 								<div class="re-com-im">
-									<div class="replies yes"><p><a href="#"> 16 Replies </a></p></div>
+									<div class="replies yes"><p> 16 Replies </p></div>
 									<div class="com-like">
 										<ul>
-											<li><i class="fa fa-upload"></i> Upload Image</li>
-											<li><i class="fa fa-comment-o"></i> Comment</li>
-											<li><i class="fa fa-smile-o"></i> React</li>
-											<li><i class="fa fa-envelope-o"></i> Direct</li>
+											<li data-toggle="modal" data-target="#add-lesson"><a href="#"><i class="fa fa-upload"></i> Upload Image</a></li>
+											<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-comment-o" ></i> Comment</a></li>
+											<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-smile-o"></i> React</a></a></li>
+											<li><a href="#"><i class="fa fa-envelope-o"></i> Direct</a></li>
 										</ul>
 									</div>
 								</div>
@@ -82,12 +82,12 @@
 								</div> -->
 								
 							</div>
-							<div class="extra-ic">
+							<!-- <div class="extra-ic">
 									<ul>
 										<li><i class="fa fa-comment-o"></i></li>
 										<li><i class="fa fa-envelope-o"></i></li>
 									</ul>
-								</div>
+								</div> -->
 						</div>
 
 						<div class="chats  inner-chat-here">
@@ -109,12 +109,12 @@
 									</div>
 								</div> -->
 							</div>
-							<div class="extra-ic">
+							<!-- <div class="extra-ic">
 									<ul>
 										<li><i class="fa fa-comment-o"></i></li>
 										<li><i class="fa fa-envelope-o"></i></li>
 									</ul>
-								</div>
+								</div> -->
 						</div>
 							</div>
 						</div>

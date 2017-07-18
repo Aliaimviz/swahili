@@ -70,3 +70,6 @@ Route::get('/discussions/{id?}', 'Instructor\CourseController@get_discussion_vie
 
 //Course Discussion Page Route
 Route::post('/add-discussion', 'Instructor\CourseController@addDiscusForm')->name('addDiscusForm');
+
+//Comment
+Route::post('/add-comment', 'Instructor\CourseController@addDiscusComment')->name('addDiscusComment');

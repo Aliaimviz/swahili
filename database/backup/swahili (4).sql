@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2017 at 07:06 AM
+-- Generation Time: Jul 18, 2017 at 06:48 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -304,195 +304,62 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `enroll_users` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `prerequisite` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=182 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `prerequisite` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=266 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id`, `user_id`, `title`, `price`, `description`, `enroll_users`, `created_at`, `updated_at`, `prerequisite`) VALUES
-(1, 6, 'demo course', 0, 'this is demo course description', NULL, '2017-07-08 02:04:12', '2017-07-08 02:04:12', 'this is prerequistes'),
-(2, 6, 'demo course', 0, 'asd asdsa', NULL, '2017-07-08 02:04:44', '2017-07-08 02:04:44', 'adasd asd'),
-(3, 6, 'asd sadas', 0, 'dsa dsa dasd', NULL, '2017-07-08 02:05:25', '2017-07-08 02:05:25', 'as dsa dasd'),
-(4, 6, 'asd asd', 0, 'sa dasd', NULL, '2017-07-08 02:15:30', '2017-07-08 02:15:30', 'asd asd'),
-(5, 6, 'asdas', 0, 'dsadasd', NULL, '2017-07-08 02:16:04', '2017-07-08 02:16:04', 'asdasd'),
-(6, 6, 'asdas', 0, 'sadsad', NULL, '2017-07-08 02:18:40', '2017-07-08 02:18:40', 'asad'),
-(7, 6, 'asda', 0, 'a dsa das', NULL, '2017-07-08 02:19:50', '2017-07-08 02:19:50', 'adsadasd'),
-(8, 6, 'asdsad', 0, 'asdsadsa', NULL, '2017-07-08 02:21:03', '2017-07-08 02:21:03', 'sadasd'),
-(9, 6, 'asdas', 0, 'asdas', NULL, '2017-07-08 02:22:48', '2017-07-08 02:22:48', 'asdasd'),
-(10, 6, 'test1', 0, 'test1 desc', NULL, '2017-07-10 02:00:03', '2017-07-10 02:00:03', 'Kaasd'),
-(11, 6, 'asd', 0, 'sa', NULL, '2017-07-10 03:04:57', '2017-07-10 03:04:57', 'sa'),
-(12, 6, 'abv', 0, 'abv', NULL, '2017-07-10 03:07:45', '2017-07-10 03:07:45', 'abv'),
-(13, 6, 'sdsad', 0, 'sdsad', NULL, '2017-07-10 03:09:48', '2017-07-10 03:09:48', 'sdsad'),
-(14, 6, 'test3', 0, 'test3', NULL, '2017-07-10 03:11:08', '2017-07-10 03:11:08', 'test3 pre'),
-(15, 6, 'asd', 0, 'sa', NULL, '2017-07-10 05:11:58', '2017-07-10 05:11:58', 'sa'),
-(16, 6, 'asd', 0, 'asd', NULL, '2017-07-10 05:14:31', '2017-07-10 05:14:31', 'asd'),
-(17, 6, 'asdsa', 0, 'addWeekForm', NULL, '2017-07-10 05:27:54', '2017-07-10 05:27:54', 'addWeekForm'),
-(18, 6, 'asd', 0, 'asd', NULL, '2017-07-10 05:33:07', '2017-07-10 05:33:07', 'asd'),
-(19, 6, 'asd', 0, 'sa', NULL, '2017-07-10 05:34:13', '2017-07-10 05:34:13', 'sa'),
-(20, 6, 'qwasd', 0, 'qwasd', NULL, '2017-07-10 06:16:35', '2017-07-10 06:16:35', 'qwasd'),
-(21, 6, 'asd', 0, 's', NULL, '2017-07-10 06:33:38', '2017-07-10 06:33:38', 's'),
-(22, 6, 'asd', 0, 'course_id', NULL, '2017-07-10 06:34:17', '2017-07-10 06:34:17', 'course_id'),
-(23, 6, 'asd', 0, 'asd', NULL, '2017-07-10 06:39:14', '2017-07-10 06:39:14', 'asd'),
-(24, 6, 'qwe', 0, 'qwe', NULL, '2017-07-10 07:14:45', '2017-07-10 07:14:45', 'qwe'),
-(25, 6, 'asd', 0, 'asd', NULL, '2017-07-10 07:16:21', '2017-07-10 07:16:21', 'asd'),
-(26, 6, 'swes', 0, 'swes', NULL, '2017-07-10 07:17:11', '2017-07-10 07:17:11', 'swes'),
-(27, 6, 'yuia', 0, 'yuia', NULL, '2017-07-10 07:18:07', '2017-07-10 07:18:07', 'yuia'),
-(28, 6, 'asds', 0, 'asd', NULL, '2017-07-10 07:18:40', '2017-07-10 07:18:40', 'asdasd'),
-(29, 6, 'asd', 0, 'asd', NULL, '2017-07-10 07:28:14', '2017-07-10 07:28:14', 'asdsad'),
-(30, 6, 'asd', 0, 'sad', NULL, '2017-07-10 07:28:41', '2017-07-10 07:28:41', 'sad'),
-(31, 6, 'asd', 0, 'asda', NULL, '2017-07-10 07:31:36', '2017-07-10 07:31:36', 'asd'),
-(32, 6, 'sdsad', 0, 'sdsad', NULL, '2017-07-10 08:03:05', '2017-07-10 08:03:05', 'sdsad'),
-(33, 6, 'asdsa', 0, 'week_id', NULL, '2017-07-10 08:06:02', '2017-07-10 08:06:02', 'week_id'),
-(34, 6, 'asd', 0, 'sa', NULL, '2017-07-10 23:53:41', '2017-07-10 23:53:41', 'sa'),
-(35, 6, 'qwea', 0, 'qwea', NULL, '2017-07-11 00:10:49', '2017-07-11 00:10:49', 'qwea'),
-(36, 6, 'asd', 0, 'week_id', NULL, '2017-07-11 00:12:15', '2017-07-11 00:12:15', 'week_id'),
-(37, 6, 'asda', 0, 'asda', NULL, '2017-07-11 00:13:24', '2017-07-11 00:13:24', 'asda'),
-(38, 6, 'asd', 0, 'sa', NULL, '2017-07-11 00:30:41', '2017-07-11 00:30:41', 'sad'),
-(39, 6, 'asdaasd', 0, 'asdad', NULL, '2017-07-11 00:34:28', '2017-07-11 00:34:28', 'asdsad'),
-(40, 6, 'asdasd', 0, 'asdasd', NULL, '2017-07-11 00:36:49', '2017-07-11 00:36:49', 'asdasd'),
-(41, 6, 'asdsad', 0, 'asdsad', NULL, '2017-07-11 00:37:44', '2017-07-11 00:37:44', 'asdsad'),
-(42, 6, 'sad', 0, 'sad', NULL, '2017-07-11 00:39:10', '2017-07-11 00:39:10', 'sad'),
-(43, 6, 'sad', 0, 'asd', NULL, '2017-07-11 00:44:02', '2017-07-11 00:44:02', 'asd'),
-(44, 6, 'sdsa', 0, 'sdsa', NULL, '2017-07-11 00:46:41', '2017-07-11 00:46:41', 'sdsa'),
-(45, 6, 'rtttyyt', 0, 'rtttyyt', NULL, '2017-07-11 00:50:57', '2017-07-11 00:50:57', 'rtttyyt'),
-(46, 6, 'asasd', 0, 'asasd', NULL, '2017-07-11 00:55:25', '2017-07-11 00:55:25', 'asasd'),
-(47, 6, 'asdada', 0, 'asdada', NULL, '2017-07-11 00:56:44', '2017-07-11 00:56:44', 'asdada'),
-(48, 6, 'asdsadas', 0, 'asdsadas', NULL, '2017-07-11 00:58:33', '2017-07-11 00:58:33', 'asdsadas'),
-(49, 6, 'asdsadas', 0, 'asdsadas', NULL, '2017-07-11 00:59:39', '2017-07-11 00:59:39', 'asdsadas'),
-(50, 6, 'asdsa', 0, 'asdsad', NULL, '2017-07-11 01:01:15', '2017-07-11 01:01:15', 'asdsad'),
-(51, 6, 'asdsad', 0, 'asdsad', NULL, '2017-07-11 01:03:34', '2017-07-11 01:03:34', 'asdsad'),
-(52, 6, 'qwe', 0, 'qwe', NULL, '2017-07-11 01:28:12', '2017-07-11 01:28:12', 'qwe'),
-(53, 6, 'qwewe', 0, 'qwewe', NULL, '2017-07-11 01:32:15', '2017-07-11 01:32:15', 'qwewe'),
-(54, 6, 'qwewqe', 0, 'qwewqe', NULL, '2017-07-11 01:45:07', '2017-07-11 01:45:07', 'qwewqe'),
-(55, 6, 'ererer', 0, 'ererer', NULL, '2017-07-11 01:49:02', '2017-07-11 01:49:02', 'ererer'),
-(56, 6, 'asdasd', 0, 'asdasd', NULL, '2017-07-11 01:49:44', '2017-07-11 01:49:44', 'sadsa'),
-(57, 6, 'asdasd', 0, 'asda', NULL, '2017-07-11 01:50:39', '2017-07-11 01:50:39', 'asda'),
-(58, 6, 'sadsad', 0, 'dadsa', NULL, '2017-07-11 01:52:22', '2017-07-11 01:52:22', 'asdsad'),
-(59, 6, 'adasd', 0, 'asdasd', NULL, '2017-07-11 01:53:28', '2017-07-11 01:53:28', 'asdasd'),
-(60, 6, 'asda', NULL, 'asd', NULL, '2017-07-11 05:10:03', '2017-07-11 05:10:03', 'asd'),
-(61, 6, 'sadasd', NULL, 'sadasd', NULL, '2017-07-11 05:10:28', '2017-07-11 05:10:28', 'sadasd'),
-(62, 6, 'asdaasd', NULL, 'sadasd', NULL, '2017-07-11 05:12:29', '2017-07-11 05:12:29', 'sadasd'),
-(63, 6, 'asdad', NULL, 'asda', NULL, '2017-07-11 05:14:35', '2017-07-11 05:14:35', 'sadsad'),
-(64, 6, 'sadasdas', NULL, 'sadasdas', NULL, '2017-07-11 05:19:11', '2017-07-11 05:19:11', 'sadasdas'),
-(65, 6, 'wqweqwe', NULL, 'wqweqwe', NULL, '2017-07-11 05:21:20', '2017-07-11 05:21:20', 'wqweqwe'),
-(66, 6, 'asd', NULL, 'asd', NULL, '2017-07-11 05:22:45', '2017-07-11 05:22:45', 'asd'),
-(67, 6, 'asdsadaa', NULL, 'asdaa', NULL, '2017-07-11 05:32:48', '2017-07-11 05:32:48', 'asdaa'),
-(68, 6, 'asdasdasdas', NULL, 'asdasdasdasasdasdasdas', NULL, '2017-07-11 05:33:51', '2017-07-11 05:33:51', 'asdasdasdas'),
-(69, 6, 'asdsadada', NULL, 'asdsadada', NULL, '2017-07-11 05:34:09', '2017-07-11 05:34:09', 'asdsadada'),
-(70, 6, 'asdsadsada', NULL, 'asdsadsada', NULL, '2017-07-11 05:48:58', '2017-07-11 05:48:58', 'asdsadsada'),
-(71, 6, 'sadsadas', NULL, 'asdsad', NULL, '2017-07-11 05:49:19', '2017-07-11 05:49:19', 'adasdasd'),
-(72, 6, 'asdasdadas', NULL, 'asdasdadas', NULL, '2017-07-11 05:57:41', '2017-07-11 05:57:41', 'asdasdadas'),
-(73, 6, 'asdsadsad', NULL, 'asdasdsaaa', NULL, '2017-07-11 05:58:58', '2017-07-11 05:58:58', 'asdasdsad'),
-(74, 6, 'sadasdasd', NULL, 'asdasdasd', NULL, '2017-07-11 06:02:47', '2017-07-11 06:02:47', 'asdasdadsa'),
-(75, 6, 'sadadasda', NULL, 'sadadasda', NULL, '2017-07-11 06:08:01', '2017-07-11 06:08:01', 'sadadasda'),
-(76, 6, 'asdasdasdas', NULL, 'asdasdasdas', NULL, '2017-07-11 06:08:39', '2017-07-11 06:08:39', 'asdasdasdas'),
-(77, 6, 'asdadas', NULL, 'asdadas', NULL, '2017-07-11 06:12:20', '2017-07-11 06:12:20', 'asdadas'),
-(78, 6, 'asqweasdasd', NULL, 'asqweasdasd', NULL, '2017-07-11 06:20:35', '2017-07-11 06:20:35', 'asqweasdasd'),
-(79, 6, 'sadsadas', NULL, 'asdad', NULL, '2017-07-11 06:28:20', '2017-07-11 06:28:20', 'asdasdasd'),
-(80, 6, 'asdsadas', NULL, 'asdad', NULL, '2017-07-11 06:33:49', '2017-07-11 06:33:49', 'asdada'),
-(81, 6, 'adsad', NULL, 'adsad', NULL, '2017-07-11 07:01:44', '2017-07-11 07:01:44', 'adsad'),
-(82, 6, 'asdsadaa', NULL, 'adada', NULL, '2017-07-11 07:03:36', '2017-07-11 07:03:36', 'adada'),
-(83, 6, 'adsadaa', NULL, 'adsadaa', NULL, '2017-07-11 07:04:04', '2017-07-11 07:04:04', 'adsadaa'),
-(84, 6, 'asdasdasdsadsa', NULL, 'asdasdasdsadsa', NULL, '2017-07-11 07:05:15', '2017-07-11 07:05:15', 'asdasdasdsadsa'),
-(85, 6, 'asdasdasd', NULL, 'asdasdasd', NULL, '2017-07-11 07:06:35', '2017-07-11 07:06:35', 'asdasdasd'),
-(86, 6, 'asdasdasdas', NULL, 'asdasdasdasasdasdasdas', NULL, '2017-07-11 07:08:38', '2017-07-11 07:08:38', 'asdasdasdasasdasdasdas'),
-(87, 6, 'asdasdasd', NULL, 'asdasdasdas', NULL, '2017-07-11 07:13:10', '2017-07-11 07:13:10', 'asdasdasdas'),
-(88, 6, 'asdasdadas', NULL, 'asdsadasd', NULL, '2017-07-11 07:15:36', '2017-07-11 07:15:36', 'asdasdasd'),
-(89, 6, 'sadsad', NULL, 'asdasdasdas', NULL, '2017-07-11 07:19:25', '2017-07-11 07:19:25', 'asdasdasdas'),
-(90, 6, 'asdadad', NULL, 'asdadad', NULL, '2017-07-11 07:25:12', '2017-07-11 07:25:12', 'asdadad'),
-(91, 6, 'asdasdasdsadsa', NULL, 'asdasdasdsadsa', NULL, '2017-07-11 07:42:31', '2017-07-11 07:42:31', 'asdasdasdsadsa'),
-(92, 6, 'asdsadas', NULL, 'daa', NULL, '2017-07-11 07:42:56', '2017-07-11 07:42:56', 'daa'),
-(93, 6, 'asdsad', NULL, 'asdsad', NULL, '2017-07-11 08:00:59', '2017-07-11 08:00:59', 'asdsad'),
-(94, 6, 'asdsadada', NULL, 'as', NULL, '2017-07-11 08:12:20', '2017-07-11 08:12:20', 'asdsad'),
-(95, 6, 'asdasd', NULL, 'asdasd', NULL, '2017-07-11 23:39:26', '2017-07-11 23:39:26', 'asdasdasdsadsa'),
-(96, 6, 'asda', NULL, 'asda', NULL, '2017-07-11 23:44:08', '2017-07-11 23:44:08', 'asdasdasd'),
-(97, 6, 'asdasdadas', NULL, 'asdas', NULL, '2017-07-11 23:47:14', '2017-07-11 23:47:14', 'asdasdasd'),
-(98, 6, 'qweqw', NULL, 'qweqw', NULL, '2017-07-11 23:47:38', '2017-07-11 23:47:38', 'qweqw'),
-(99, 6, 'asdsa', NULL, 'asdsa', NULL, '2017-07-12 00:00:22', '2017-07-12 00:00:22', 'asdsa'),
-(100, 6, 'sadsadas', NULL, 'sad', NULL, '2017-07-12 00:01:29', '2017-07-12 00:01:29', 'sadasd'),
-(101, 6, 'asda', NULL, 'asd', NULL, '2017-07-12 00:02:26', '2017-07-12 00:02:26', 'asdasdasd'),
-(102, 6, 'qweqeqw', NULL, 'qweqeqw', NULL, '2017-07-12 00:03:12', '2017-07-12 00:03:12', 'qweqeqw'),
-(103, 6, 'qweqe', NULL, 'qweqe', NULL, '2017-07-12 00:05:49', '2017-07-12 00:05:49', 'qweqe'),
-(104, 6, 'asd', NULL, 'asd', NULL, '2017-07-12 00:07:40', '2017-07-12 00:07:40', 'asdasd'),
-(105, 6, 'qweqew', NULL, 'qweqew', NULL, '2017-07-12 00:08:15', '2017-07-12 00:08:15', 'qweqew'),
-(106, 6, 'qweqweqw', NULL, 'qweqweqw', NULL, '2017-07-12 00:11:02', '2017-07-12 00:11:02', 'qweqweqw'),
-(107, 6, 'asdsaa', NULL, 'deleteWeek', NULL, '2017-07-12 00:19:26', '2017-07-12 00:19:26', 'deleteWeek'),
-(108, 6, 'nlklkj', NULL, 'jkljk', NULL, '2017-07-12 00:20:51', '2017-07-12 00:20:51', 'jkljl'),
-(109, 6, 'adsadaaadsa', NULL, 'adsa', NULL, '2017-07-12 00:21:45', '2017-07-12 00:21:45', 'adsa'),
-(110, 6, 'asdsadada', NULL, 'das', NULL, '2017-07-12 00:23:47', '2017-07-12 00:23:47', 'das'),
-(111, 6, 'asdasdasd', NULL, 'dadas', NULL, '2017-07-12 00:24:28', '2017-07-12 00:24:28', 'dadas'),
-(112, 6, 'adasd', NULL, 'adasd', NULL, '2017-07-12 00:25:29', '2017-07-12 00:25:29', 'adasd'),
-(113, 6, 'asdasdsa', NULL, 'asdasdsa', NULL, '2017-07-12 00:27:01', '2017-07-12 00:27:01', 'asdasdsa'),
-(114, 6, 'asdadas', NULL, 'asdadas', NULL, '2017-07-12 00:29:26', '2017-07-12 00:29:26', 'asdadas'),
-(115, 6, 'asdsadas', NULL, 'd', NULL, '2017-07-12 00:30:43', '2017-07-12 00:30:43', 'dadas'),
-(116, 6, 'asdsadaa', NULL, 'das', NULL, '2017-07-12 00:42:05', '2017-07-12 00:42:05', 'das'),
-(117, 6, 'qweqw', NULL, 'asdsad', NULL, '2017-07-12 00:43:19', '2017-07-12 00:43:19', 'asdsadas'),
-(118, 6, 'qweqwe', NULL, 'asdsad', NULL, '2017-07-12 00:44:21', '2017-07-12 00:44:21', 'asdsadas'),
-(119, 6, 'asdas', NULL, 'asdas', NULL, '2017-07-12 01:07:31', '2017-07-12 01:07:31', 'asdas'),
-(120, 6, 'asdsadaa', NULL, 'sad', NULL, '2017-07-12 01:09:04', '2017-07-12 01:09:04', 'sadadasda'),
-(121, 6, 'asdsa', NULL, 'asdsa', NULL, '2017-07-12 01:11:04', '2017-07-12 01:11:04', 'asdsadas'),
-(122, 6, 'asdsad', NULL, 'asdsad', NULL, '2017-07-12 01:20:41', '2017-07-12 01:20:41', 'asdsadada'),
-(123, 6, 'adsa', NULL, 'daa', NULL, '2017-07-12 01:21:01', '2017-07-12 01:21:01', 'daa'),
-(124, 6, 'adasd', NULL, 'adasd', NULL, '2017-07-12 01:21:16', '2017-07-12 01:21:16', 'adasd'),
-(125, 6, 'asdsadada', NULL, 'adasd', NULL, '2017-07-12 01:21:32', '2017-07-12 01:21:32', 'adasd'),
-(126, 6, 'asdasdadas', NULL, 'asdas', NULL, '2017-07-12 02:31:17', '2017-07-12 02:31:17', 'asdasd'),
-(127, 6, 'asdasdadas', NULL, 'asdas', NULL, '2017-07-12 02:35:16', '2017-07-12 02:35:16', 'asdasd'),
-(128, 6, 'adassa', NULL, 'adassa', NULL, '2017-07-12 02:36:01', '2017-07-12 02:36:01', 'adassa'),
-(129, 6, 'asdsadada', NULL, 'asdas', NULL, '2017-07-12 02:41:43', '2017-07-12 02:41:43', 'asd'),
-(130, 6, 'sadasd', NULL, 'asd', NULL, '2017-07-12 02:44:14', '2017-07-12 02:44:14', 'asd'),
-(131, 6, 'asdas', NULL, 'asdas', NULL, '2017-07-12 02:46:46', '2017-07-12 02:46:46', 'asdas'),
-(132, 6, 'asdsa', NULL, 'asdsa', NULL, '2017-07-12 03:02:33', '2017-07-12 03:02:33', 'asdsadada'),
-(133, 6, 'asdsada', NULL, 'asdsada', NULL, '2017-07-12 03:02:58', '2017-07-12 03:02:58', 'asdsada'),
-(134, 6, 'asdsaa', NULL, 'resource_title', NULL, '2017-07-12 03:09:36', '2017-07-12 03:09:36', 'resource_title'),
-(135, 6, 'asdsad', NULL, 'asdsad', NULL, '2017-07-12 03:10:22', '2017-07-12 03:10:22', 'asdsadada'),
-(136, 6, 'asdasa', NULL, 'asdasa', NULL, '2017-07-12 03:11:31', '2017-07-12 03:11:31', 'asdasa'),
-(137, 6, 'asdasdasd', NULL, '$(".close span").click();', NULL, '2017-07-12 03:17:14', '2017-07-12 03:17:14', '$(".close span").click();'),
-(138, 6, 'asdasdasd', NULL, 'asdasdasd', NULL, '2017-07-12 03:17:44', '2017-07-12 03:17:44', 'sadsad'),
-(139, 6, 'sadasdas', NULL, 'sadasd', NULL, '2017-07-12 03:18:36', '2017-07-12 03:18:36', 'sadasd'),
-(140, 6, 'asdasdasd', NULL, 'asdasd', NULL, '2017-07-12 03:21:56', '2017-07-12 03:21:56', 'asdasdasd'),
-(141, 6, 'asdsadada', NULL, 'asdsad', NULL, '2017-07-12 03:24:00', '2017-07-12 03:24:00', 'asdsad'),
-(142, 6, 'sdfsd', NULL, 'asdasd', NULL, '2017-07-12 03:25:49', '2017-07-12 03:25:49', 'adasd'),
-(143, 6, 'asdasdasd', NULL, 'asdasd', NULL, '2017-07-12 03:26:34', '2017-07-12 03:26:34', 'asdasd'),
-(144, 6, 'sada', NULL, 'dasda', NULL, '2017-07-12 03:49:13', '2017-07-12 03:49:13', 'dasda'),
-(145, 6, 'asdasdadas', NULL, 'asd', NULL, '2017-07-12 03:51:09', '2017-07-12 03:51:09', 'asdasd'),
-(146, 6, 'ewrwewerwe', NULL, 'ewrwewerwe', NULL, '2017-07-12 03:53:28', '2017-07-12 03:53:28', 'ewrwewerwe'),
-(147, 6, 'asdadasd', NULL, 'asdadasd', NULL, '2017-07-12 03:54:05', '2017-07-12 03:54:05', 'asdadasd'),
-(148, 6, 'asdadasd', NULL, 'asdadasd', NULL, '2017-07-12 03:55:02', '2017-07-12 03:55:02', 'asdadasd'),
-(149, 6, 'dasdasdas', NULL, 'dasdasdas', NULL, '2017-07-12 03:55:19', '2017-07-12 03:55:19', 'dasdasdas'),
-(150, 6, 'adsadsadsad', NULL, 'adsadsadsad', NULL, '2017-07-12 03:56:32', '2017-07-12 03:56:32', 'adsadsadsad'),
-(151, 6, 'asdasda', NULL, 'sdsadsa', NULL, '2017-07-12 03:57:06', '2017-07-12 03:57:06', 'sdsadsa'),
-(152, 6, 'asdasdsad', NULL, 'asdsad', NULL, '2017-07-12 03:59:28', '2017-07-12 03:59:28', 'asdsad'),
-(153, 6, 'adasdsadsadasdsadasda', NULL, 'adasdsadsadasdsadasda', NULL, '2017-07-12 04:00:08', '2017-07-12 04:00:08', 'adasdsadsadasdsadasda'),
-(154, 6, 'asdsadada', NULL, 'sadsada', NULL, '2017-07-12 04:05:14', '2017-07-12 04:05:14', 'sadsada'),
-(155, 6, 'adsasdas', NULL, 'adsasdas', NULL, '2017-07-12 05:13:21', '2017-07-12 05:13:21', 'adsasdas'),
-(156, 6, 'asdadas', NULL, 'd', NULL, '2017-07-12 05:14:08', '2017-07-12 05:14:08', 'daa'),
-(157, 6, 'adasdasd', NULL, 'asdasdsa', NULL, '2017-07-12 05:19:33', '2017-07-12 05:19:33', 'asdasdasdas'),
-(158, 6, 'dasda', NULL, 'asdasd', NULL, '2017-07-12 05:20:02', '2017-07-12 05:20:02', 'sadasd'),
-(159, 6, 'aasdasd', NULL, 'aasdasd', NULL, '2017-07-12 05:23:06', '2017-07-12 05:23:06', 'aasdasd'),
-(160, 6, 'asdasdsa', NULL, 'asdasdsa', NULL, '2017-07-12 05:23:39', '2017-07-12 05:23:39', 'asdasdsa'),
-(161, 6, 'asdasdasdas', NULL, 'asdasd', NULL, '2017-07-12 05:26:39', '2017-07-12 05:26:39', 'asdasdasdas'),
-(162, 6, 'asdasdasda', NULL, 'asdasdasda', NULL, '2017-07-12 05:26:53', '2017-07-12 05:26:53', 'asdasdasdas'),
-(163, 6, 'asasdasd', NULL, 'asasdasd', NULL, '2017-07-12 05:30:23', '2017-07-12 05:30:23', 'asasdasd'),
-(164, 6, 'asdasdasdsada', NULL, 'asdasdasdsada', NULL, '2017-07-12 05:30:54', '2017-07-12 05:30:54', 'asdasdasdsada'),
-(165, 6, 'weuiwuiehuihauihiasudh', NULL, 'adiuauisdauidui', NULL, '2017-07-12 05:32:40', '2017-07-12 05:32:40', 'iojqdasdioasmo'),
-(166, 6, 'asdsadas', NULL, 'ada', NULL, '2017-07-12 05:38:50', '2017-07-12 05:38:50', 'adasdasd'),
-(167, 6, 'asdsadas', NULL, 'asdadas', NULL, '2017-07-12 05:40:11', '2017-07-12 05:40:11', 'asdsadada'),
-(168, 6, 'adasdasd', NULL, 'asdasdasd', NULL, '2017-07-12 05:41:34', '2017-07-12 05:41:34', 'asdasdasd'),
-(169, 6, 'asdsadasd', NULL, 'asdsadasd', NULL, '2017-07-12 05:42:19', '2017-07-12 05:42:19', 'asdsadasd'),
-(170, 6, 'asdsadasdasd', NULL, 'asdsadasdasd', NULL, '2017-07-12 05:43:10', '2017-07-12 05:43:10', 'asdsadasdasd'),
-(171, 6, 'asdasdasdas', NULL, 'asdadasdasd', NULL, '2017-07-12 05:45:19', '2017-07-12 05:45:19', 'asdasdasdas'),
-(172, 6, 'sadasdsadasd', NULL, 'sadasdsadasd', NULL, '2017-07-13 07:30:30', '2017-07-13 07:30:30', 'sadasdsadasd'),
-(173, 6, 'sadasdsadasd', NULL, 'sadasdsadasd', NULL, '2017-07-13 07:35:34', '2017-07-13 07:35:34', 'sadasdsadasd'),
-(174, 6, 'sadasdasd', NULL, 'werwerwerwer', NULL, '2017-07-13 07:39:55', '2017-07-13 07:39:55', 'werwerwerwer'),
-(175, 6, 'dasdasdas', NULL, 'dasdasdas', NULL, '2017-07-13 07:40:57', '2017-07-13 07:40:57', 'aasdasd'),
-(176, 6, 'asdasdasda', NULL, 'asdasdas', NULL, '2017-07-13 23:23:49', '2017-07-13 23:23:49', 'asdasdasdsadsa'),
-(177, 6, 'adsadasa', NULL, 'adsadasa', NULL, '2017-07-13 23:51:42', '2017-07-13 23:51:42', 'adsadasa'),
-(178, 6, 'adasdasd', NULL, 'adsadasa', NULL, '2017-07-13 23:51:55', '2017-07-13 23:51:55', 'adsadasa'),
-(179, 6, 'asdsadaa', NULL, 'ada', NULL, '2017-07-13 23:52:34', '2017-07-13 23:52:34', 'adasdasd'),
-(180, 6, 'rtyerterter', NULL, 'rtyerterter', NULL, '2017-07-13 23:52:58', '2017-07-13 23:52:58', 'rtyerterter'),
-(181, 6, 'sadadad', NULL, 'sadadad', NULL, '2017-07-13 23:56:23', '2017-07-13 23:56:23', 'sadadad');
+INSERT INTO `courses` (`id`, `user_id`, `title`, `price`, `description`, `enroll_users`, `created_at`, `updated_at`, `prerequisite`, `thumbnail`) VALUES
+(219, 6, 'Course name', NULL, 'Course description', NULL, '2017-07-14 05:15:03', '2017-07-14 05:15:03', 'Course prerequisites', NULL),
+(220, 6, 'Course 2', NULL, 'Course 2 desc', NULL, '2017-07-14 05:58:11', '2017-07-14 05:58:11', 'Course 2 pre', NULL),
+(221, 6, 'asdasdasdsadsa', NULL, 'dsadasdsadsad', NULL, '2017-07-14 05:59:47', '2017-07-14 05:59:47', 'dsadasdsadsad', NULL),
+(222, 6, 'sadsad', NULL, '$lesson', NULL, '2017-07-14 06:11:25', '2017-07-14 06:11:25', '$lesson', NULL),
+(223, 6, 'asdsadsa', NULL, 'da', NULL, '2017-07-14 06:17:51', '2017-07-14 06:17:51', 'daa', NULL),
+(224, 6, 'sadasdasdsadsad', NULL, 'asdasdsadsa', NULL, '2017-07-14 06:22:40', '2017-07-14 06:22:40', 'asdsadsada', NULL),
+(225, 6, 'sadasdsadasd', NULL, 'adasd', NULL, '2017-07-14 06:24:08', '2017-07-14 06:24:08', 'asddsa', NULL),
+(226, 6, 'asdsadsad', NULL, 'asdsadsad', NULL, '2017-07-14 06:26:32', '2017-07-14 06:26:32', 'asdsadsad', NULL),
+(227, 6, 'adasdasdasd', NULL, 'adasdasdasd', NULL, '2017-07-14 06:34:53', '2017-07-14 06:34:53', 'adasdasdasd', NULL),
+(228, 6, 'asdasdasdasd', NULL, 'editLessonModal', NULL, '2017-07-14 06:38:17', '2017-07-14 06:38:17', 'editLessonModal', NULL),
+(229, 6, 'asdsadasdadas', NULL, 'asdsadasdadas', NULL, '2017-07-14 06:44:37', '2017-07-14 06:44:37', 'asdsadasdadas', NULL),
+(230, 6, 'asdadadasdas', NULL, 'asdadadasdas', NULL, '2017-07-14 06:54:59', '2017-07-14 06:54:59', 'asdadadasdas', NULL),
+(231, 6, 'asdsadsada', NULL, 'asdsadsada', NULL, '2017-07-14 06:56:07', '2017-07-14 06:56:07', 'asdsadsada', NULL),
+(232, 6, 'asdsadasdasdas', NULL, 'asdsadasdasdas', NULL, '2017-07-14 07:06:21', '2017-07-14 07:06:21', 'asdsadasdasdas', NULL),
+(233, 6, 'asdsadasdasdasd', NULL, 'asdsadasdasdasd', NULL, '2017-07-14 07:07:51', '2017-07-14 07:07:51', 'asdsadasdasdasd', NULL),
+(234, 6, 'asdasdadad', NULL, 'asdasdadad', NULL, '2017-07-14 07:21:12', '2017-07-14 07:21:12', 'asdasdadad', NULL),
+(235, 6, 'rterteterter', NULL, 'rterteterter', NULL, '2017-07-14 07:37:19', '2017-07-14 07:37:19', 'rterteterter', NULL),
+(236, 6, 'adasdasd', NULL, 'adasdasd', NULL, '2017-07-16 23:46:44', '2017-07-16 23:46:44', 'adasdasd', NULL),
+(237, 6, 'asdasdasdaa', NULL, 'asdasdasdaa', NULL, '2017-07-16 23:49:04', '2017-07-16 23:49:04', 'asdasdasdaa', NULL),
+(238, 6, 'asdasdsaa', NULL, 'asdasdsaa', NULL, '2017-07-16 23:55:14', '2017-07-16 23:55:14', 'asdasdsaa', NULL),
+(239, 6, 'asdasdasdsadsa', NULL, 'dassdad', NULL, '2017-07-17 00:02:48', '2017-07-17 00:02:48', 'dassdad', NULL),
+(240, 6, 'sadasdsad', NULL, 'sadasdsad', NULL, '2017-07-17 00:10:10', '2017-07-17 00:10:10', 'sadasdsad', NULL),
+(241, 6, 'asdsadasd', NULL, 'ddsadadas', NULL, '2017-07-17 00:16:50', '2017-07-17 00:16:50', 'ddsadadas', NULL),
+(242, 6, 'sadasdasd', 23, 'assdadsa', NULL, '2017-07-17 00:35:14', '2017-07-17 00:35:14', 'assdadsa', NULL),
+(243, 6, 'asdsadsadd', 9899, 'ddsdadsad', NULL, '2017-07-17 00:39:05', '2017-07-17 00:39:05', 'ddsdadsad', '1500269945-default_person.png'),
+(244, 6, 'asdsad', 123213, 'ddssad', NULL, '2017-07-17 00:46:10', '2017-07-17 00:46:10', 'ddssad', NULL),
+(245, 6, 'asdsadasd', 22, 'asdsadasd', NULL, '2017-07-17 00:47:28', '2017-07-17 00:47:28', 'asdsadasd', '1500270448-default_person.png'),
+(246, 6, 'sadsadasd', 2312, 'adasdasdsad', NULL, '2017-07-17 00:48:09', '2017-07-17 00:48:09', 'adasdasdsad', '1500270489-default_person.png'),
+(247, 6, 'asdadasd', 2132, 'priceTab', NULL, '2017-07-17 00:52:40', '2017-07-17 00:52:40', 'asdada', '1500270760-default_person.png'),
+(248, 6, 'asdasdasd', 343, 'dasdas', NULL, '2017-07-17 00:53:46', '2017-07-17 00:53:46', 'dasdasdasdas', '1500270826-default_person.png'),
+(249, 6, 'asdasdasdas', 23, 'asdasdasdasdasdasd', NULL, '2017-07-17 00:54:49', '2017-07-17 00:54:49', 'asdasdasdasdasdasd', '1500270889-default_person.png'),
+(250, 6, 'asdasd', 12, 'asdasd', NULL, '2017-07-17 00:55:44', '2017-07-17 00:55:44', 'asdasdasdas', '1500270944-default_person.png'),
+(251, 6, 'asdsadasdadas', 233, 'dadasdadas', NULL, '2017-07-17 00:56:37', '2017-07-17 00:56:37', 'dadasdadasdadasdadas', '1500270997-default_person.png'),
+(252, 6, 'asdsad', 12, 'asdsad', NULL, '2017-07-17 01:02:53', '2017-07-17 01:02:53', 'asdsad', '1500271373-default_person.png'),
+(253, 6, 'asdsad', 16, 'asdsad', NULL, '2017-07-17 01:03:29', '2017-07-17 01:03:29', 'asdsad', '1500271409-default_person.png'),
+(254, 6, 'asdsadsada', 12, 'asdsadsaddasdsadsadd', NULL, '2017-07-17 05:41:24', '2017-07-17 05:41:24', 'asdsadsaddasdsadsadd', '1500288084-download.png'),
+(255, 6, 'sadasdasd', 12, 'sadasdasd', NULL, '2017-07-17 06:02:46', '2017-07-17 06:02:46', 'asdsadas', '1500289366-download.png'),
+(256, 6, 'asdsadsadd', 12, 'sadasdasd', NULL, '2017-07-17 06:07:24', '2017-07-17 06:07:24', 'sadasdasd', '1500289644-download.png'),
+(257, 6, 'cxzczcasd', 12, 'cxzczcasd', NULL, '2017-07-17 06:10:50', '2017-07-17 06:10:50', 'cxzczcasd', '1500289850-download.png'),
+(258, 6, 'asdsa', 123, 'asdsa', NULL, '2017-07-17 06:12:27', '2017-07-17 06:12:27', 'asdsadas', '1500289947-download.png'),
+(259, 6, 'asdasd', 12, 'asdasd', NULL, '2017-07-17 06:12:58', '2017-07-17 06:12:58', 'asdasd', '1500289978-download.png'),
+(260, 6, 'asd', 12, 'asd', NULL, '2017-07-17 06:13:41', '2017-07-17 06:13:41', 'asd', '1500290021-download.png'),
+(261, 6, 'asadasd', 12, 'asdsad', NULL, '2017-07-17 06:14:08', '2017-07-17 06:14:08', 'asadasd', '1500290048-download.png'),
+(262, 6, 'adas', 12, 'adas', NULL, '2017-07-17 06:28:26', '2017-07-17 06:28:26', 'adas', '1500290906-download.png'),
+(263, 6, 'sdasd', 12, 'asdasd', NULL, '2017-07-17 06:29:31', '2017-07-17 06:29:31', 'asdasd', '1500290971-default_person.png'),
+(264, 6, 'sdasd', 12, 'sdasd', NULL, '2017-07-17 06:30:33', '2017-07-17 06:30:33', 'sdasd', '1500291033-download.png'),
+(265, 6, 'adasdas', 12, 'asd', NULL, '2017-07-17 23:20:48', '2017-07-17 23:20:48', 'asdasdasdas', '1500351648-Capture.PNG');
 
 -- --------------------------------------------------------
 
@@ -520,6 +387,46 @@ INSERT INTO `credit_card` (`id`, `user_id`, `card_num`, `expiration`, `cvc`, `cr
 (3, 6, 4210177177965555, '03/19', 151, '2017-07-06 02:33:04', '2017-07-06 07:14:59'),
 (4, 6, 4210177177965555, '03/19', 151, '2017-07-06 02:34:19', '2017-07-06 07:14:59'),
 (5, 6, 4210177177965555, '03/19', 151, '2017-07-06 02:34:31', '2017-07-06 07:14:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `discussions`
+--
+
+CREATE TABLE IF NOT EXISTS `discussions` (
+  `id` int(10) unsigned NOT NULL,
+  `course_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  `dis_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dis_ques` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dis_react` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `discussions`
+--
+
+INSERT INTO `discussions` (`id`, `course_id`, `user_id`, `dis_title`, `dis_ques`, `dis_react`, `created_at`, `updated_at`) VALUES
+(1, 264, 6, 'asd', 'asd', NULL, '2017-07-17 08:16:00', '2017-07-17 08:16:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `discussion_comments`
+--
+
+CREATE TABLE IF NOT EXISTS `discussion_comments` (
+  `id` int(10) unsigned NOT NULL,
+  `dis_id` int(11) NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `com_content` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -626,27 +533,37 @@ CREATE TABLE IF NOT EXISTS `lessons` (
   `file` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lessons`
 --
 
 INSERT INTO `lessons` (`id`, `week_id`, `title`, `file`, `created_at`, `updated_at`) VALUES
-(7, 164, 'adsadasd', '1499849712-default_person.png', '2017-07-12 03:55:12', '2017-07-12 03:55:12'),
-(8, 169, 'asdsadasdsa', '1499849876-default_person.png', '2017-07-12 03:57:56', '2017-07-12 03:57:56'),
-(9, 172, 'sdrfdsfsdfsd', '1499849985-default_person.png', '2017-07-12 03:59:45', '2017-07-12 03:59:45'),
-(10, 174, 'dsfwerfwerfsf', '1499850155-default_person.png', '2017-07-12 04:02:35', '2017-07-12 04:02:35'),
-(11, 184, '123123', '1499855467-default_person.png', '2017-07-12 05:31:07', '2017-07-12 05:31:07'),
-(12, 190, 'sdasdasdas', '1499856107-default_person.png', '2017-07-12 05:41:47', '2017-07-12 05:41:47'),
-(13, 191, 'adasdasdasd', '1499856153-default_person.png', '2017-07-12 05:42:33', '2017-07-12 05:42:33'),
-(14, 192, 'rtrtrtrtrtyrty', '1499856212-default_person.png', '2017-07-12 05:43:32', '2017-07-12 05:43:32'),
-(15, 197, ',l;,l,lp', '1499949345-e361b0bb-786b-4c28-832f-03e168930ec3.jpg', '2017-07-13 07:35:45', '2017-07-13 07:35:45'),
-(16, 200, 'asdasdasd', '1499949668-e361b0bb-786b-4c28-832f-03e168930ec3.jpg', '2017-07-13 07:41:08', '2017-07-13 07:41:08'),
-(17, 201, 'asdsa', '1500006382-download.jpg', '2017-07-13 23:26:22', '2017-07-13 23:26:22'),
-(18, 201, 'aasdas', '1500007039-download.jpg', '2017-07-13 23:37:19', '2017-07-13 23:37:19'),
-(19, 207, 'asdasdsad', '1500008174-download.jpg', '2017-07-13 23:56:14', '2017-07-13 23:56:14'),
-(20, 208, 'sadadadsadadadsadadad', '1500008200-download.jpg', '2017-07-13 23:56:40', '2017-07-13 23:56:40');
+(47, 279, 'lesson 1 - week(1)', '1500027960-default_person.png', '2017-07-14 05:26:00', '2017-07-14 05:26:00'),
+(48, 285, 'lesson 1 - week(2)', '1500027966-default_person.png', '2017-07-14 05:26:06', '2017-07-14 05:26:06'),
+(49, 286, 'lesson 1 - week(3)', '1500027972-default_person.png', '2017-07-14 05:26:12', '2017-07-14 05:26:12'),
+(50, 289, 'adasdasdasd', '1500030021-default_person.png', '2017-07-14 06:00:21', '2017-07-14 06:00:21'),
+(51, 290, 'adasdasdasd', '1500030698-default_person.png', '2017-07-14 06:11:38', '2017-07-14 06:11:38'),
+(52, 291, 'adadasdsad', '1500031083-default_person.png', '2017-07-14 06:18:03', '2017-07-14 06:18:03'),
+(53, 292, 'adsadsad', '1500031375-default_person.png', '2017-07-14 06:22:55', '2017-07-14 06:22:55'),
+(54, 293, 'asdasdasd', '1500031467-default_person.png', '2017-07-14 06:24:27', '2017-07-14 06:24:27'),
+(55, 295, 'asdsadasdsa', '1500032105-default_person.png', '2017-07-14 06:35:05', '2017-07-14 06:35:05'),
+(56, 296, 'asdadsadsa', '1500032305-default_person.png', '2017-07-14 06:38:25', '2017-07-14 06:38:25'),
+(57, 297, 'uiuiutyui', '1500032698-default_person.png', '2017-07-14 06:44:58', '2017-07-14 06:44:58'),
+(58, 298, 'sadadadad', '1500033308-default_person.png', '2017-07-14 06:55:08', '2017-07-14 06:55:08'),
+(59, 299, 'asdsadasdsa', '1500033376-default_person.png', '2017-07-14 06:56:16', '2017-07-14 06:56:16'),
+(60, 300, 'adasdasd', '1500033992-default_person.png', '2017-07-14 07:06:32', '2017-07-14 07:06:32'),
+(61, 301, 'asdsadada', '1500034082-default_person.png', '2017-07-14 07:08:02', '2017-07-14 07:08:02'),
+(62, 302, 'werwerwe', '1500034886-default_person.png', '2017-07-14 12:33:59', '2017-07-14 07:33:59'),
+(63, 303, 'asdasdads', '1500035850-default_person.png', '2017-07-14 12:38:44', '2017-07-14 07:38:44'),
+(64, 304, 'asdasdasd', '1500266824-default_person.png', '2017-07-16 23:47:04', '2017-07-16 23:47:04'),
+(65, 304, 'lesson 2', '1500266839-default_person.png', '2017-07-16 23:47:19', '2017-07-16 23:47:19'),
+(66, 305, 'lesson1', '1500266960-default_person.png', '2017-07-16 23:49:20', '2017-07-16 23:49:20'),
+(67, 305, 'lesson3.', '1500266971-default_person.png', '2017-07-17 04:49:39', '2017-07-16 23:49:39'),
+(71, 309, 'asdasdsad', '1500267797-default_person.png', '2017-07-17 00:03:17', '2017-07-17 00:03:17'),
+(72, 312, 'sadasdasd2', '1500268650-Capture.PNG', '2017-07-17 05:17:30', '2017-07-17 00:17:30'),
+(73, 316, 'asdsadsa', '1500270502-default_person.png', '2017-07-17 00:48:22', '2017-07-17 00:48:22');
 
 -- --------------------------------------------------------
 
@@ -658,7 +575,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) unsigned NOT NULL,
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -675,7 +592,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2017_07_08_064809_add_prerequisite_to_course', 6),
 (12, '2017_07_08_073447_course_week', 7),
 (13, '2017_07_11_060817_add_table_lesson', 8),
-(14, '2017_07_11_114605_create_coding_table', 9);
+(14, '2017_07_11_114605_create_coding_table', 9),
+(15, '2017_07_17_071322_create_table_discussions', 10),
+(16, '2017_07_17_072855_create_table_comments', 10);
 
 -- --------------------------------------------------------
 
@@ -728,18 +647,18 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `file` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `resources`
 --
 
 INSERT INTO `resources` (`id`, `week_id`, `title`, `file`, `created_at`, `updated_at`) VALUES
-(4, 175, 'asdsadas', '1499850356-default_person.png', '2017-07-12 04:05:56', '2017-07-12 04:05:56'),
-(5, 177, 'sadasd', '1499854413-default_person.png', '2017-07-12 05:13:33', '2017-07-12 05:13:33'),
-(6, 179, 'asdadasd', '1499854489-default_person.png', '2017-07-12 05:14:49', '2017-07-12 05:14:49'),
-(7, 196, 'sadadasdsa', '1499949248-6162.jpg', '2017-07-13 07:34:08', '2017-07-13 07:34:08'),
-(8, 197, ',l,klp,kl', '1499949354-download.jpg', '2017-07-13 07:35:54', '2017-07-13 07:35:54');
+(14, 279, 'Resource 1 - week(1)', '1500027989-default_person.png', '2017-07-14 05:26:29', '2017-07-14 05:26:29'),
+(15, 285, 'Resource 1 - week(2)', '1500027999-default_person.png', '2017-07-14 05:26:39', '2017-07-14 05:26:39'),
+(16, 286, 'Resource 1 - week(3)', '1500028009-default_person.png', '2017-07-14 05:26:49', '2017-07-14 05:26:49'),
+(17, 285, 'Resource 2 - week(2)', '1500028874-default_person.png', '2017-07-14 05:41:14', '2017-07-14 05:41:14'),
+(21, 311, 'asdasdsad', '1500268349-default_person.png', '2017-07-17 00:12:29', '2017-07-17 00:12:29');
 
 -- --------------------------------------------------------
 
@@ -815,7 +734,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `coun
 (2, 'irfan', 'mumtaz', 'livesimpathy@yahoo.com', '$2y$10$MopLB7HiXu/Hnb/YNuSlaOBsddSWWveKL4P5HcIS3F2qCBKO9wc12', 1, 1, '1', NULL, '2017-07-04 00:45:56', '2017-07-04 00:45:56'),
 (4, 'irfan', 'mumtaz', 'email@email.com', '$2y$10$1IcgdhtUMKQQjxkd94PRwOMKCfSh6bdtF0UaE3V3G44ppNo6N8Dia', 1, 1, '1', NULL, '2017-07-04 00:53:02', '2017-07-04 00:53:02'),
 (5, 'irfan', 'irfan', 'irfan@irfan.com', '$2y$10$x3tQpgPwLoRp/WpeQbv4jubx57REr4fhnkN546YmooCfp7LkfDu5q', 1, 1, '1', NULL, '2017-07-04 00:53:57', '2017-07-04 00:53:57'),
-(6, 'irfan', 'mumtaz', 'irfan.aimviz@gmail.com', '$2y$10$F62X.jqj/qR5I3jmtZkVqu3L074A/eTeDO9CaNrFEMs5hcHKhZr/O', 168, 68, '1', 'LjWUHG5ganNM0E7z2XFOhhUgwolZ0SBMaqjjGHrePJQkc2EPXKX51OyphOo9', '2017-07-04 00:56:31', '2017-07-06 07:10:33'),
+(6, 'irfan', 'mumtaz', 'irfan.aimviz@gmail.com', '$2y$10$F62X.jqj/qR5I3jmtZkVqu3L074A/eTeDO9CaNrFEMs5hcHKhZr/O', 168, 68, '1', 'kx9ImTVY8KkhgfwStVE7JWZBuDJPSsiuoECZGbBEOMMKzHPINfMdJM9kUHyd', '2017-07-04 00:56:31', '2017-07-06 07:10:33'),
 (7, 'irfan', 'mumtaz', 'irfan.aimwviz@gmail.com', '$2y$10$xlRt4Y/3c2nkDEHI1t.5Ee1aH8DM2ppw9x8zvJLnvtMym0gUNgrTu', 1, 1, '1', NULL, '2017-07-04 00:57:36', '2017-07-04 00:57:36'),
 (8, 'irfan', 'mumtaz', 'irfan.aimviz@gmail.coma', '$2y$10$NsFaam2DqewLhbB3k7GU5.QCyGogQYyr/V4.SnUK1K9GeDxXhMQRG', 1, 1, '1', NULL, '2017-07-04 01:00:41', '2017-07-04 01:00:41'),
 (9, 'irf', 'mumtaz', 'irfan@mumtaz.com', '$2y$10$1x0n1LHy5e6Pcd/TWaGdke4BEuw/LEeqtJnUJoMr.BLRTVTPxVxjq', 1, 1, '1', NULL, '2017-07-04 01:02:40', '2017-07-04 01:02:40'),
@@ -835,68 +754,54 @@ CREATE TABLE IF NOT EXISTS `weeks` (
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=209 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=326 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `weeks`
 --
 
 INSERT INTO `weeks` (`id`, `course_id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(150, 135, 'asdsad', 'asdsad', '2017-07-12 03:10:27', '2017-07-12 03:10:27'),
-(152, 137, 'asdasdsad', 'asdasd', '2017-07-12 03:17:18', '2017-07-12 03:17:18'),
-(153, 138, 'asdasdasd', 'asdasdasd', '2017-07-12 03:17:47', '2017-07-12 03:17:47'),
-(154, 139, 'sadasd', 'sadasd', '2017-07-12 03:18:43', '2017-07-12 03:18:43'),
-(155, 140, 'asdsad', 'asdsad', '2017-07-12 03:22:02', '2017-07-12 03:22:02'),
-(156, 141, 'erwerwrew', 'erwerwrew', '2017-07-12 03:24:08', '2017-07-12 03:24:08'),
-(157, 142, 'adasda', 'asdsada', '2017-07-12 03:25:58', '2017-07-12 03:25:58'),
-(158, 143, 'asdasdasd', 'asdasd', '2017-07-12 03:26:40', '2017-07-12 03:26:40'),
-(159, 144, 'asdasdasd', 'asdasd', '2017-07-12 03:49:21', '2017-07-12 03:49:21'),
-(160, 145, 'asdasdasdasd', 'asd', '2017-07-12 03:51:14', '2017-07-12 03:51:14'),
-(161, 146, 'ewrwewerwe', 'ewrwewerwe', '2017-07-12 03:53:31', '2017-07-12 03:53:31'),
-(162, 147, 'asdadasd', 'asdadasd', '2017-07-12 03:54:09', '2017-07-12 03:54:09'),
-(163, 147, 'asdadasdasdsa', 'asdadasdasdsad', '2017-07-12 03:54:14', '2017-07-12 03:54:14'),
-(164, 148, 'asdadasdasdsa', 'asdadasdasdsad', '2017-07-12 03:55:06', '2017-07-12 03:55:06'),
-(165, 149, 'dasdasdas', 'dasdasdas', '2017-07-12 03:55:22', '2017-07-12 03:55:22'),
-(166, 149, 'dasdasdas', 'dasdasdas', '2017-07-12 03:55:25', '2017-07-12 03:55:25'),
-(167, 150, 'asdasdsad', 'sad', '2017-07-12 03:56:35', '2017-07-12 03:56:35'),
-(168, 150, 'asdasdsadsaa', 'sadsdasdsa', '2017-07-12 03:56:41', '2017-07-12 03:56:41'),
-(169, 151, 'asdasdasdasdasd', 'asdasd', '2017-07-12 03:57:13', '2017-07-12 03:57:13'),
-(170, 151, 'asdasdasdasdasdsadsadd', 'asdasd', '2017-07-12 03:57:16', '2017-07-12 03:57:16'),
-(171, 152, 'adasdsa', 'asdsad', '2017-07-12 03:59:31', '2017-07-12 03:59:31'),
-(172, 152, 'adasdsaasdsad', 'asdsad', '2017-07-12 03:59:33', '2017-07-12 03:59:33'),
-(173, 153, 'adasdsadsadasdsadasda', 'adasdsadsadasdsadasda', '2017-07-12 04:00:17', '2017-07-12 04:00:17'),
-(174, 153, 'adasdsadsadasdsadasda234werwerwer', 'adasdsadsadasdsadasda', '2017-07-12 04:00:26', '2017-07-12 04:00:26'),
-(175, 154, 'asdasdsadsa', 'dsad', '2017-07-12 04:05:17', '2017-07-12 04:05:17'),
-(176, 155, 'asdasdasdasd', 'asdasd', '2017-07-12 05:13:26', '2017-07-12 05:13:26'),
-(177, 155, 'asdasdasdasd', 'asdasd', '2017-07-12 05:13:28', '2017-07-12 05:13:28'),
-(178, 156, 'adasdsad', 'das', '2017-07-12 05:14:12', '2017-07-12 05:14:12'),
-(179, 156, 'adasdsadasdasdas', 'das', '2017-07-12 05:14:16', '2017-07-12 05:14:16'),
-(180, 162, 'adsadaaadsadaa', 'adsad', '2017-07-12 05:27:56', '2017-07-12 05:27:56'),
-(181, 162, 'ytytyt', 'tytyty', '2017-07-12 05:29:18', '2017-07-12 05:29:18'),
-(183, 163, 'asdasdsad234234', 'asdasd', '2017-07-12 05:30:32', '2017-07-12 05:30:32'),
-(184, 164, 'asdasdasdasasdasdasdas', 'asdasdasdasd', '2017-07-12 05:30:59', '2017-07-12 05:30:59'),
-(185, 164, 'asdasdasdasasdasdasdas', 'asdasdasdasd', '2017-07-12 05:31:01', '2017-07-12 05:31:01'),
-(186, 165, 'iopipipio', 'iopipipio', '2017-07-12 05:32:47', '2017-07-12 05:32:47'),
-(187, 165, 'iopipipioiopipipioiopipipio', 'iopipipioiopipipio', '2017-07-12 05:32:52', '2017-07-12 05:32:52'),
-(188, 166, 'asdsada', 'asdasdas', '2017-07-12 05:38:54', '2017-07-12 05:38:54'),
-(189, 167, 'asdsadadsd', 'asdasd', '2017-07-12 05:40:14', '2017-07-12 05:40:14'),
-(190, 168, 'asdasdasdasdasdasd', 'asdasdasdasdasdasdasdasd', '2017-07-12 05:41:40', '2017-07-12 05:41:40'),
-(191, 169, 'asdasdsad', 'asdasdsad', '2017-07-12 05:42:25', '2017-07-12 05:42:25'),
-(192, 170, 'asdsadasdasdsadasd', 'asdsadasdasdsadasd', '2017-07-12 05:43:17', '2017-07-12 05:43:17'),
-(193, 171, 'dsfsfsfsdf', 'sdfdsfsdfsd', '2017-07-12 05:45:25', '2017-07-12 05:45:25'),
-(196, 172, 'werwerwerwer', 'werwerwerwer', '2017-07-13 07:32:41', '2017-07-13 07:32:41'),
-(197, 173, 'werwerwerwer', 'werwerwerwer', '2017-07-13 07:35:36', '2017-07-13 07:35:36'),
-(198, 174, 'fdgdfg', 'dfgdfg', '2017-07-13 07:39:59', '2017-07-13 07:39:59'),
-(199, 174, 'fdgdfg', 'dfgdfg', '2017-07-13 07:40:04', '2017-07-13 07:40:04'),
-(200, 175, 'asdasd', 'asdasd', '2017-07-13 07:41:01', '2017-07-13 07:41:01'),
-(201, 176, 'asdasdasdasdasdasd', 'asdasdasasdasdas', '2017-07-13 23:23:53', '2017-07-13 23:23:53'),
-(202, 176, 'asdasdasdasdasdasd', 'asdasdasasdasdas', '2017-07-13 23:37:29', '2017-07-13 23:37:29'),
-(203, 177, 'adsadasa', 'adsadasa', '2017-07-13 23:51:45', '2017-07-13 23:51:45'),
-(204, 178, 'sadasdsa', 'asdsadsad', '2017-07-13 23:51:59', '2017-07-13 23:51:59'),
-(205, 178, 'sadasdsa', 'asdsadsad', '2017-07-13 23:52:06', '2017-07-13 23:52:06'),
-(206, 179, 'asdasdasdasasdasdasdas', 'sdasasdasdasdas', '2017-07-13 23:52:38', '2017-07-13 23:52:38'),
-(207, 180, 'rtyerterter', 'rtyerterter', '2017-07-13 23:53:01', '2017-07-13 23:53:01'),
-(208, 181, 'sadadad', 'sadadad', '2017-07-13 23:56:29', '2017-07-13 23:56:29');
+(279, 219, 'Week 1', 'week 1 description', '2017-07-14 05:15:46', '2017-07-14 05:15:46'),
+(285, 219, 'Week 2', 'week 2 description', '2017-07-14 05:24:47', '2017-07-14 05:24:47'),
+(286, 219, 'Week 3', 'week 3 description', '2017-07-14 05:25:32', '2017-07-14 05:25:32'),
+(287, 220, 'asdasd', 'asdasd', '2017-07-14 05:58:20', '2017-07-14 05:58:20'),
+(288, 220, 'asdasdasdsad', 'asdasdsada', '2017-07-14 05:58:28', '2017-07-14 05:58:28'),
+(289, 221, 'dsadasdsadsaddsadasdsadsad', 'dsadasdsadsaddsadasdsadsad', '2017-07-14 05:59:52', '2017-07-14 05:59:52'),
+(290, 222, 'adsadas', 'adsadas', '2017-07-14 06:11:31', '2017-07-14 06:11:31'),
+(291, 223, 'sadasdsad', 'sadasdsad', '2017-07-14 06:17:55', '2017-07-14 06:17:55'),
+(292, 224, 'adasdsadsadasdsadasda', 'adadsadsd', '2017-07-14 06:22:45', '2017-07-14 06:22:45'),
+(293, 225, 'asdsadsadsa', 'asdasdasdasd', '2017-07-14 06:24:12', '2017-07-14 06:24:12'),
+(294, 226, 'asdsadsad', 'asdsadsad', '2017-07-14 06:26:35', '2017-07-14 06:26:35'),
+(295, 227, 'adasdasdasdadasdasdasd', 'adasdasdasdadasdasdasd', '2017-07-14 06:34:56', '2017-07-14 06:34:56'),
+(296, 228, 'editLessonModal', 'editLessonModal', '2017-07-14 06:38:20', '2017-07-14 06:38:20'),
+(297, 229, 'asdsadasdadasasdsadasdadas', 'asdsadasdadasasdsadasdadas', '2017-07-14 06:44:41', '2017-07-14 06:44:41'),
+(298, 230, 'asdadadasdasasdadadasdas', 'asdadadasdasasdadadasdasasdadadasdasasdadadasdas', '2017-07-14 06:55:03', '2017-07-14 06:55:03'),
+(299, 231, 'asdsadsadaasdsadsada', 'asdsadsadaasdsadsadaasdsadsadaasdsadsada', '2017-07-14 06:56:11', '2017-07-14 06:56:11'),
+(300, 232, 'asdsadasdasdasasdsadasdasdasasdsadasdasdas', 'asdsadsadsadasdasdadasd', '2017-07-14 07:06:27', '2017-07-14 07:06:27'),
+(301, 233, 'asdsadasdasdasd', 'sadasdasd', '2017-07-14 07:07:55', '2017-07-14 07:07:55'),
+(302, 234, 'ssdasdsadasdadadsa', 'ssdasdsadasdadadsa', '2017-07-14 07:21:19', '2017-07-14 07:21:19'),
+(303, 235, 'rterteterterrterteterter', 'rterteterterrterteterterrterteterterrterteterter', '2017-07-14 07:37:22', '2017-07-14 07:37:22'),
+(304, 236, 'adasdasd', 'adasdasd', '2017-07-16 23:46:50', '2017-07-16 23:46:50'),
+(305, 237, 'asdasdasdaa', 'asdasdasdaa', '2017-07-16 23:49:12', '2017-07-16 23:49:12'),
+(306, 238, 'asdasdsaa', 'asdasdsaa', '2017-07-16 23:55:18', '2017-07-16 23:55:18'),
+(308, 239, 'asdadsad', 'asdadsad', '2017-07-17 00:02:54', '2017-07-17 00:02:54'),
+(309, 239, 'asdadsad 2', 'asdadsad 2', '2017-07-17 00:03:01', '2017-07-17 00:03:01'),
+(310, 240, 'sadasdsadsadasdsad', 'sadasdsadsadasdsad', '2017-07-17 00:10:14', '2017-07-17 00:10:14'),
+(311, 240, 'sadasdsadsadasdsad', 'sadasdsadsadasdsad', '2017-07-17 00:11:37', '2017-07-17 00:11:37'),
+(312, 241, 'ddsadadasddsadadas', 'ddsadadasddsadadas', '2017-07-17 00:16:54', '2017-07-17 00:16:54'),
+(313, 243, 'sadsadsa', 'sadsadsa', '2017-07-17 00:39:28', '2017-07-17 00:39:28'),
+(314, 243, 'sadsadsa', 'sadsadsaas', '2017-07-17 00:39:36', '2017-07-17 00:39:36'),
+(315, 245, 'asdasdsad', 'asdasdsad', '2017-07-17 00:47:35', '2017-07-17 00:47:35'),
+(316, 246, 'sadsads asadadadasd', 'asda', '2017-07-17 00:48:16', '2017-07-17 00:48:16'),
+(317, 247, 'asdadadasdasasdadadasdas', 'adasdasasdadadasdas', '2017-07-17 00:52:45', '2017-07-17 00:52:45'),
+(318, 248, 'sadasdasa', 'dasdasdasdas', '2017-07-17 00:53:53', '2017-07-17 00:53:53'),
+(319, 249, 'adasdasd', 'asdasd', '2017-07-17 00:54:53', '2017-07-17 00:54:53'),
+(320, 250, 'asdsad sadsadasdasd', 'sadsadasdasd', '2017-07-17 00:55:48', '2017-07-17 00:55:48'),
+(321, 251, 'asdsad sadsadasdasd', 'dadasdadasdadasdadas', '2017-07-17 00:56:42', '2017-07-17 00:56:42'),
+(322, 252, 'sadsad', 'sadsad', '2017-07-17 01:02:58', '2017-07-17 01:02:58'),
+(323, 254, 'asdsadaasdsadsaddasdsadsadd', 'asdsadsaddasdsadsadd', '2017-07-17 05:41:29', '2017-07-17 05:41:29'),
+(324, 254, 'asdsadaasdsadsaddasdsadsadd', 'asdsadsaddasdsadsadd', '2017-07-17 05:41:34', '2017-07-17 05:41:34'),
+(325, 265, 'asd', 'asd', '2017-07-17 23:20:51', '2017-07-17 23:20:51');
 
 --
 -- Indexes for dumped tables
@@ -919,6 +824,20 @@ ALTER TABLE `courses`
 -- Indexes for table `credit_card`
 --
 ALTER TABLE `credit_card`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `discussions`
+--
+ALTER TABLE `discussions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `course_id` (`course_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `discussion_comments`
+--
+ALTER TABLE `discussion_comments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1007,12 +926,22 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=182;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=266;
 --
 -- AUTO_INCREMENT for table `credit_card`
 --
 ALTER TABLE `credit_card`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `discussions`
+--
+ALTER TABLE `discussions`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `discussion_comments`
+--
+ALTER TABLE `discussion_comments`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `language`
 --
@@ -1022,12 +951,12 @@ ALTER TABLE `language`
 -- AUTO_INCREMENT for table `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=74;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
@@ -1037,7 +966,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `resources`
 --
 ALTER TABLE `resources`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -1052,7 +981,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `weeks`
 --
 ALTER TABLE `weeks`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=209;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=326;
 --
 -- Constraints for dumped tables
 --
@@ -1062,6 +991,14 @@ ALTER TABLE `weeks`
 --
 ALTER TABLE `courses`
   ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `discussions`
+--
+ALTER TABLE `discussions`
+  ADD CONSTRAINT `discussions_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`),
+  ADD CONSTRAINT `discussions_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`),
+  ADD CONSTRAINT `discussions_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `permission_role`

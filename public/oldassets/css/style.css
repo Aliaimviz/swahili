@@ -1393,7 +1393,7 @@ h1 i.fa.fa-plus-circle {
     margin: 0;
     float: right;
 }
-.com-like ul li{
+.com-like ul li {
     display: inline-block;
     padding-left: 25px;
     font-family: 'Montserrat', sans-serif;
@@ -1402,10 +1402,6 @@ h1 i.fa.fa-plus-circle {
     line-height: 21px;
     margin-bottom: 0;
     color: #000;
-}
-.com-like ul li a {    
-    color: #000;
-    text-decoration: none;
 }
 .re-com-im {
     width: 100%;
@@ -3661,8 +3657,3 @@ li.progress-bar-rating {
     color: #ff8868;
     text-decoration: none;
 }
-.emoji-picker-icon {   
-    right: 36px !important;
-    top: 40% !important;
-    font-size: 25px !important;
-   

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use App\Resource;
 use App\Lesson;
 use App\Discussion;
+use App\Discussion_comment;
 use DB;
 
 
@@ -392,8 +393,15 @@ class CourseController extends Controller
    }
 
    public function get_discussion_view($id){
-      $course_id = $id;
-      return view('pages.discussion2')->with('course_id', $course_id);
+        $course_id = $id;
+        $discussions = Discussion::leftjoin('users', 'users.id', '=', 'discussions.user_id')
+                                 ->leftjoin('discussion_comments', 'discussion_comments.dis_id', '=', 'discussions.id')
+                                 ->select('discussions.id as discussion_id', 'discussions.*', 'users.*')
+                                 ->where('discussions.course_id', $course_id)->get();
+        //dd($discussions);
+      //return view('pages.discussion2')->with('course_id', $course_id);
+        return view('pages.discussion3')->with('course_id', $course_id)
+                                        ->with('discussions', $discussions);
    }
 
    public function addDiscusForm(Request $request) {
@@ -421,7 +429,25 @@ class CourseController extends Controller
 
    }
 
-   public function addDiscusForm2(){
+   public function addDiscusComment(Request $request){
+        //return $request->input();
+      if($request->has('dis_id')){
+         $discus_id = $request->input('discusId'); 
+         $com_content = $request->input('com_content');
 
+         $Discussion_comment= new Discussion_comment();
+         $Discussion_comment->dis_id = $request->input('dis_id');
+         $Discussion_comment->com_content = $request->input('com_content');
+         $Discussion_comment->user_id = Auth::user()->id;
+
+         if($Discussion_comment->save()){
+            return \Response::json(array('success' => true, 'msg' => 'Comment added'), 200);
+         }else{
+            return \Response::json(array('success' => false, 'msg' => 'Comment not added2'), 422);
+         }
+
+      }else{
+            return \Response::json(array('success' => false, 'msg' => 'Comment not added1'), 422);
+      }
    }
 }

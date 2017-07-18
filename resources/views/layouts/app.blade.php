@@ -163,6 +163,9 @@
     <script src="{{ asset('public/js/config.js') }}"></script>
     <script src="{{ asset('public/js/util.js') }}"></script>
 
+    <!-- scripts -->
+    <script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script>
+    
     <!-- Toaster Alert Files -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
