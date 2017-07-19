@@ -48,19 +48,13 @@
 					</div>
 					<div class="req-deta">
 						<h2>Prerequisites</h2>
+						<?php $prerequi = explode(',', $course->prerequisite);?>
 						<ul>
+							@foreach($prerequi as $pre)
 							<li>
-								<p>Sed ut perspiciatis unde omnis iste natus otam rem aperiam</p>
+								<p>{{ $pre }} </p>
 							</li>
-							<li>
-								<p>Error sit voluptatem accusantium dolorem  beatae vitae explicabo</p>
-							</li>
-							<li>
-								<p>Totam rem aperiam aspernatur aut odit aut fugit enim ipsam voluptem</p>
-							</li>
-							<li>
-								<p>Naque ipsa quae ab illo inventore veritatis</p>
-							</li>
+							@endforeach
 						</ul>
 					</div>
 					<div class="what-will req-deta">
@@ -323,11 +317,15 @@
 								</ul>
 								<p><i class="fa fa-clock-o"></i> Last updated {{$date->format('Y-m-d')}}</p>
 								<div class="req-deta" style="margin: 0;">
-									<h2>Includes:</h2>
+									<h2>Short Description:</h2>
 									<p style="color: #000;" class="incl">
 										<?php echo $excerpt = substr($course->description, 0, 350)?> ...
 									</p>
-									<p class="btn-course-aside"><a href="#">enrolled now</a></p>
+									<p class="btn-course-aside">
+										<form method="post" action="{{ route('addEnrollUser')}}">
+											<input type="hidden" name="course_id" value="{{$course->id}}">
+											<button type="submit">enrolled now</a></p>
+										</form>
 								</div>
 							</div>
 						</div>

@@ -92,7 +92,7 @@
 				<div class="com-like">
 					<ul>
 						<li data-toggle="modal" data-target="#add-lesson"><a href="#"><i class="fa fa-upload"></i> Upload Image</a></li>
-						<li data-toggle="modal" data-target="#add-coding"><a href="#" class="discusComment" data-id="<?php echo e($disc[$i]->discussion_id); ?>"><i class="fa fa-comment-o"></i> Comment</a></li>
+						<li data-toggle="modal" data-target="#add-coding"><a href="#" class="discusComment" data-id="<?php echo e($disc[$i]->disc_id); ?>"><i class="fa fa-comment-o"></i> Comment</a></li>
 						<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-smile-o"></i> React</a></li>
 						<li><a href="#"><i class="fa fa-envelope-o"></i> Direct</a></li>
 					</ul>

@@ -83,3 +83,6 @@ Route::post('/add-discussion', 'Instructor\CourseController@addDiscusForm')->nam
 
 //Comment
 Route::post('/add-comment', 'Instructor\CourseController@addDiscusComment')->name('addDiscusComment');
+
+//enrolled user
+Route::post('/enrollUser', 'Instructor\CourseController@addDiscusComment')->name('addEnrollUser');

@@ -36,8 +36,9 @@ class HomeController extends Controller
         //$course = Courses::where('id', $id)->first();
         $course = Courses::leftjoin('users', 'courses.user_id', '=', 'users.id')
                             ->select('users.*', 'courses.*')
+                            ->where('courses.id', $id)
                             ->first();
-        return view('pages.singleCourse', ['course' => $course]);
+        //return view('pages.singleCourse', ['course' => $course]);
         echo "<pre>";
         print_r($course);
         echo "</pre>";

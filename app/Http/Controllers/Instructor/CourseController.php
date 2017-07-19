@@ -380,11 +380,10 @@ class CourseController extends Controller
 
                foreach ($discussions as $discussion) {
 
-                       $dis = Discussion::select('discussions.id as discussion_id' , 'discussions.*', 'discussion_comments.*')
-                                  ->leftjoin('users', 'users.id', '=', 'discussions.user_Id')
+                       $dis = Discussion::leftjoin('users', 'users.id', '=', 'discussions.user_Id')
                                   ->leftjoin('discussion_comments', 'discussions.id', '=', 'discussion_comments.dis_id')
                                   ->where('discussions.id', $discussion->id)
-                                  ->select('users.*', 'discussions.*', 'discussion_comments.*')
+                                  ->select('users.*', 'discussions.*', 'discussion_comments.*', 'users.id as user_id', 'discussions.id as disc_id')
                                  ->orderBy('discussions.id')
                                  ->get();
                        $discus_array[] = $dis;          

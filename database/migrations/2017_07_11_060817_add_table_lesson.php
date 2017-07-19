@@ -15,7 +15,7 @@ class AddTableLesson extends Migration
     {
         Schema::create('lessons2', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('week_id')->unsign();
+            $table->integer('week_id')->unsigned();
             $table->string('title');
             $table->string('file');
             $table->timestamps();

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableDiscussions extends Migration
+class EnrolledUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateTableDiscussions extends Migration
      */
     public function up()
     {
-        Schema::create('discussions', function (Blueprint $table) {
+        Schema::create('enrolled_users', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->integer('course_id')->unsigned();
-            $table->string('dis_title');
-            $table->string('dis_ques');
-            $table->string('dis_react');
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade')->onUpdate('cascade');
         });
     }
@@ -32,6 +31,6 @@ class CreateTableDiscussions extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('enrolled_users');
     }
 }
