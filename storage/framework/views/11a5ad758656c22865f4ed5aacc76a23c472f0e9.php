@@ -1,21 +1,20 @@
-@extends('layouts.app')
-@section('title', 'Add Course')
+<?php $__env->startSection('title', 'Add Course'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="dashboard-men">
 	<div class="container">
 		<div class="men-na">
 			<p><a href="#"> <i class="fa fa-angle-left"></i> Dashboard</a></p>
 		</div>
-		<div class="men-logo"><a href="#"><img src="{{ asset('public/img/dashboardlogo.png') }}"></a></div>
+		<div class="men-logo"><a href="#"><img src="<?php echo e(asset('public/img/dashboardlogo.png')); ?>"></a></div>
 		<div class="men-pr-set">
 			<ul>
-				<li><a href="#"> <img src="{{ asset('public/img/coins2.png') }}"> 2000</a></li>
-				<li><a href="#"><img src="{{ asset('public/img/right-check.png') }}"><img src="{{ asset('public/img/mini-pr.png') }}"></a></li>
+				<li><a href="#"> <img src="<?php echo e(asset('public/img/coins2.png')); ?>"> 2000</a></li>
+				<li><a href="#"><img src="<?php echo e(asset('public/img/right-check.png')); ?>"><img src="<?php echo e(asset('public/img/mini-pr.png')); ?>"></a></li>
 				
-				@if(Auth::check())
-				<li><a href="#">{{ Auth::user()->first_name }}</a></li>
-				@endif
+				<?php if(Auth::check()): ?>
+				<li><a href="#"><?php echo e(Auth::user()->first_name); ?></a></li>
+				<?php endif; ?>
 				<li><a href="#"><i class="fa fa-cog" ></i></a> <a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 			</ul>
 		</div>
@@ -25,15 +24,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="margin-auto">				
-			@if (session('success'))
+			<?php if(session('success')): ?>
 			    <div class="alert alert-success">
-			        <strong>Success!</strong> {{ session('success') }}
+			        <strong>Success!</strong> <?php echo e(session('success')); ?>
+
 			    </div>
-			@elseif(session('alert'))
+			<?php elseif(session('alert')): ?>
 				<div class="alert alert-danger">
-				  <strong>Alert!</strong> {{ session('alert') }}
+				  <strong>Alert!</strong> <?php echo e(session('alert')); ?>
+
 				</div>
-			@endif
+			<?php endif; ?>
 			</div>
 		</div>
 		<div class="row">
@@ -67,11 +68,11 @@
 									
 									<input type="hidden" name="courseID" value="">
 									<label for="enter-the-course-title">Enter the course title</label>
-									<input type="text" id="enter-the-course-title" name="courseName" value="@if($course['title']){{$course['title']}}@endif">
+									<input type="text" id="enter-the-course-title" name="courseName" value="<?php if($course['title']): ?><?php echo e($course['title']); ?><?php endif; ?>">
 									<label for="description">Description</label>
-									<textarea id="description" rows="5" name="courseDescription">@if($course['description']){{$course['description']}}@endif</textarea>
+									<textarea id="description" rows="5" name="courseDescription"><?php if($course['description']): ?><?php echo e($course['description']); ?><?php endif; ?></textarea>
 									<label for="pre-request">Prerequisites</label>
-									<input type="text" id="pre-request" value="@if($course['prerequisite']){{$course['prerequisite']}}@endif" name="coursePrerequisites">
+									<input type="text" id="pre-request" value="<?php if($course['prerequisite']): ?><?php echo e($course['prerequisite']); ?><?php endif; ?>" name="coursePrerequisites">
 									<p style="color:#999999; font-weight: 2;">Please Note: Type your Prerequisities seperated by comma. e.g: Maths, English </p>
 									<label for="pre-request">Price: </label>
 									<input type="number" id="course-price" value="" name="coursePrice">
@@ -325,7 +326,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('addCourseForm') }}",
+		            url: "<?php echo e(route('addCourseForm')); ?>",
 		            type: 'post', 
 		            data: formData,
 		            processData: false,
@@ -339,7 +340,7 @@ $(document).ready(function(){
 		           	  //Adding course id in price pane
 		           	  $('#priceTab').data('id', data.course_id);
 		           	  //Adding Course discussion link to href
-		           	  var discusRoute = "{{route('discussion_view')}}/"+data.course_id;
+		           	  var discusRoute = "<?php echo e(route('discussion_view')); ?>/"+data.course_id;
 		              $('#discussTab').attr('href', discusRoute);
 		           	  //console.log("discusRoute" + discusRoute);
 		           	  
@@ -368,7 +369,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('addWeekForm') }}",
+		            url: "<?php echo e(route('addWeekForm')); ?>",
 		            type: 'post', 
 		            data: formData,
 			        success: function (data) { 
@@ -402,7 +403,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('getUpdateWeeks') }}",
+		            url: "<?php echo e(route('getUpdateWeeks')); ?>",
 		            type: 'post', 
 		            data: {'courseId': courseId},
 			        success: function (data) { 
@@ -434,7 +435,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('addLessonForm') }}",
+		            url: "<?php echo e(route('addLessonForm')); ?>",
 		            type: 'post', 
 		            data: formData,
 		            processData: false,
@@ -468,7 +469,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('addResourceForm') }}",
+		            url: "<?php echo e(route('addResourceForm')); ?>",
 		            type: 'post', 
 		            data: formData,
 		            processData: false,
@@ -501,7 +502,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('delete_week') }}",
+		            url: "<?php echo e(route('delete_week')); ?>",
 		            type: 'post', 
 		            data: { 'weekId' :formData},
 
@@ -534,7 +535,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('delete_lesson') }}",
+		            url: "<?php echo e(route('delete_lesson')); ?>",
 		            type: 'post', 
 		            data: { 'lessonId' :formData},
 
@@ -565,7 +566,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('delete_resource') }}",
+		            url: "<?php echo e(route('delete_resource')); ?>",
 		            type: 'post', 
 		            data: { 'lessonId' :formData},
 
@@ -595,7 +596,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('edit_lesson_modal') }}",
+		            url: "<?php echo e(route('edit_lesson_modal')); ?>",
 		            type: 'post', 
 		            data: {'lessonId':lessonId},
 
@@ -631,7 +632,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('edit_lesson_submit') }}",
+		            url: "<?php echo e(route('edit_lesson_submit')); ?>",
 		            type: 'post', 
 		            data: formData,
 		            processData: false,
@@ -664,7 +665,7 @@ $(document).ready(function(){
 		      });
 
 		      $.ajax({
-		            url: "{{ route('get_course_price') }}",
+		            url: "<?php echo e(route('get_course_price')); ?>",
 		            type: 'post', 
 		            data: {'courseId': courseId},
 
@@ -683,4 +684,5 @@ $(document).ready(function(){
 
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

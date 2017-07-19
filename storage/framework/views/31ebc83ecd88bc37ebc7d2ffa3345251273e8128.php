@@ -1,7 +1,6 @@
-@extends('layouts.app')
-@section('title', 'Add Course')
+<?php $__env->startSection('title', 'Add Course'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 		<section id="welcome">
 			<div class="dashboard">
@@ -20,8 +19,8 @@
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 float-left">
 						<div class="image-frame">
-							<img src="{{ asset('public/img/verified-customer.png') }}">
-							<img src="{{ asset('public/img/customer.png') }}">
+							<img src="<?php echo e(asset('public/img/verified-customer.png')); ?>">
+							<img src="<?php echo e(asset('public/img/customer.png')); ?>">
 							<p>SARA DOE</p>
 						</div>
 						</div>
@@ -76,7 +75,7 @@
 					<h1 class="discussion-title">Culture</h1>
 						<div class="chats">
 							<div class="chat-pro-img">
-								<img src="{{ asset('public/img/discussion-prof-img.png') }}">
+								<img src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>">
 							</div>
 							<div class="chat-all-here">
 								<h1>Rebecca M. <span>(title of Post Goes here)</span></h1>
@@ -97,7 +96,7 @@
 
 						<div class="chats">
 							<div class="chat-pro-img">
-								<img src="{{ asset('public/img/discussion-prof-img.png') }}">
+								<img src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>">
 							</div>
 							<div class="chat-all-here">
 								<h1>Rebecca M. <span>(title of Post Goes here)</span></h1>
@@ -119,7 +118,7 @@
 
 						<div class="chats">
 							<div class="chat-pro-img">
-								<img src="{{ asset('public/img/discussion-prof-img.png') }}">
+								<img src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>">
 							</div>
 							<div class="chat-all-here">
 								<h1>Rebecca M. <span>(title of Post Goes here)</span></h1>
@@ -137,7 +136,7 @@
 								</div>
 								<div class="chats inner-chat-here">
 							<div class="chat-pro-img">
-								<img src="{{ asset('public/img/discussion-prof-img.png') }}">
+								<img src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>">
 							</div>
 							<div class="chat-all-here">
 								<h1>Rebecca M. <span>(title of Post Goes here)</span></h1>
@@ -165,7 +164,7 @@
 
 						<div class="chats  inner-chat-here">
 							<div class="chat-pro-img">
-								<img src="{{ asset('public/img/discussion-prof-img.png') }}">
+								<img src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>">
 							</div>
 							<div class="chat-all-here">
 								<h1>Rebecca M. <span>(title of Post Goes here)</span></h1>
@@ -195,7 +194,7 @@
 
 						 <!-- <div class="chats">
 							<div class="chat-pro-img">
-								<img src="{{ asset('public/img/discussion-prof-img.png') }}">
+								<img src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>">
 							</div>
 							<div class="chat-all-here">
 								<h1>SARA DOE. <span>(title of Post Goes here)</span></h1>
@@ -290,7 +289,7 @@
 							<div class="seprator new-sep ">&nbsp;</div>
                          	<div class="chats">
 							<div class="chat-pro-img">
-								<!-- <img src="{{ asset('public/img/discussion-prof-img.png') }}"> -->
+								<!-- <img src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>"> -->
 							</div>
 							<div class="chat-all-here">
 								<!-- <h1>SARA DOE. <span>(title of Post Goes here)</span></h1> -->
@@ -298,7 +297,7 @@
 								<b>Title: </b><input type="text" id="discuss_name" name="discuss_name"/>
 								<br>
 								<b>Description: </b> <textarea name="discus_desc" placeholder="Add Comment Here..."></textarea>
-								<input type="hidden" value="{{$course_id}}" name="course_id"/>	
+								<input type="hidden" value="<?php echo e($course_id); ?>" name="course_id"/>	
 								<input type="Submit"  value="SUBMIT">
 								<div class="re-com-im">
 									<!-- <div class="replies"><p><a href="#"> 16 Replies </a></p></div> -->
@@ -343,7 +342,7 @@
 		      });
 
 		      $.ajax({
-		            url: "{{ route('addDiscusForm') }}",
+		            url: "<?php echo e(route('addDiscusForm')); ?>",
 		            type: 'post',
 		            data: formData,
 		            processData: false,
@@ -368,4 +367,5 @@
 
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

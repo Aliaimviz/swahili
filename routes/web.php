@@ -78,11 +78,21 @@ Route::post('/course_price', 'Instructor\CourseController@get_course_price')->na
 
 Route::get('/discussions/{id?}', 'Instructor\CourseController@get_discussion_view')->name('discussion_view');
 
+Route::post('/discussions-ajax/', 'Instructor\CourseController@get_discussion_view_ajax')->name('get_discussion_view_ajax'); 
+
+// /get_discussionCuorse_view_ajax
+Route::post('/discussionsCourse-ajax/', 'Instructor\CourseController@get_discussionCuorse_view_ajax')->name('get_discussionCuorse_view_ajax'); 
+
 //Course Discussion Page Route
 Route::post('/add-discussion', 'Instructor\CourseController@addDiscusForm')->name('addDiscusForm');
 
 //Comment
 Route::post('/add-comment', 'Instructor\CourseController@addDiscusComment')->name('addDiscusComment');
 
+
 //enrolled user
 Route::post('/enrollUser', 'Instructor\CourseController@addDiscusComment')->name('addEnrollUser');
+
+//Image
+Route::post('/add-image', 'Instructor\CourseController@addImageComment')->name('addImageComment');
+
