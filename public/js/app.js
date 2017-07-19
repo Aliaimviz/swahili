@@ -1,5 +1,7 @@
 console.log("app.js");
+var base_url = 'http://localhost/swahili/'
 
+<<<<<<< HEAD
 
   $(function() {
         // Initializes and creates emoji set from sprite sheet
@@ -26,8 +28,23 @@ console.log("app.js");
     </script>
 <script>
 	$(document).ready(function(){
+=======
+$(function() {
+    // Initializes and creates emoji set from sprite sheet
+    window.emojiPicker = new EmojiPicker({
+		emojiable_selector: '[data-emojiable=true]',
+		assetsPath: base_url+"public/img/",
+		popupButtonClasses: 'fa fa-smile-o'
+    });
+    window.emojiPicker.discover();
+});
+$(document).ready(function(){
+>>>>>>> 9bd85d8948a0963ab6595e8e63caf4770ec6c1d8
     $(".replies.yes p").click(function(){
         $(".chats.inner-chat-here").toggle();
     });
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9bd85d8948a0963ab6595e8e63caf4770ec6c1d8

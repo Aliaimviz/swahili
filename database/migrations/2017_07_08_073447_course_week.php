@@ -15,7 +15,7 @@ class CourseWeek extends Migration
     {
         Schema::create('weeks', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('course_id')->unsign(); //course id
+            $table->integer('course_id')->unsigned(); //course id
             $table->string('title');
             $table->longText('description');
             $table->timestamps();

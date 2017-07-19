@@ -15,7 +15,7 @@ class Course extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsign();
+            $table->integer('user_id')->unsigned();
             $table->string('title');
             $table->longText('description');
             $table->float('price', 5, 2)->default(0);

@@ -93,10 +93,12 @@
 				<?php endif; ?>
 				<div class="com-like">
 					<ul>
+
 						<li data-toggle="modal" data-target="#add-lesson"><a href="#" class="discusImage" data-id="<?php echo e($disc[$i]->disc_id); ?>"><i class="fa fa-upload"></i> Upload Image</a></li>
 						<li data-toggle="modal" data-target="#add-coding"><a href="#" class="discusComment" data-id="<?php echo e($disc[$i]->disc_id); ?>"><i class="fa fa-comment-o"></i> Comment</a></li>
 						<!--<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-smile-o"></i> React</a></li>
 						<li><a href="#"><i class="fa fa-envelope-o"></i> Direct</a></li> -->
+
 					</ul>
 				</div>
 			</div>
@@ -481,6 +483,7 @@
  });
 
 </script>
+<<<<<<< HEAD
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -521,6 +524,8 @@
 });
 </script>
 
+=======
+>>>>>>> 9bd85d8948a0963ab6595e8e63caf4770ec6c1d8
 <?php $__env->stopSection(); ?>
 
 

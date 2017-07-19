@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('language')->unsign();
+            $table->integer('language')->unsigned();
+            $table->integer('country_id')->unsigned();
             $table->string('user_type');
             $table->rememberToken();
             $table->timestamps();
@@ -27,6 +28,7 @@ class CreateUsersTable extends Migration
 
         Schema::table('users', function(Blueprint $table){
              $table->foreign('language')->references('id')->on('language')->onDelete('cascade');
+             $table->foreign('country_id')->references('id')->on('country')->onDelete('cascade');
         });
     }
 

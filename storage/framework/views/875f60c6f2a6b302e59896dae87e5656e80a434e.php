@@ -47,19 +47,13 @@
 					</div>
 					<div class="req-deta">
 						<h2>Prerequisites</h2>
+						<?php $prerequi = explode(',', $course->prerequisite);?>
 						<ul>
+							<?php $__currentLoopData = $prerequi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pre): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							<li>
-								<p>Sed ut perspiciatis unde omnis iste natus otam rem aperiam</p>
+								<p><?php echo e($pre); ?> </p>
 							</li>
-							<li>
-								<p>Error sit voluptatem accusantium dolorem  beatae vitae explicabo</p>
-							</li>
-							<li>
-								<p>Totam rem aperiam aspernatur aut odit aut fugit enim ipsam voluptem</p>
-							</li>
-							<li>
-								<p>Naque ipsa quae ab illo inventore veritatis</p>
-							</li>
+							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 						</ul>
 					</div>
 					<div class="what-will req-deta">
@@ -322,7 +316,7 @@
 								</ul>
 								<p><i class="fa fa-clock-o"></i> Last updated <?php echo e($date->format('Y-m-d')); ?></p>
 								<div class="req-deta" style="margin: 0;">
-									<h2>Includes:</h2>
+									<h2>Short Description:</h2>
 									<p style="color: #000;" class="incl">
 										<?php echo $excerpt = substr($course->description, 0, 350)?> ...
 									</p>

@@ -12,17 +12,19 @@
     <title>Swahili - <?php echo $__env->yieldContent('title'); ?></title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="<?php echo e(asset('public/css/bootstrap.min.css')); ?>">
+   <!-- <link rel="stylesheet" href="<?php echo e(asset('public/css/bootstrap.min.css')); ?>"> -->
+     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+   <link rel="stylesheet" href="<?php echo e(asset('public/css/bootstrap.min.css')); ?>"> 
     <link rel="stylesheet" href="<?php echo e(asset('public/css/font-awesome.min.css')); ?>">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="<?php echo e(asset('public/css/style.css')); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo e(asset('public/css/emoji.css')); ?>">
     <link href="<?php echo e(asset('public/css/custom.css')); ?>" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" type="text/css">    
 
-
     <!-- scripts -->
-    <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script>
-    
+    <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script>  
+  
 </head>
 <body>
     <div id="app">
@@ -153,23 +155,19 @@
             <!-- </div> -->
         </footer>
     </div>
-
-    <!-- Scripts -->
-    <script src="<?php echo e(asset('public/js/tether.min.js')); ?>"></script>    
-    <script src="<?php echo e(asset('public/js/bootstrap.min.js')); ?>"></script>
-    <script src="<?php echo e(asset('public/js/app.js')); ?>"></script>
-    <script src="<?php echo e(asset('public/js/util.js')); ?> "></script>
-    <script src="<?php echo e(asset('public/js/jquery.emojiarea.js')); ?>"></script>
-    <script src="<?php echo e(asset('public/js/emoji-picker.js')); ?>"></script>
-    <script src="<?php echo e(asset('public/js/bootstrap.min.js')); ?>"></script>
+    <!-- scripts -->
+    <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script>  
+    <script src="<?php echo e(asset('public/js/bootstrap.min.js')); ?>"></script> 
     <script src="<?php echo e(asset('public/js/config.js')); ?>"></script>
     <script src="<?php echo e(asset('public/js/util.js')); ?>"></script>
+    <script src="<?php echo e(asset('public/js/jquery.emojiarea.js')); ?>"></script>
+    <script src="<?php echo e(asset('public/js/emoji-picker.js')); ?>"></script>
+    <script src="<?php echo e(asset('public/js/tether.min.js')); ?>"></script>    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="<?php echo e(asset('public/js/app.js')); ?>"></script>
 
-    <!-- scripts -->
-    <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script>
-    
-    <!-- Toaster Alert Files -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+   
 
 </body>
 </html>
