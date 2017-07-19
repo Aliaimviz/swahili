@@ -9,21 +9,21 @@
 					<div class="row">
 						
 						<div class="col-xs-6 col-sm-6 col-md-9 col-lg-9 float-left">
-							<h2>COURSE TITLE GOES HERE</h2>
+							<h2>{{ $course_name }}</h2>
 							<a href="#" class="conlearning">Continue Learning</a>
 							<div class="pro-bar">
-						<h5>YOUR PROGRESS</h5>
+						<!--<h5>YOUR PROGRESS</h5>
 							<div class="progress">
                       <div data-percentage="0%" style="width: 50%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    </div> -->
                     </div>
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 float-left">
-						<div class="image-frame">
+						<!--<div class="image-frame">
 							<img src="{{ asset('public/img/verified-customer.png') }}">
 							<img src="{{ asset('public/img/customer.png') }}">
-							<p>SARA DOE</p>
-						</div>
+							<p>SARA DOE</p> 
+						</div> -->
 						</div>
 					</div>
 				<!-- 	<div class="row">
@@ -324,14 +324,8 @@
 			          console.log(data);
 		           	  toastr.success(data.msg);
 		           	    //hide lesson modal 
-		           	      $('#enter-the-week-title').val('');
-		           	      //$('#add-coding').hide('hide');
-		           	    	$("#codingModelClose").click();
-		           	    	$(".modal-backdrop").hide();
-		           	      //$('.modal-backdrop').css('display', 'none');
-
-		           	      
-			           	  
+		           	      $('#com_content').val('');
+		           	      $('#add-coding').modal('hide');          	  
 
 		           	      discus_ajax(data.discus_id);
 
@@ -345,7 +339,7 @@
 								}, 1000);			           	   
 
 						   //$(".dynaChat" + discusId).find('.replies').click();		           	      
-		           	      
+		           	      return true;
 
 		           	  // location.reload();	
 		           	   //$("html, body").animate({ scrollTop: $(document).height() }, 200);
@@ -381,11 +375,24 @@
 			        success: function (data) { 
 			          console.log(data);
 		           	  toastr.success(data.msg);
-		           	      //$('#add-coding').modal('hide');
-		           	      $("#imageModelClose").click();
-		           	      //$('.modal-backdrop').css('display', 'none');
 
-		           	  discus_ajax(data.discus_id);		           	  	
+		           	      $('#add-lesson').modal('hide');
+			           	  
+
+		           	      discus_ajax(data.discus_id);
+
+ 
+			           	   $(".replies.yes p").click(function(){
+						       $(".chats.inner-chat-here").toggle();
+						   });
+			           	   //	console.log("zxczxczxcxzcxz" + data.discus_id);
+								setTimeout(function(){ 
+			           	   			$(".dynaChat" + data.discus_id).find('.inner-chat-here').css('display', 'block');									
+								}, 1000);			           	   
+
+						   //$(".dynaChat" + discusId).find('.replies').click();		           	      
+		           	      return true;
+		           	  	
 			        },
 		        	error: function (data) { 
 		        	  console.log(data);
@@ -479,7 +486,6 @@
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('public/js/config.js') }}"></script>
 <script src="{{ asset('public/js/util.js') }}"></script>
 <script src="{{ asset('public/js/jquery.emojiarea.js') }}"></script>

@@ -399,7 +399,7 @@ class CourseController extends Controller
 
         //weeks   
             $discussions = Discussion::select('id')->where('course_id', $course_id)->get();
-
+            $course_name = Courses::select('title')->where('id', $course_id)->first();
                  
                foreach ($discussions as $discussion) {
 
@@ -414,7 +414,8 @@ class CourseController extends Controller
 
 
         return view('pages.discussion3')->with('course_id', $course_id)
-                                        ->with('discussions', $discus_array);
+                                        ->with('discussions', $discus_array)
+                                        ->with('course_name', $course_name->title);
    }
 
    public function get_discussion_view_ajax(Request $request){

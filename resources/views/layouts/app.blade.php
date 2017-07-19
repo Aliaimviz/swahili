@@ -159,9 +159,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('public/js/tether.min.js') }}"></script>    
-    <!--<script src="{{ asset('public/js/bootstrap.min.js') }}"></script> -->
+    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script> 
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+  <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  -->  
     <script src="<?php echo e(asset('public/js/app.js')); ?>"></script>
     <script src="<?php echo e(asset('public/js/util.js')); ?>"></script>
     <script src="<?php echo e(asset('public/js/jquery.emojiarea.js')); ?>"></script>
