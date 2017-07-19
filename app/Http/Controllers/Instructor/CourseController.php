@@ -101,32 +101,10 @@ class CourseController extends Controller
 
     public function getWeekView(Request $request){
 
+
         if($request->has('courseId')){
             //$course_id = $request->input('courseId');
             $course_id = $request->input('courseId');
-
-
-            //dd($course_id);
-            $weeks = Week::select('weeks.id as week_id', 'weeks.title as week_title'
-
-                , 'lessons.id as lesson_id',
-                 'resources.id as resource_id', 'resources.file as resource_file', 'resources.title as resource_title', 
-               'lessons.title as lesson_title')
-           ->leftjoin('lessons', 'weeks.id', '=', 'lessons.week_id')
-           ->leftjoin('resources', 'weeks.id', '=', 'resources.week_id')
-            ->where('weeks.course_id', $course_id)
-          //  ->limit(3)
-           // ->groupBy('week_id')
-            ->get();
-            //dd($weeks);
-            // echo "<pre>";
-            // print_r($weeks[0]->week_id);
-            // echo "</pre>";
-
-         //   $weeks = Week::where('course_id', $course_id)->get();
-
-
-            $weekView = view('pages.instructor.ajax_weeks')->with('weeks', $weeks)->render();
 
             $weeks = Week::select('id')->where('course_id', $course_id)->get();
                $lessons = array();
@@ -161,7 +139,6 @@ class CourseController extends Controller
               // dd($weekz);
 
             $weekView = view('pages.instructor.ajax_weeks')->with('weeks', $lessons)->render();
-
 
             return \Response::json(array('success' => true, 'weekView' => $weekView,
                                                      'course_id'=> $course_id), 200);
@@ -426,65 +403,82 @@ class CourseController extends Controller
                  
                foreach ($discussions as $discussion) {
 
-                       $dis = Discussion::select('discussions.id as discussion_id' , 'discussions.*', 'discussion_comments.*')
-                                  ->leftjoin('users', 'users.id', '=', 'discussions.user_Id')
+                       $dis = Discussion::leftjoin('users', 'users.id', '=', 'discussions.user_Id')
                                   ->leftjoin('discussion_comments', 'discussions.id', '=', 'discussion_comments.dis_id')
                                   ->where('discussions.id', $discussion->id)
-                                                     ->orderBy('discussions.id')
-                                                     ->get();
-                       $discus_array[] = $dis;                              
-                  //  $lesson = Week::select('weeks.id as week_id', 'weeks.title as week_title'
-                  //      , 'lessons.id as lesson_id',
-                  //       'resources.id as resource_id', 'resources.title as resource_title', 'resources.file as resource_file', 
-                  //     'lessons.title as lesson_title')
-                  // ->leftjoin('lessons', 'weeks.id', '=', 'lessons.week_id')
-                  // ->leftjoin('resources', 'weeks.id', '=', 'resources.week_id')
-                  //  ->where('weeks.id', $week->id)
-                  //  ->orderBy('lessons.week_id')
-                  //  ->get();
-
-                 //  $lessons[] = $lesson;
+                                  ->select('users.*', 'discussions.*', 'discussion_comments.*', 'users.id as user_id', 'discussions.id as disc_id')
+                                 ->orderBy('discussions.id')
+                                 ->get();
+                       $discus_array[] = $dis;          
                }
 
 
-
-//------------------------
-
-
-
-           // $discussions = Discussion::leftjoin('users', 'users.id', '=', 'discussions.user_id')
-           //              ->rightjoin('discussion_comments', 'discussion_comments.dis_id', '=', 'discussions.id')
-           //           ->select('discussion_comments.*', 'users.*')
-           //                        ->where('discussions.course_id', $course_id)->get();
-           //      $discuss_array = array();
-
-           //      foreach ($discussions as $discussion) {
-
-           //         $lesson = Discussion::leftjoin('users', 'users.id', '=', 'discussions.user_id')
-           //              ->rightjoin('discussion_comments', 'discussion_comments.dis_id', '=', 'discussions.id')
-           //           ->select('discussion_comments.*', 'users.*')
-           //                        ->where('discussions.id', $discussion->id)->get();
-           //         $discuss_array[] = $lesson;                  
-                
-           //      }
-
-               // foreach ($discussions as $discussion) {
-
-               //     $lesson = Discussion_comment::leftjoin('users', 'users.id', '=', 'discussion_comments.user_id')
-               //                   ->select('discussion_comments.*', 'users.*')
-               //                   ->where('discussion_comments.dis_id', $discussion->id)->get();
-               //     $lessons[] = $lesson;
-               // }
-
-        // $discussions = Discussion::leftjoin('users', 'users.id', '=', 'discussions.user_id')
-        //                          ->leftjoin('discussion_comments', 'discussion_comments.dis_id', '=', 'discussions.id')
-        //                          ->select('discussions.id as discussion_id', 'discussions.*', 'users.*', 'discussion_comments.*')
-        //                          ->where('discussions.course_id', $course_id)->get();
-       //dd($discus_array);
-      //return view('pages.discussion2')->with('course_id', $course_id);
-
         return view('pages.discussion3')->with('course_id', $course_id)
                                         ->with('discussions', $discus_array);
+   }
+
+   public function get_discussion_view_ajax(Request $request){
+            //return 'asdasas'.$request->input('dis_id');
+            $dis_id = $request->input('dis_id');//$id;
+                $discussion_fetch = Discussion::select('course_id')->where('id', $dis_id)->first();
+            $course_id = $discussion_fetch->course_id;
+            //$dis_id = ;   
+        //weeks   
+            $discussions = Discussion::select('id')->where('course_id', $course_id)->get();
+
+                 
+               foreach ($discussions as $discussion) {
+
+                       $dis = Discussion::leftjoin('users', 'users.id', '=', 'discussions.user_Id')
+                                  ->leftjoin('discussion_comments', 'discussions.id', '=', 'discussion_comments.dis_id')
+                                  ->where('discussions.id', $discussion->id)
+                                  ->select('users.*', 'discussions.*', 'discussion_comments.*', 'users.id as user_id', 'discussions.id as disc_id')
+                                 ->orderBy('discussions.id')
+                                 ->get();
+                       $discus_array[] = $dis;          
+               }
+
+            $disView = view('pages.discussion3_ajax')->with('course_id', $course_id)
+                                        ->with('discussions', $discus_array)->render();
+
+            return \Response::json(array('success' => true, 'disView' => $disView,
+                                                     'course_id'=> $course_id), 200);
+
+
+   }
+
+   public function get_discussionCuorse_view_ajax(Request $request){
+        $searchTerm = $request->input('searchTerm');
+        $course_id = $request->input('course_id');
+        //return $course_id;
+          if($searchTerm == ''){
+              $discussions = Discussion::select('id')->where('course_id', $course_id)->get();
+          }else{
+              $discussions = Discussion::select('id')->where('course_id', $course_id)->where('dis_title', 'like', '%'.$searchTerm.'%')
+              ->orWhere('dis_ques', 'like', '%'.$searchTerm.'%')
+              ->get();
+          }
+                //$discus_dyna_id = ;
+                 $discus_array = [];
+
+               foreach ($discussions as $discussion) {
+
+                       $dis = Discussion::leftjoin('users', 'users.id', '=', 'discussions.user_Id')
+                                  ->leftjoin('discussion_comments', 'discussions.id', '=', 'discussion_comments.dis_id')
+                                  ->where('discussions.id', $discussion->id)
+                                  ->select('users.*', 'discussions.*', 'discussion_comments.*', 'users.id as user_id', 'discussions.id as disc_id')
+                                 ->orderBy('discussions.id')
+                                 ->get();
+                       $discus_array[] = $dis;          
+               }
+
+            $disView = view('pages.discussion3_ajax')->with('course_id', $course_id)
+                                        ->with('discussions', $discus_array)->with('styleFlag', true)->render();
+
+            return \Response::json(array('success' => true, 'disView' => $disView,
+                                                     'course_id'=> $course_id), 200);
+
+
    }
 
    public function addDiscusForm(Request $request) {
@@ -524,7 +518,7 @@ class CourseController extends Controller
          $Discussion_comment->user_id = Auth::user()->id;
 
          if($Discussion_comment->save()){
-            return \Response::json(array('success' => true, 'msg' => 'Comment added'), 200);
+            return \Response::json(array('success' => true, 'msg' => 'Comment added', 'discus_id' =>$request->input('dis_id')), 200);
          }else{
             return \Response::json(array('success' => false, 'msg' => 'Comment not added2'), 422);
          }
@@ -556,7 +550,7 @@ class CourseController extends Controller
 
             if($discussion_comment->save()){
 
-              return \Response::json(array('success' => true, 'msg' => 'Image Updated'), 200);
+              return \Response::json(array('success' => true, 'msg' => 'Image Updated', 'discus_id' => $request->input('dis_id_img')), 200);
             }else{
               return \Response::json(array('success' => false, 'msg' => 'Image not Updated '), 422);  
             }

@@ -42,6 +42,7 @@ class GeneralController extends Controller
         $update = DB::table('users')->where('id',$this->loggedID())->update(array(
                 'first_name' => $request->firstName,
                 'last_name' => $request->lastName,
+                'intro' => $request->intro,
                 'email' => $request->email,
                 'language' => $request->language,
                 'country' => $request->country,

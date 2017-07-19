@@ -52,6 +52,12 @@
 	                        <strong>{{ $errors->first('lastName') }}</strong>
 	                    </span>
 	                @endif
+	                <label>Introduction<textarea name="intro">{{ $user->intro }}</textarea></label>
+					@if ($errors->has('intro'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('intro') }}</strong>
+	                    </span>
+	                @endif
 					<label>Email<input type="Email" value="{{ $user->email }}" name="email"></label>
 					@if ($errors->has('email'))
 	                    <span class="help-block">

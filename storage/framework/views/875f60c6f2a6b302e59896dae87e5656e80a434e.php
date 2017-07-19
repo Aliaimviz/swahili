@@ -1,6 +1,5 @@
-@extends('layouts.app')
-@section('title', 'All Courses')
-@section('content')
+<?php $__env->startSection('title', 'All Courses'); ?>
+<?php $__env->startSection('content'); ?>
 <section id="course">
 	<div class="container-fluid back-layer-img back-layer-img2">
 		<div class="container">
@@ -8,7 +7,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
 					<div class="frontend-box-inner">
 						<div class="course-detail-front">
-							<h5>{{$course->title}}</h5>
+							<h5><?php echo e($course->title); ?></h5>
 							<ul class="course-ratings">
 								<li><i class="fa fa-star"></i></li>
 								<li><i class="fa fa-star"></i></li>
@@ -24,11 +23,11 @@
 							</ul>
 							<ul class="course-price">
 								<li>
-									<p><i class="fa fa-pencil-square-o"></i> Created by {{$course->first_name }} {{$course->last_name }}</p>
+									<p><i class="fa fa-pencil-square-o"></i> Created by <?php echo e($course->first_name); ?> <?php echo e($course->last_name); ?></p>
 								</li>
 								<li>
 									<?php $date = new DateTime($course->updated_at); ?>
-									<p><i class="fa fa-clock-o"></i> Last updated {{$date->format('Y-m-d')}}</p>
+									<p><i class="fa fa-clock-o"></i> Last updated <?php echo e($date->format('Y-m-d')); ?></p>
 								</li>
 							</ul>
 						</div>
@@ -44,7 +43,7 @@
 				<div class="course-content-detail">
 					<div class="what-will">
 						<h2>Descriptions:</h2>
-						<p>{{ $course->description }}</p>
+						<p><?php echo e($course->description); ?></p>
 					</div>
 					<div class="req-deta">
 						<h2>Prerequisites</h2>
@@ -67,7 +66,7 @@
 						<h2>About the Author:</h2>
 						<div class="auther-detail-main">
 							<div class="auther-img">
-								<img src="{{ asset('public/img/auther-img.png') }}">
+								<img src="<?php echo e(asset('public/img/auther-img.png')); ?>">
 								<ul>
 									<li>
 										<p><i class="fa fa-star"></i> 4.7 Average rating</p>
@@ -84,8 +83,8 @@
 								</ul>
 							</div>
 							<div class="auther-detail">
-								<h2 style="color: #ff8868;">{{$course->first_name }} {{$course->last_name }}</h2>
-								<p>{{ $course->intro }}</p>
+								<h2 style="color: #ff8868;"><?php echo e($course->first_name); ?> <?php echo e($course->last_name); ?></h2>
+								<p><?php echo e($course->intro); ?></p>
 							</div>
 						</div>
 					</div>
@@ -204,7 +203,7 @@
 					<div class="what-will req-deta main-reviews">
 						<div class="auther-detail-main reviews">
 							<div class="auther-img">
-								<img src="{{ asset('public/img/user1.png') }}">									
+								<img src="<?php echo e(asset('public/img/user1.png')); ?>">									
 							</div>
 							<div class="auther-detail">
 								<ul>
@@ -229,7 +228,7 @@
 					<div class="what-will req-deta main-reviews">
 						<div class="auther-detail-main reviews">
 							<div class="auther-img">
-								<img src="{{ asset('public/img/user1.png') }}">									
+								<img src="<?php echo e(asset('public/img/user1.png')); ?>">									
 							</div>
 							<div class="auther-detail">
 								<ul>
@@ -254,7 +253,7 @@
 					<div class="what-will req-deta main-reviews">
 						<div class="auther-detail-main reviews">
 							<div class="auther-img">
-								<img src="{{ asset('public/img/user1.png') }}">									
+								<img src="<?php echo e(asset('public/img/user1.png')); ?>">									
 							</div>
 							<div class="auther-detail">
 								<ul>
@@ -279,7 +278,7 @@
 					<div class="what-will req-deta main-reviews">
 						<div class="auther-detail-main reviews">
 							<div class="auther-img">
-								<img src="{{ asset('public/img/user1.png') }}">									
+								<img src="<?php echo e(asset('public/img/user1.png')); ?>">									
 							</div>
 							<div class="auther-detail">
 								<ul>
@@ -308,11 +307,11 @@
 					<div class="frontend-box">
 						<!-- <a href="#"> -->
 						<div class="frontend-box-inner">
-							<div class="img"><img src="{{ asset('public/img/course-image.png') }}"></div>
+							<div class="img"><img src="<?php echo e(asset('public/img/course-image.png')); ?>"></div>
 							<div class="course-detail-front">
 								<ul class="course-price">
 									<li class="sale-price">
-										<p>$ {{ $course->price}}</p>
+										<p>$ <?php echo e($course->price); ?></p>
 									</li>
 									<!-- <li class="regular-price">
 										<p style="color: #ff8868;">$200</p>
@@ -321,7 +320,7 @@
 										<p style="color: #ff8868;">95% off</p>
 									</li> -->
 								</ul>
-								<p><i class="fa fa-clock-o"></i> Last updated {{$date->format('Y-m-d')}}</p>
+								<p><i class="fa fa-clock-o"></i> Last updated <?php echo e($date->format('Y-m-d')); ?></p>
 								<div class="req-deta" style="margin: 0;">
 									<h2>Includes:</h2>
 									<p style="color: #000;" class="incl">
@@ -348,4 +347,5 @@
 </section>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

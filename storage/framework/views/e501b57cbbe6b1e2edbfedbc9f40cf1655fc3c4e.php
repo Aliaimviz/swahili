@@ -1,7 +1,6 @@
-@extends('layouts.app')
-@section('title', 'Add Course')
+<?php $__env->startSection('title', 'Add Course'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 		<section id="welcome">
 			<div class="dashboard">
@@ -20,8 +19,8 @@
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 float-left">
 						<div class="image-frame">
-							<img src="{{ asset('public/img/verified-customer.png') }}">
-							<img src="{{ asset('public/img/customer.png') }}">
+							<img src="<?php echo e(asset('public/img/verified-customer.png')); ?>">
+							<img src="<?php echo e(asset('public/img/customer.png')); ?>">
 							<p>SARA DOE</p>
 						</div>
 						</div>
@@ -64,7 +63,7 @@
 				<div class="leabtn">
 				<form id="searchDiscusForm">
 					<input type="text" id="searchDiscusInput" maxlength="64" placeholder="Search" />
-					<input type="hidden" value="{{$course_id}}" name="course_id" id="course_id">
+					<input type="hidden" value="<?php echo e($course_id); ?>" name="course_id" id="course_id">
 	 				<button type="submit"><i class="fa fa-search" ></i></button>
 	 				<!-- <button type="submit" class="fil"><i class="fa fa-filter"></i></button> -->
  				</form>
@@ -76,58 +75,58 @@
 					<!-- <h1 class="discussion-title">Culture</h1> -->
 
 
-@if(isset($discussions))
-	@foreach($discussions as $disc)
+<?php if(isset($discussions)): ?>
+	<?php $__currentLoopData = $discussions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $disc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<?php $i = 0; ?>
 
-    <div class="chats dynaChat{{$disc[$i]->disc_id}}">
+    <div class="chats dynaChat<?php echo e($disc[$i]->disc_id); ?>">
 		<div class="chat-pro-img">
 
-			<img src="{{ asset('public/img/discussion-prof-img.png') }}">
+			<img src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>">
 		</div>
-		<div class="chat-all-here discussionBlock" data-id="{{ $disc[$i]->disc_id }}">
-			<h1>{{ $disc[$i]->first_name }} {{ $disc[$i]->last_name }}. <span>( {{ $disc[$i]->dis_title }} )</span></h1>
-			<p>{{ $disc[$i]->dis_ques }}</p>
+		<div class="chat-all-here discussionBlock" data-id="<?php echo e($disc[$i]->disc_id); ?>">
+			<h1><?php echo e($disc[$i]->first_name); ?> <?php echo e($disc[$i]->last_name); ?>. <span>( <?php echo e($disc[$i]->dis_title); ?> )</span></h1>
+			<p><?php echo e($disc[$i]->dis_ques); ?></p>
 			<div class="re-com-im">
-				@if($disc[$i]->com_content || $disc[$i]->file)
-					<div class="replies yes"><p> {{ count($disc) }} Replies </p></div>
-				@endif
+				<?php if($disc[$i]->com_content || $disc[$i]->file): ?>
+					<div class="replies yes"><p> <?php echo e(count($disc)); ?> Replies </p></div>
+				<?php endif; ?>
 				<div class="com-like">
 					<ul>
-						<li data-toggle="modal" data-target="#add-lesson"><a href="#" class="discusImage" data-id="{{ $disc[$i]->disc_id }}"><i class="fa fa-upload"></i> Upload Image</a></li>
-						<li data-toggle="modal" data-target="#add-coding"><a href="#" class="discusComment" data-id="{{ $disc[$i]->disc_id }}"><i class="fa fa-comment-o"></i> Comment</a></li>
+						<li data-toggle="modal" data-target="#add-lesson"><a href="#" class="discusImage" data-id="<?php echo e($disc[$i]->disc_id); ?>"><i class="fa fa-upload"></i> Upload Image</a></li>
+						<li data-toggle="modal" data-target="#add-coding"><a href="#" class="discusComment" data-id="<?php echo e($disc[$i]->disc_id); ?>"><i class="fa fa-comment-o"></i> Comment</a></li>
 						<!--<li data-toggle="modal" data-target="#add-coding"><a href="#"><i class="fa fa-smile-o"></i> React</a></li>
 						<li><a href="#"><i class="fa fa-envelope-o"></i> Direct</a></li> -->
 					</ul>
 				</div>
 			</div>
-			@foreach($disc as $di)
-			@if($di->com_content || $di->file)
+			<?php $__currentLoopData = $disc; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $di): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			<?php if($di->com_content || $di->file): ?>
 			<div class="chats inner-chat-here" style="display:none">
 				<div class="chat-pro-img">
-					<img height="100px" width="100px" src="{{ asset('public/img/discussion-prof-img.png') }}">
+					<img height="100px" width="100px" src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>">
 				</div>
 				<div class="chat-all-here">
-					<h1>{{ $di->first_name }} {{ $di->last_name }}</h1>
-					@if($di->com_content)
-						<p>{{ $di->com_content }}</p>
-					@elseif($di->file)
-						<img height="100px" width="100px" src="{{ asset('public/files/comment_images')}}/{{$di->file}}">
-					@else
+					<h1><?php echo e($di->first_name); ?> <?php echo e($di->last_name); ?></h1>
+					<?php if($di->com_content): ?>
+						<p><?php echo e($di->com_content); ?></p>
+					<?php elseif($di->file): ?>
+						<img height="100px" width="100px" src="<?php echo e(asset('public/files/comment_images')); ?>/<?php echo e($di->file); ?>">
+					<?php else: ?>
 						<p></p>
-					@endif
+					<?php endif; ?>
 				</div>
 			</div>
-			@endif
-			@endforeach
+			<?php endif; ?>
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		</div>
 	</div>
 	<?php $i++; ?>
 
-	@endforeach
-@else
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php else: ?>
  <h1> No Discussion Found! </h1>
-@endif			
+<?php endif; ?>			
 
 						<div class="load-mor-comment">
 							<input type="submit" value="LOAD MORE">
@@ -211,7 +210,7 @@
 							<div class="seprator new-sep ">&nbsp;</div>
                          	<div class="chats">
 							<div class="chat-pro-img">
-								<img src="{{ asset('public/img/discussion-prof-img.png') }}">
+								<img src="<?php echo e(asset('public/img/discussion-prof-img.png')); ?>">
 							</div>
 							<div class="chat-all-here">
 								<!--<h1>SARA DOE. <span>(title of Post Goes here)</span></h1> -->
@@ -219,7 +218,7 @@
 								<b>Title: </b><input type="text" id="discuss_name" name="discuss_name"/>
 								<br>
 								<b>Description: </b> <textarea name="discus_desc" placeholder="Add Comment Here..."></textarea>
-								<input type="hidden" value="{{$course_id}}" name="course_id"/>	
+								<input type="hidden" value="<?php echo e($course_id); ?>" name="course_id"/>	
 								<input type="Submit"  value="SUBMIT">
 								<div class="re-com-im">
 									<!-- <div class="replies"><p><a href="#"> 16 Replies </a></p></div> -->
@@ -264,7 +263,7 @@
 		      });
 
 		      $.ajax({
-		            url: "{{ route('addDiscusForm') }}",
+		            url: "<?php echo e(route('addDiscusForm')); ?>",
 		            type: 'post',
 		            data: formData,
 		            processData: false,
@@ -315,7 +314,7 @@
 		      });
 
 		      $.ajax({
-		            url: "{{ route('addDiscusComment') }}",
+		            url: "<?php echo e(route('addDiscusComment')); ?>",
 		            type: 'post',
 		            data: formData,
 		            processData: false,
@@ -373,7 +372,7 @@
 		      });
 
 		      $.ajax({
-		            url: "{{ route('addImageComment') }}",
+		            url: "<?php echo e(route('addImageComment')); ?>",
 		            type: 'post',
 		            data: formData,
 		            processData: false,
@@ -405,7 +404,7 @@
 			      });
 
 			      $.ajax({
-			            url: "{{ route('get_discussion_view_ajax') }}",
+			            url: "<?php echo e(route('get_discussion_view_ajax')); ?>",
 			            type: 'post',
 			            data: {'dis_id': discus_id},
 		                      	            
@@ -441,7 +440,7 @@
 			      });
 
 			      $.ajax({
-			            url: "{{ route('get_discussionCuorse_view_ajax') }}",
+			            url: "<?php echo e(route('get_discussionCuorse_view_ajax')); ?>",
 			            type: 'post',
 			            data: {'searchTerm': searchTerm, 'course_id': course_id},
 		                      	            
@@ -479,17 +478,17 @@
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('public/js/config.js') }}"></script>
-<script src="{{ asset('public/js/util.js') }}"></script>
-<script src="{{ asset('public/js/jquery.emojiarea.js') }}"></script>
-<script src="{{ asset('public/js/emoji-picker.js') }}"></script>
+<script src="<?php echo e(asset('public/js/bootstrap.min.js')); ?>"></script>
+<script src="<?php echo e(asset('public/js/config.js')); ?>"></script>
+<script src="<?php echo e(asset('public/js/util.js')); ?>"></script>
+<script src="<?php echo e(asset('public/js/jquery.emojiarea.js')); ?>"></script>
+<script src="<?php echo e(asset('public/js/emoji-picker.js')); ?>"></script>
 <script>
       $(function() {
         // Initializes and creates emoji set from sprite sheet
         window.emojiPicker = new EmojiPicker({
           emojiable_selector: '[data-emojiable=true]',
-          assetsPath: "{{ asset('public/img/') }}",
+          assetsPath: "<?php echo e(asset('public/img/')); ?>",
           popupButtonClasses: 'fa fa-smile-o'
         });
         // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
@@ -516,7 +515,9 @@
 });
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
