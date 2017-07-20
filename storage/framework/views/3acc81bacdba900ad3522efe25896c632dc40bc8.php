@@ -22,9 +22,13 @@
     <link href="<?php echo e(asset('public/css/custom.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('public/css/bootstrap-tagsinput.css')); ?>" rel="stylesheet">    
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" type="text/css">    
+<<<<<<< HEAD
 
+    <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script>  
+=======
     <!-- scripts -->
     <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script> 
+>>>>>>> 03d9e46402441f806065ea574e04fa372b88f416
 
   
 </head>
@@ -174,6 +178,7 @@
     <script src="<?php echo e(asset('public/js/bootstrap-tagsinput.js')); ?>"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>    
     <script src="<?php echo e(asset('public/js/bootstrap-tagsinput-angular.js')); ?>"></script>    
+
 
 </body>
 </html>
