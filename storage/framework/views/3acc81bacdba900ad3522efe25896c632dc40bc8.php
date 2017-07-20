@@ -22,6 +22,7 @@
     <link href="<?php echo e(asset('public/css/custom.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('public/css/bootstrap-tagsinput.css')); ?>" rel="stylesheet">    
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" type="text/css">    
+
     <!-- scripts -->
     <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script> 
 
@@ -156,6 +157,7 @@
             <!-- </div> -->
         </footer>
     </div>
+
 
     
     <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script>  

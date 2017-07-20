@@ -22,8 +22,13 @@
     <link href="{{ asset('public/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('public/css/bootstrap-tagsinput.css') }}" rel="stylesheet">    
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" type="text/css">    
+<<<<<<< HEAD
+
+    <script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script>  
+=======
     <!-- scripts -->
     <script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script> 
+>>>>>>> 03d9e46402441f806065ea574e04fa372b88f416
 
   
 </head>
@@ -154,6 +159,23 @@
             <!-- </div> -->
         </footer>
     </div>
+<<<<<<< HEAD
+    <!-- scripts -->
+<script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script>  
+   <script src="{{ asset('public/js/bootstrap.min.js') }}"></script> 
+   <script src="<?php echo e(asset('public/js/config.js')); ?>"></script>
+   <script src="<?php echo e(asset('public/js/util.js')); ?>"></script>
+   <script src="<?php echo e(asset('public/js/jquery.emojiarea.js')); ?>"></script>
+   <script src="<?php echo e(asset('public/js/emoji-picker.js')); ?>"></script>
+   <script src="<?php echo e(asset('public/js/tether.min.js')); ?>"></script>    
+   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   <script src="<?php echo e(asset('public/js/app.js')); ?>"></script>
+   <!-- Bootstrap tags input -->
+
+    <script src="{{ asset('public/js/bootstrap-tagsinput.js') }}"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>    
+   <script src="{{ asset('public/js/bootstrap-tagsinput-angular.js') }}"></script>     
+=======
 
     
     <script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script>  
@@ -170,6 +192,7 @@
     <script src="{{ asset('public/js/bootstrap-tagsinput.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>    
     <script src="{{ asset('public/js/bootstrap-tagsinput-angular.js') }}"></script>    
+>>>>>>> 03d9e46402441f806065ea574e04fa372b88f416
 
 </body>
 </html>

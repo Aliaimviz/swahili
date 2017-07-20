@@ -107,6 +107,7 @@
                         <label for="language" class="col-md-4 control-label">Language</label>
                         <div class="col-md-12">
                             <select class="form-control" name="language">
+                                
                                 @foreach($lang as $lan)
                                     @if($lan->language == 'English')
                                     <option value="{{ $lan->id }}" selected="selected">{{ $lan->language }}</option>

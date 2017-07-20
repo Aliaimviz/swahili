@@ -12,6 +12,16 @@
   src: url('../fonts/glyphicons-halflings-regular.eot');
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
+@font-face {
+    font-family: 'Futura LT';
+    src: url('../fonts/FuturaLT-Light.eot');
+    src: url('../fonts/FuturaLT-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/FuturaLT-Light.woff') format('woff'),
+        url('../fonts/FuturaLT-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
 #container {
 max-width: 1250px;
 width: 100%;
@@ -44,7 +54,7 @@ transition: color ease 500ms;
 }
 ul.main-nav li a {
 padding: 20px 20px;
-font-family: 'Montserrat', sans-serif;
+font-family: 'Futura LT';
 font-weight: 400;
 color: #030303;
 transition: color ease 500ms;
@@ -61,6 +71,9 @@ padding: 12px 30px !important;
 color: #fff !important;
 transition: all ease 500ms !important;
 border: 2px solid #ff8868;
+    border-radius: 35px;
+    box-shadow: none;
+    text-decoration: none;
 }
 section#main-area {
 width: 100%;
@@ -92,7 +105,7 @@ border-top: 3px solid #ff8868;
 display: inline-block;
 padding-top: 10px;
 font-weight: 700;
-font-family: 'Montserrat', sans-serif;
+font-family: 'Futura LT';
 }
 .slider-center-button a{
 background: #ff8868;
@@ -100,10 +113,11 @@ color: #fff;
 padding: 12px 28px;
 font-size: 18px;
 font-weight: 600;
-border-bottom: 3px solid #af472b;
+/*border-bottom: 3px solid #af472b;*/
 transition: all ease 500ms;
 text-decoration: none;
-font-family: 'Montserrat', sans-serif;
+font-family: 'Futura LT';
+    border-radius: 35px;
 }
 .slider-center-button a:hover, .slider-center-button input[type="submit"]:hover {
 background: transparent;
@@ -116,7 +130,7 @@ width: 100%;
 margin: 25px 0px;
 }
 .online-program h1 {
-font-family: 'Montserrat', sans-serif;
+font-family: 'Futura LT';
 font-weight: 400;
 text-shadow: 1px 2px 2px #464a4c;
 }
@@ -218,7 +232,7 @@ font-weight: 500;
 text-transform: uppercase;
 }
 .sec-1 {
-font-family: montserrat;
+font-family: 'Futura LT';
 background-image: url(../img/indiana.png);
 float: left;
 width: 50%;
@@ -229,7 +243,7 @@ background-size: 100%;
 position: relative;
 }
 .sec-2 {
-font-family: montserrat;
+font-family: 'Futura LT';
 background-image: url(../img/indiana-2.png);
 float: left;
 width: 50%;
@@ -248,7 +262,7 @@ width: 100%;
 padding: 0px;
 }
 .sec-1 {
-font-family: montserrat;
+font-family: 'Futura LT';
 background-image: url(../img/indiana.png);
 float: left;
 width: 50%;
@@ -349,7 +363,7 @@ text-align: center;
 float: left;
 }
 h1.inovative-heading {
-font-family: 'Montserrat', sans-serif;
+font-family: 'Futura LT';
 font-weight: 400;
 text-shadow: 1px 2px 2px #464a4c;
 padding-top: 75px;
@@ -367,7 +381,7 @@ padding: 40px;
 .hidden-costs-heading {
 color: #fff;
 text-align: center;
-font-family: montserrat;
+font-family: 'Futura LT';
 }
 .hidden-costs-heading h1 {
 text-transform: uppercase;
@@ -396,7 +410,7 @@ margin-right: 0px;
 ul.small-icon-area li h2 {
 font-size: 20px;
 color: #fff;
-font-family: montserrat;
+font-family: 'Futura LT';
 font-weight: 400;
 }
 ul.small-icon-area.icon-area-newest li {
@@ -411,7 +425,7 @@ width: 85%;
 margin: 80px auto;
 }
 .total-costs h2 {
-font-family: montserrat;
+font-family: 'Futura LT';
 color: #000;
 font-weight: 400;
 }
@@ -436,12 +450,12 @@ background-image: url(../img/learning-swahili.png);
 padding-bottom: 40px;
 }
 .could-change p {
-font-family: montserrat;
+font-family: 'Futura LT';
 font-size: 16px;
 }
 .start-learning-today {
 text-align: center;
-font-family: montserrat;
+font-family: 'Futura LT';
 text-transform: uppercase;
 background: #212121;
 float: left;
@@ -456,7 +470,7 @@ float: left;
 width: 33.33%;
 }*/
 footer#main-footer h2 {
-font-family: montserrat;
+font-family: 'Futura LT';
 text-transform: uppercase;
 font-size: 25px;
 margin-bottom: 20px;
@@ -472,7 +486,7 @@ footer#main-footer ul {
 list-style: none;
 padding-left: 0px;
 text-transform: uppercase;
-font-family: montserrat;
+font-family: 'Futura LT';
 }
 footer#main-footer ul li {
 padding-bottom: 10px;
@@ -493,7 +507,7 @@ transition: all ease 500ms;
 color: #ff8868;
 }
 .footer-area-3 input {
-font-family: montserrat;
+font-family: 'Futura LT';
 padding: 5px;
 width: 100%;
 }
@@ -625,7 +639,7 @@ section#welcome {
     text-align: center;
     width: 100% !important;
     max-width: 100% !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     padding: 10px 32px !important;
     background: #fff;
     color: #ff8868;
@@ -671,7 +685,7 @@ section#welcome {
 }
 /**/
 .form-fields label {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: initial;
     width: 100%;
     float: left;
@@ -698,10 +712,12 @@ section#welcome {
     font-weight: 600;
     border: none;
     border: 2px solid #ff8868;
-    border-bottom: 2px solid #af472b;
+    /*border-bottom: 2px solid #af472b;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
+        border-radius: 35px;
+
 }
 
 .form-fields input:focus, .form-fields select:focus, .class-pr-con.class-pr-con2.reply-com textarea:focus, .fields select:focus{
@@ -738,13 +754,13 @@ a.conlearning {
     text-align: center;
     width: 100% !important;
     max-width: 100% !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     padding: 10px 15px !important;
     background: transparent;
     color: #ff8868;
     border: 2px solid #ff8868;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 35px;
     text-transform: uppercase;
 }
 a.conlearning:hover {
@@ -780,7 +796,7 @@ a.conlearning:hover {
     padding: 11px 0;
 }
 .dashboard-menu ul li a {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: 400;
     color: #fff;
     text-transform: uppercase;
@@ -813,12 +829,12 @@ section.content .seprator.new-sep {
 }
 section.content h1 {
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
 } 
 section.content h1 a {
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     color: #292b2c;
     text-decoration: none;
@@ -830,7 +846,7 @@ section.content h1 a {
     background-image: url(../img/full-box.png);
 }
 .box-con h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-size: 26px;
     color: #000;
     font-weight: bold;
@@ -842,10 +858,11 @@ a.conlearning2 {
     padding: 9px 21px;
     font-size: 14px;
     font-weight: 400;
-    border-bottom: 3px solid #af472b;
+    /*border-bottom: 3px solid #af472b;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
+    border-radius: 35px;
 }
 .box-con {
     text-align: center;
@@ -879,7 +896,7 @@ a.conlearning2 {
     margin-top: 73px;
 }
 .box-con.box-con2 h3 {
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Futura LT' !important;
     font-size: 24px;
     font-weight: 500;
 }
@@ -944,13 +961,14 @@ section#language {
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #ff8868;
-    border-bottom: 2px solid #af472b;
+    /*border-bottom: 2px solid #af472b;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     margin: 0 auto;
     display: table;
     float: none;
+    border-radius: 35px;
 }
 .language-p a:hover, .sing-upp .welcome-text a:hover {
     background: transparent;
@@ -974,11 +992,11 @@ p.box-no {
     border-bottom: 3px solid #af472b;
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     text-align: center;
 }
 p.box-p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: 300;
     font-size: 17px;
     padding-top: 98px;
@@ -999,7 +1017,7 @@ p.box-p.p-right {
     margin: 28px 0px;
 }
 .avatar.faq-an p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: 300;
     font-size: 17px;
     /*padding-left: 10px;*/
@@ -1042,7 +1060,7 @@ section#course .col-eff {
 p.urg {
     color: #fff;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-size: 27px;
         margin-bottom: 58px;
 }
@@ -1087,7 +1105,8 @@ a.stry {
     margin: 0 auto;
     font-size: 18px;
     font-weight: bold;
-    border-bottom: 2px solid #af472b;
+    /*border-bottom: 2px solid #af472b;*/
+    border-radius: 35px; 
 }
 a.stry:hover {
 	background: transparent;
@@ -1122,13 +1141,13 @@ a.stry:hover {
 .tabels td {
     text-align: center;
     color: #8d8d8d;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: 500;
 }
 tr.fir-ch th {
     text-align: center;
     color: #000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: bold;
     font-size: 18px;
     background: #ff8868;
@@ -1138,7 +1157,7 @@ tr.fir-ch th {
 }
 .tabels th[scope="row"] {
     color: #8d8d8d;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: 500;
     border: none;
 }
@@ -1172,10 +1191,10 @@ tr.fir-ch th {
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #ff8868;
-    border-bottom: 2px solid #af472b;
+    /*border-bottom: 2px solid #af472b;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     width: 27%;
 }
 .contact-uu input[type="Submit"]:hover {
@@ -1221,7 +1240,7 @@ tr.fir-ch th {
 }
 .lesson h5 {
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     color: #252525;
     margin-bottom: 0;
@@ -1241,7 +1260,7 @@ tr.fir-ch th {
 }
 .lesson-title h4 {
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     color: #444;
     margin-bottom: 0;
@@ -1256,7 +1275,7 @@ tr.fir-ch th {
     padding-left: 8px;
     margin-left: 8px;
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     margin-bottom: 0;
     font-weight: 500;
@@ -1271,7 +1290,7 @@ li.c-ompleted {
     border-top: 1px solid #e5c6bd;
     padding: 7px 0;
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     margin-bottom: 0;
     font-weight: 500;
@@ -1371,7 +1390,7 @@ h1 i.fa.fa-plus-circle {
 .chat-all-here p {
     background: #f7f7f7;
     padding: 8px 13px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: 400;
     font-size: 15px;
     line-height: 21px;
@@ -1396,7 +1415,7 @@ h1 i.fa.fa-plus-circle {
 .com-like ul li{
     display: inline-block;
     padding-left: 25px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: 400;
     font-size: 16px;
     line-height: 21px;
@@ -1421,7 +1440,7 @@ h1 i.fa.fa-plus-circle {
     padding: 0;
     background: inherit;
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     margin-bottom: 0;
     color: #ff8868;
 }
@@ -1447,10 +1466,12 @@ h1 i.fa.fa-plus-circle {
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #ff8868;
-    border-bottom: 3px solid #af472b;
+    /*border-bottom: 3px solid #af472b;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    border-radius: 35px;
+    font-family: 'Futura LT';
+
 }
 .chat-all-here input[type="Submit"] {
     background: #ff8868;
@@ -1459,12 +1480,13 @@ h1 i.fa.fa-plus-circle {
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #ff8868;
-    border-bottom: 3px solid #af472b;
+    /*border-bottom: 3px solid #af472b;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     float: right;
     margin-top: 10px;
+    border-radius: 35px;
 }
 .chat-all-here input[type="Submit"]:hover {
     background: transparent;
@@ -1544,8 +1566,9 @@ button.fil {
     border: 2px solid #ff8868;
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     width: 100%;
+    border-radius: 35px;
 }
 .load-mor-comment input[type="submit"]:hover {
     background: transparent;
@@ -1586,12 +1609,12 @@ button.fil {
     margin-top: -21px;
 }
 .class-pr-con p {
-    background: #f7f7f7;
+    /*background: #f7f7f7;*/
     padding: 5px 8px;
     line-height: normal;
-    border: 1px solid #dedede;
+    /*border: 1px solid #dedede;*/
     margin-top: 3px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-size: 15px;
     color: #4e4e4e;
 }
@@ -1611,6 +1634,7 @@ img.check-ri {
     background: #ffc0af;
     border-left: 5px solid #d9681d;
     transition: all ease 0.3s;
+    cursor: pointer;
 }
 .classmatspro:hover .class-pr-img img {
     border: 2px solid #fff;
@@ -1628,7 +1652,7 @@ img.check-ri {
     border:none;
 }
 .class-pr-con h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     color: #fff;
     text-transform: uppercase;
     font-size: 17px;
@@ -1668,9 +1692,11 @@ h1.mess {
     padding: 16px 8px;
     margin-top: 13px;
     margin-bottom: 0;
+        background: #f7f7f7;
+    border: 1px solid #dedede;
 }
 .class-pr-con.class-pr-con2 span {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-size: 11px;
     color: #4e4e4e;
 }
@@ -1697,12 +1723,13 @@ h1.mess {
     font-weight: 600;
    
     border: 2px solid #ff8868;
-    border-bottom: 2px solid #af472b;
+    /*border-bottom: 2px solid #af472b;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     width: 100%;
     text-align: center;
+    border-radius: 35px;
 }
 .class-pr-img.class-pr-img2.reply-com-btn.slider-center-button {
     width: 22%;
@@ -1724,7 +1751,7 @@ h1.mess {
     background: #fff;
     font-size: 21px;
     color: #2b2b2b;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     border: 2px solid #ff8868;
     padding: 4px 2px;
     border-radius: 6px;
@@ -1736,7 +1763,7 @@ a.ellip {
     background: #fff;
     font-size: 23px;
     color: #2b2b2b;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     border: 2px solid #ff8868;
     padding: 2px 16px;
     border-radius: 6px;
@@ -1786,14 +1813,14 @@ border-top: 1px solid #ccc;
     float: left;
 }
 .weeks h2 {
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     font-size: 26px;
     margin-top: 29px;
 }
 .weeks > span {
     float: right;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     font-size: 26px;
 
@@ -1817,13 +1844,13 @@ border-top: 1px solid #ccc;
 }
 .quest-ans p {
     color: #4e4e4e;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     width: 100%;
 }
 .quest-ans span {
     width: 4%;
     float: left;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     font-size: 24px;
     line-height: normal;
@@ -1851,14 +1878,15 @@ border-top: 1px solid #ccc;
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #ff8868;
-    border-bottom: 2px solid #af472b;
+    /*border-bottom: 2px solid #af472b;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     margin: 16px auto;
     float: none;
     text-transform: uppercase;
     display: table;
+    border-radius: 35px;
 }
 .btn-ne-sk a:hover {
     background: transparent;
@@ -1890,10 +1918,10 @@ border-top: 1px solid #ccc;
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #ff8868;
-    border-bottom: 2px solid #af472b;
+    /*border-bottom: 2px solid #af472b;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     float: none;
     text-transform: uppercase;
     display: inline-block;
@@ -1903,6 +1931,7 @@ border-top: 1px solid #ccc;
     margin: 227px auto;
     width: 100%;
     max-width: 181px;
+    border-radius: 35px;
 }
 .correct-ans a:hover {
 	color: #ff8868;
@@ -1917,10 +1946,10 @@ border-top: 1px solid #ccc;
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #5a5a5a;
-    border-bottom: 2px solid #3f3f3f;
+    /*border-bottom: 2px solid #3f3f3f;*/
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     float: none;
     text-transform: uppercase;
     display: inline-block;
@@ -1930,6 +1959,7 @@ border-top: 1px solid #ccc;
     margin: -67px auto;
     width: 100%;
     max-width: 181px;
+    border-radius: 35px;
 }
 .wrong-ans a:hover {
 	color: #5a5a5a;
@@ -1956,7 +1986,7 @@ border-top: 1px solid #ccc;
     float: right;
 }
 .men-na p a {
-    font-family: montserrat;
+    font-family: 'Futura LT';
     font-size: 19px;
     padding-top: 17px;
     margin-bottom: 0;
@@ -1976,7 +2006,13 @@ border-top: 1px solid #ccc;
 }
 .men-pr-set ul li a {
     color: #fff;
-    font-family: montserrat;
+    font-family: 'Futura LT';
+    font-weight: bold;
+}
+
+.men-pr-set.men-pr-set-extr ul li a {
+    color: #000;
+    font-family: 'Futura LT';
     font-weight: bold;
 }
 .men-pr-set ul li:last-child i {
@@ -2018,7 +2054,7 @@ border-top: 1px solid #ccc;
 .weeks .chat-all-here p {
     background: #f7f7f7;
     padding: 5px 13px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
@@ -2030,7 +2066,7 @@ border-top: 1px solid #ccc;
     padding: 0;
     background: inherit;
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     margin-bottom: 0;
     color: #ff8868;
     border: inherit;
@@ -2084,7 +2120,7 @@ ul.mater-study li {
     display: inline-block;
     padding-left: 13px;
     font-size: 21px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: capitalize;
     color: #000;
 }
@@ -2119,23 +2155,23 @@ ul.mater-study li a:hover {
     position: absolute;
     bottom: 5px;
     right: 32px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-size: 19px;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Futura LT';
       color: #292b2c;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Futura LT';
       color: #292b2c;
 }
 :-ms-input-placeholder { /* IE 10+ */
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Futura LT';
   color: #292b2c;
 }
 :-moz-placeholder { /* Firefox 18- */
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Futura LT';
       color: #292b2c;
 }
 
@@ -2167,7 +2203,7 @@ tr del {
 }
 .modal-dialog.widsch .modal-header h5 {
     color: #833a0d;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     text-align: center !important;
     margin: 0 auto;
     font-size: 29px;
@@ -2192,7 +2228,7 @@ button.theme-btn {
     border-bottom: 2px solid #af472b;
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     border-radius: 0px;
     text-transform: uppercase;
 }
@@ -2202,14 +2238,14 @@ button.theme-btn:hover {
     font-size: 18px;
     font-weight: 600;
     border-color:#ff8868 ;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     border-radius: 0px;
     text-transform: uppercase;
     cursor: pointer;
 }
 #myappoin .modal-body p, #resch .modal-body p {
     color: #ff0000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
@@ -2231,7 +2267,7 @@ button.theme-btn:hover {
 }
 #resch .modal-body span {
     color: #833b0b;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-size: 23px;
 }
 .theme-sch {
@@ -2262,7 +2298,7 @@ button.theme-btn:hover {
 }
 .atten p {
     color: #ff0000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
@@ -2352,7 +2388,7 @@ img.congura {
     max-width: 33%;
     background-repeat: no-repeat;
     padding: 9px 0px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: capitalize;
     color: #fff;
     text-align: center;
@@ -2361,7 +2397,7 @@ img.congura {
 }
 .matc h5.lat {
     background: url(../img/badge-bk2.png);
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: capitalize;
     color: #fff;
     background-repeat: no-repeat;
@@ -2380,7 +2416,7 @@ img.congura {
     width: 50%;
 }
 .mat-ul ul li a {
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: capitalize;
     color: #ff8868;
     text-align: center;
@@ -2424,7 +2460,7 @@ ul.ul-sc li {
     border-bottom: 2px solid #af472b;
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     margin: 0 auto;
     float: none;
     text-transform: uppercase;
@@ -2467,7 +2503,7 @@ ul.ul-week-btn1 li a {
     padding: 6px 10px;
 }
 p.lad {
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     font-size: 17px;
     font-weight: 500;
@@ -2485,7 +2521,7 @@ p.lad {
     width: 100%;
 }
 .st2 span {
-    font-family: montserrat;
+    font-family: 'Futura LT';
     font-size: 17px;
     color: #000;
 }
@@ -2511,7 +2547,7 @@ span.fa.fas {
     background: #F7F7F7;
     border: 1px solid #c2c2c2;
     border-radius: 0px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
 }
 span.fa-clock-o.fa {
     color: #ff8868;
@@ -2587,7 +2623,7 @@ label.setapp {
     width: 6%;
 }*/
 .flash-game h5 {
-    font-family: montserrat;
+    font-family: 'Futura LT';
     font-weight: 500;
     margin: 0 auto;
     color: #fff;
@@ -2680,6 +2716,7 @@ label.setapp {
     margin: 0;
     background: #b2b2b2;
        border: 2px solid #b2b2b2;
+       border-radius: 35px;
 }
 .game a.active {
     background: #ff8868 !important;
@@ -2714,7 +2751,7 @@ label.setapp {
 }
 .prog-num span {
     float: right;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     font-size: 26px;
 }
@@ -2775,7 +2812,7 @@ button.flyButton {
     right: 0;
     background: inherit;
     border: none;
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Futura LT' !important;
     font-size: 18px;
     color: #fff;
     text-transform: uppercase;
@@ -2943,10 +2980,11 @@ a.changepass {
     font-size: 100%;
     font-weight: 600;
     border: 2px solid #ff8868;
-    border-bottom: 2px solid #af472b;
+    /*border-bottom: 2px solid #af472b;*/
+    border-radius: 35px;
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     float: left;
     width: 40%;
     text-align: center;
@@ -2992,7 +3030,7 @@ body {
     position: relative;
     bottom: 32px;
     right: 0 !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-size: 19px;
     text-align: center !important;
 }
@@ -3053,7 +3091,7 @@ div#wpcf7-f2824-o1 {
 }
 .course-tabs-nav li a {
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     text-transform: uppercase;
     color: #252525;
     margin-bottom: 0;
@@ -3093,14 +3131,14 @@ form.about-course label {
     width: 100%;
     display: block;
     font-size: 15px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     color: #4e4e4e;
     margin-bottom: 0;
     font-weight: 500;
     padding-top: 13px;
     padding-bottom: 2px;
 }
-form.about-course input, form.about-course textarea {
+form.about-course input,  form.about-course textarea, form.about-course select {
     float: left;
     width: 100%;
     border: 1px solid #e5c6bd;
@@ -3118,9 +3156,9 @@ form.about-course input, form.about-course textarea {
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #ff8868 !important;
-    border-bottom: 2px solid #af472b !important;
+    /*border-bottom: 2px solid #af472b !important;*/
     transition: all ease 500ms;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     text-align: center;
     margin: 0 auto !important;
     margin-top: 29px !important;
@@ -3128,6 +3166,7 @@ form.about-course input, form.about-course textarea {
     max-width: 139px !important;
     float: none !important;
     text-transform: uppercase !important;
+        border-radius: 35px !important;
 }
 .submit-btn input:hover, p.add-week a:hover, li.add-btns a:hover {
     background: transparent;
@@ -3142,15 +3181,16 @@ p.add-week a {
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #ff8868 !important;
-    border-bottom: 2px solid #af472b !important;
+    /*border-bottom: 2px solid #af472b !important;*/
     transition: all ease 500ms;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     text-align: center;
     text-transform: uppercase !important;
     padding: 6px 16px;
     border-radius: 0px;
     float: right;
     text-decoration: none !important;
+    border-radius: 35px;
 }
 div#add-week .modal-body, div#add-lesson .modal-body, div#add-coding .modal-body, div#add-quiz .modal-body {
     padding: 30px;
@@ -3183,13 +3223,13 @@ div#add-week .modal-header button.close, div#add-lesson .modal-header button.clo
 }
 .and-all ul li h4 {
     color: #252525;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     font-size: 19px;
     margin-bottom: 0;
 }
 .and-all ul li p {
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     color: #444444;
     font-weight: 500;
     margin-bottom: 0;
@@ -3199,7 +3239,7 @@ li.dissmis-li-edit {
 }
 li.dissmis-li-edit a {
     font-size: 16px;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     color: #444444;
     font-weight: 500;
     text-decoration: none;
@@ -3243,9 +3283,9 @@ li.add-btns a {
     font-size: 18px;
     font-weight: 600;
     border: 2px solid #ff8868 !important;
-    border-bottom: 2px solid #af472b !important;
+    /*border-bottom: 2px solid #af472b !important;*/
     transition: all ease 500ms;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     text-align: center;
     text-transform: uppercase !important;
     border-radius: 0px;
@@ -3253,6 +3293,7 @@ li.add-btns a {
     width: 100%;
     display: block;
         padding: 8px 0;
+            border-radius: 35px !important;
 
 }
 li.add-btns {
@@ -3282,7 +3323,7 @@ form.about-course ul li label {
 }
 form.about-course ul li label{
     color: #4e4e4e !important;
-    font-family: montserrat !important;
+    font-family: 'Futura LT' !important;
     font-size: 1rem !IMPORTANT;
     font-weight: 400 !important;
     line-height: 1.5 !important;
@@ -3335,7 +3376,7 @@ form.about-course ul li input, form.about-course ul li label {
 }
 .and-all ul li h5 {
     color: #ff8868;
-    font-family: montserrat;
+    font-family: 'Futura LT';
     font-size: 17px;
     margin-bottom: 0;
 }
@@ -3345,7 +3386,6 @@ form.about-course ul li input, form.about-course ul li label {
 .add-curriculm-eg {
     margin-bottom: 3px;
 }
-
 /*****************************************************/
 form#course-search-form {
     margin: 0 auto;
@@ -3371,12 +3411,12 @@ form#course-search-form {
 }
 .course-detail-front h5 {
     color: #000 !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-size: 18px;
     margin-bottom: 25px;
 }
 .course-detail-front p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     color: #414141;
     font-size: 14px;
     padding-bottom: 12px;
@@ -3393,7 +3433,7 @@ ul.course-ratings li {
     font-size: 17px;
 }
 ul.course-ratings li p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     color: #414141;
 }
 ul.course-price {
@@ -3403,14 +3443,14 @@ ul.course-price {
     float: right;
 }
 li.regular-price p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     color: #414141;
     font-size: 16px;
     text-decoration: line-through;
     padding-bottom: 0px;
 }
 li.sale-price p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     color: #414141;
     font-size: 26px;
     padding-bottom: 0px;
@@ -3453,7 +3493,7 @@ a.right.carousel-control {
     right: -37px;
 }
 p.sf {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     font-weight: 400;
     color: #030303;
     padding-left: 11px;
@@ -3497,7 +3537,7 @@ div#slid-main-cont {
     background: #f8f8f8;
     padding: 32px 18px;
     border: 2px solid #e1e1e1;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     float: left;
     width: 100%;
 }
@@ -3505,11 +3545,11 @@ div#slid-main-cont {
     color: #414141;
     font-size: 22px;
     margin-bottom: 16px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
 }
 .course-content-detail p, .req-deta ul li p {
     font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
         margin-bottom: 10px;
 }
 .course-content-detail p i, .what-will li i {
@@ -3600,9 +3640,10 @@ p.btn-course-aside a {
     font-weight: 600;
     transition: all ease 500ms;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     text-align: center;
     text-transform: uppercase;
+        border-radius: 35px;
 }
 p.btn-course-aside a:hover {
     background: transparent;
@@ -3621,7 +3662,7 @@ p.btn-course-aside a:hover {
 .auther-img h1 {
     color: #414141;
     font-size: 71px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura LT';
     text-align: center;
     font-weight: normal;
 }
@@ -3642,9 +3683,6 @@ ul.progress-bar-rating-main li {
 }
 li.progress-bar-rating {
     width: 69%;
-
-}
-
 }
 
 /**/
@@ -3669,5 +3707,52 @@ li.progress-bar-rating {
     right: 36px !important;
     top: 40% !important;
     font-size: 25px !important;
-   
-
+}
+.comment-img .emoji-picker-icon {
+    left: 91% !important;
+    top: -45px !important;
+    font-size: 25px !important;
+    position: relative !important;
+    border: 2px solid #ff8868 !important;
+    padding: 4px 6px;
+    border-radius: 6px;
+}   
+.classmatspro .leabtn input[type="text"] {
+    border: 1px solid #ffc3b3;
+    padding: 8px 10px;
+    border-radius: 5px 0px 0px 5px;
+    width: 82%;
+}
+.classmatspro.classmatsproser {
+    padding: 28px 13px 26px 18px;
+}
+.classmatspro.classmatsproser h1 {
+    padding-top: 12px;
+    margin: 0;
+    line-height: normal;
+}
+ul.main-nav.login {
+    float: left;
+    width: 69%;
+}
+.men-pr-set.men-pr-set-extr {
+    width: 31%;
+    margin-top: 20px;
+    border-left: 1px solid;
+}
+.men-pr-set.men-pr-set-extr ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    padding-top: 0;
+}
+.header-main {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 8px 0;
+}
+body {
+    font-family: 'Futura LT' !important;
+}

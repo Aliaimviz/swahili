@@ -22,7 +22,9 @@ class GeneralController extends Controller
 
     public function profile(){
         $lang = DB::table('language')->get();
+       
     	$coun = DB::table('country')->get();
+        
         $user = DB::table('users')->where('id', $this->loggedID())->first();
     	$card = DB::table('credit_card')->where('user_id', $this->loggedID())->first();
     	return view('pages.profile', ['user' => $user, 'lang' => $lang, 'coun' => $coun, 'card' => $card]);
