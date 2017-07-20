@@ -1,0 +1,15 @@
+/*irfan mumtaz*/
+.registration-form .form-horizontal{
+    float: left;
+    padding: 25px 0;
+}
+section{
+	padding: 30px 0;
+}
+.margin-auto{
+	margin: auto !important;
+}
+.marginTB15{
+	margin-top: 15px !important;
+	margin-bottom: 15px !important;
+}

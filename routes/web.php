@@ -96,3 +96,8 @@ Route::post('/enrollUser', 'Instructor\CourseController@addDiscusComment')->name
 //Image
 Route::post('/add-image', 'Instructor\CourseController@addImageComment')->name('addImageComment');
 
+//Chat Routes -------------------------------
+
+Route::get('/messages', 'ChatController@chat_index')->name('chat_index');
+
+Route::post('/startChat', 'ChatController@startChat')->name('startChat');
