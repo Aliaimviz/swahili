@@ -20,10 +20,11 @@
     <link href="<?php echo e(asset('public/css/style.css')); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo e(asset('public/css/emoji.css')); ?>">
     <link href="<?php echo e(asset('public/css/custom.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('public/css/bootstrap-tagsinput.css')); ?>" rel="stylesheet">    
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" type="text/css">    
-
     <!-- scripts -->
-    <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script>  
+    <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script> 
+
   
 </head>
 <body>
@@ -155,7 +156,7 @@
             <!-- </div> -->
         </footer>
     </div>
-    <!-- scripts -->
+
     <script src="<?php echo e(asset('public/js/jquery-3.2.1.min.js')); ?>"></script>  
     <script src="<?php echo e(asset('public/js/bootstrap.min.js')); ?>"></script> 
     <script src="<?php echo e(asset('public/js/config.js')); ?>"></script>
@@ -165,9 +166,11 @@
     <script src="<?php echo e(asset('public/js/tether.min.js')); ?>"></script>    
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="<?php echo e(asset('public/js/app.js')); ?>"></script>
+    <!-- Bootstrap tags input -->
 
-
-   
+     <script src="<?php echo e(asset('public/js/bootstrap-tagsinput.js')); ?>"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>    
+    <script src="<?php echo e(asset('public/js/bootstrap-tagsinput-angular.js')); ?>"></script>        
 
 </body>
 </html>

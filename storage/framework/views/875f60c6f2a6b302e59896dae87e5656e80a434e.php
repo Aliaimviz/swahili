@@ -18,7 +18,7 @@
 									<p>4.7 (28,146 ratings) </p>
 								</li>
 								<li>
-									<p>123,979 students enrolled</p>
+									<p><?php echo e($atts['enroll']); ?> students enrolled</p>
 								</li>
 							</ul>
 							<ul class="course-price">
@@ -301,7 +301,13 @@
 					<div class="frontend-box">
 						<!-- <a href="#"> -->
 						<div class="frontend-box-inner">
-							<div class="img"><img src="<?php echo e(asset('public/img/course-image.png')); ?>"></div>
+							<div class="img">
+								<?php if($course->thumbnail): ?>
+								<img src="<?php echo e(asset('public/files/courses')); ?>/<?php echo e($course->thumbnail); ?>">
+								<?php else: ?>
+								<img src="<?php echo e(asset('public/img/course-image.png')); ?>">
+								<?php endif; ?>
+							</div>
 							<div class="course-detail-front">
 								<ul class="course-price">
 									<li class="sale-price">
@@ -316,11 +322,28 @@
 								</ul>
 								<p><i class="fa fa-clock-o"></i> Last updated <?php echo e($date->format('Y-m-d')); ?></p>
 								<div class="req-deta" style="margin: 0;">
-									<h2>Short Description:</h2>
-									<p style="color: #000;" class="incl">
-										<?php echo $excerpt = substr($course->description, 0, 350)?> ...
+									<h2>Includes:</h2>
+									<ul style="color: #000;" class="incl">
+										<li><p>Weeks: <?php echo e($atts['week']); ?></p></li>
+										<li><p>Lessons:  <?php echo e($atts['lesson']); ?>  </p></li>	
+										<li><p>Quizes:    </p></li>											
+										<li><p>Resources:    </p></li>											
+									</ul>
+									<p class="btn-course-aside">
+										<form method="post" action="<?php echo e(route('addEnrollUser')); ?>">
+											<input type="hidden" name="course_id" value="<?php echo e($course->id); ?>">
+											<?php echo e(csrf_field()); ?>
+
+											<button type="submit">enrolled now</button>
+										</form>
 									</p>
-									<p class="btn-course-aside"><a href="#">enrolled now</a></p>
+									<?php if(session()->has('message')): ?>
+									<div class="alert alert-warning">
+									  <strong>Warning!</strong> <?php echo e(session('message')); ?>
+
+									</div>
+									<?php endif; ?>
+
 								</div>
 							</div>
 						</div>
