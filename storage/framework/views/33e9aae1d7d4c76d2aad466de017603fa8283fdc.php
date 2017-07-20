@@ -84,6 +84,26 @@
                     </div>
 
                     <div class="form-group<?php echo e($errors->has('language') ? ' has-error' : ''); ?> form-fields">
+                        <label for="country" class="col-md-4 control-label">Country</label>
+                        <div class="col-md-12">
+                            <select class="form-control" name="country">
+                                <?php $__currentLoopData = $country; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $co): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($co->id ==  235): ?>
+                                    <option value="<?php echo e($co->id); ?>" selected="selected"><?php echo e($co->country); ?></option>
+                                    <?php else: ?>
+                                    <option value="<?php echo e($co->id); ?>"><?php echo e($co->country); ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                            <?php if($errors->has('language')): ?>
+                                <span class="help-block">
+                                    <strong><?php echo e($errors->first('language')); ?></strong>
+                                </span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group<?php echo e($errors->has('language') ? ' has-error' : ''); ?> form-fields">
                         <label for="language" class="col-md-4 control-label">Language</label>
                         <div class="col-md-12">
                             <select class="form-control" name="language">
