@@ -483,9 +483,7 @@ $(document).ready(function(e){
 
   });	
 
-});//Document ready
 
-</script>
 @endsection
 
 
