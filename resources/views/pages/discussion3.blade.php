@@ -246,10 +246,12 @@
 	          
 		</div>
 	</section>
-
 <script type="text/javascript">
 
- $(document).ready(function(){
+$(document).ready(function(e){
+
+
+
 
  	$("#discussForm").submit(function(e){
  		e.preventDefault();
@@ -481,14 +483,6 @@
 
   });	
 
-   $(".replies.yes p").click(function(){
-                   $(".chats.inner-chat-here").toggle();
-               });
-
-
- });
-
-</script>
 
 @endsection
 

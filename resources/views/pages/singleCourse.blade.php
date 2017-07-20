@@ -19,7 +19,7 @@
 									<p>4.7 (28,146 ratings) </p>
 								</li>
 								<li>
-									<p>123,979 students enrolled</p>
+									<p>{{ $atts['enroll'] }} students enrolled</p>
 								</li>
 							</ul>
 							<ul class="course-price">
@@ -302,7 +302,13 @@
 					<div class="frontend-box">
 						<!-- <a href="#"> -->
 						<div class="frontend-box-inner">
-							<div class="img"><img src="{{ asset('public/img/course-image.png') }}"></div>
+							<div class="img">
+								@if($course->thumbnail)
+								<img src="{{ asset('public/files/courses') }}/{{ $course->thumbnail}}">
+								@else
+								<img src="{{ asset('public/img/course-image.png') }}">
+								@endif
+							</div>
 							<div class="course-detail-front">
 								<ul class="course-price">
 									<li class="sale-price">
@@ -317,15 +323,26 @@
 								</ul>
 								<p><i class="fa fa-clock-o"></i> Last updated {{$date->format('Y-m-d')}}</p>
 								<div class="req-deta" style="margin: 0;">
-									<h2>Short Description:</h2>
-									<p style="color: #000;" class="incl">
-										<?php echo $excerpt = substr($course->description, 0, 350)?> ...
-									</p>
+									<h2>Includes:</h2>
+									<ul style="color: #000;" class="incl">
+										<li><p>Weeks: {{ $atts['week'] }}</p></li>
+										<li><p>Lessons:  {{ $atts['lesson'] }}  </p></li>	
+										<li><p>Quizes:    </p></li>											
+										<li><p>Resources:    </p></li>											
+									</ul>
 									<p class="btn-course-aside">
 										<form method="post" action="{{ route('addEnrollUser')}}">
 											<input type="hidden" name="course_id" value="{{$course->id}}">
-											<button type="submit">enrolled now</a></p>
+											{{ csrf_field() }}
+											<button type="submit">enrolled now</button>
 										</form>
+									</p>
+									@if(session()->has('message'))
+									<div class="alert alert-warning">
+									  <strong>Warning!</strong> {{ session('message') }}
+									</div>
+									@endif
+
 								</div>
 							</div>
 						</div>

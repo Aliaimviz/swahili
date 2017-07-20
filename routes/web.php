@@ -91,7 +91,7 @@ Route::post('/add-comment', 'Instructor\CourseController@addDiscusComment')->nam
 
 
 //enrolled user
-Route::post('/enrollUser', 'Instructor\CourseController@addDiscusComment')->name('addEnrollUser');
+Route::post('/student/enrollUser', 'Students\StudentGeneralController@enrolledStudents')->name('addEnrollUser');
 
 //Image
 Route::post('/add-image', 'Instructor\CourseController@addImageComment')->name('addImageComment');

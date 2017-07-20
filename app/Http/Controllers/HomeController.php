@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\EnrolledUser;
 use App\Courses;
+use App\Lesson;
+use App\Week;
 
 class HomeController extends Controller
 {
@@ -38,9 +41,15 @@ class HomeController extends Controller
                             ->select('users.*', 'courses.*')
                             ->where('courses.id', $id)
                             ->first();
-        //return view('pages.singleCourse', ['course' => $course]);
-        echo "<pre>";
-        print_r($course);
-        echo "</pre>";
+        $weeks = Week::where('course_id', $id)->get()->count();
+        $lesson = Lesson::where('course_id', $id)->get()->count();
+        $enroll = EnrolledUser::where('course_id', $id)->get()->count();
+        $atts['week'] = $weeks;
+        $atts['lesson'] = $lesson;
+        $atts['enroll'] = $enroll;
+        return view('pages.singleCourse', ['course' => $course, 'atts' => $atts]);
+        /*echo "<pre>";
+        print_r($lesson);
+        echo "</pre>";*/
     }
 }
