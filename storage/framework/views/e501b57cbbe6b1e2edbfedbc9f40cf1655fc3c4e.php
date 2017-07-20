@@ -480,52 +480,15 @@
 
   });	
 
+   $(".replies.yes p").click(function(){
+                   $(".chats.inner-chat-here").toggle();
+               });
+
+
  });
 
 </script>
-<<<<<<< HEAD
 
-<!-- jQuery first, then Tether, then Bootstrap JS. -->
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="<?php echo e(asset('public/js/config.js')); ?>"></script>
-<script src="<?php echo e(asset('public/js/util.js')); ?>"></script>
-<script src="<?php echo e(asset('public/js/jquery.emojiarea.js')); ?>"></script>
-<script src="<?php echo e(asset('public/js/emoji-picker.js')); ?>"></script>
-<script>
-      $(function() {
-        // Initializes and creates emoji set from sprite sheet
-        window.emojiPicker = new EmojiPicker({
-          emojiable_selector: '[data-emojiable=true]',
-          assetsPath: "<?php echo e(asset('public/img/')); ?>",
-          popupButtonClasses: 'fa fa-smile-o'
-        });
-        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-        // It can be called as many times as necessary; previously converted input fields will not be converted again
-        window.emojiPicker.discover();
-      });
-    </script>
-    <script>
-      // Google Analytics
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-49610253-3', 'auto');
-      ga('send', 'pageview');
-    </script>
-<script>
-	$(document).ready(function(){
-    $(".replies.yes p").click(function(){
-        $(".chats.inner-chat-here").toggle();
-    });
-});
-</script>
-
-=======
->>>>>>> 9bd85d8948a0963ab6595e8e63caf4770ec6c1d8
 <?php $__env->stopSection(); ?>
 
 

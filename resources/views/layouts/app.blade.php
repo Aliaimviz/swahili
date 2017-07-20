@@ -155,19 +155,14 @@
     </div>
     <!-- scripts -->
     <script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script>  
-<<<<<<< HEAD
 
 
     <!-- Scripts -->
     <script src="{{ asset('public/js/tether.min.js') }}"></script>    
-    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script> 
-    
-  <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  -->  
-    <script src="<?php echo e(asset('public/js/app.js')); ?>"></script>
-=======
+
     <script src="{{ asset('public/js/bootstrap.min.js') }}"></script> 
     <script src="<?php echo e(asset('public/js/config.js')); ?>"></script>
->>>>>>> 9bd85d8948a0963ab6595e8e63caf4770ec6c1d8
+
     <script src="<?php echo e(asset('public/js/util.js')); ?>"></script>
     <script src="<?php echo e(asset('public/js/jquery.emojiarea.js')); ?>"></script>
     <script src="<?php echo e(asset('public/js/emoji-picker.js')); ?>"></script>

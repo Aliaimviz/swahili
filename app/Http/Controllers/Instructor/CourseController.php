@@ -169,7 +169,8 @@ class CourseController extends Controller
 
                 //Getting CourseId of the Week
                 $weekz = Week::where('id', $request->input('weekValue') )->first(['id','course_id']); 
-
+                $lesson->course_id = $weekz->course_id;
+                
                 if($lesson->save()){
                     return \Response::json(array('success' => true, 'msg' => 'Lesson Added!', 
                             'course_id' => $weekz->course_id, 'week_id' => $weekz->id), 200);

@@ -1,8 +1,6 @@
 console.log("app.js");
 var base_url = 'http://localhost/swahili/'
 
-<<<<<<< HEAD
-
   $(function() {
         // Initializes and creates emoji set from sprite sheet
         window.emojiPicker = new EmojiPicker({
@@ -15,8 +13,7 @@ var base_url = 'http://localhost/swahili/'
         // It can be called as many times as necessary; previously converted input fields will not be converted again
         window.emojiPicker.discover();
       });
-    </script>
-    <script>
+   
       // Google Analytics
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -25,10 +22,9 @@ var base_url = 'http://localhost/swahili/'
 
       ga('create', 'UA-49610253-3', 'auto');
       ga('send', 'pageview');
-    </script>
-<script>
+    
 	$(document).ready(function(){
-=======
+
 $(function() {
     // Initializes and creates emoji set from sprite sheet
     window.emojiPicker = new EmojiPicker({
@@ -38,13 +34,10 @@ $(function() {
     });
     window.emojiPicker.discover();
 });
+
 $(document).ready(function(){
->>>>>>> 9bd85d8948a0963ab6595e8e63caf4770ec6c1d8
+
     $(".replies.yes p").click(function(){
         $(".chats.inner-chat-here").toggle();
     });
 });
-<<<<<<< HEAD
-
-=======
->>>>>>> 9bd85d8948a0963ab6595e8e63caf4770ec6c1d8
