@@ -5,6 +5,7 @@
 	<section class="content">
 		<div class="container">
 			<div class="row">
+
 				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
 					<h1 class="h1.user-lover-heading mess">Classmates</h1>
 					<div class="seprator new-sep mess2">&nbsp</div> 
@@ -14,18 +15,19 @@
 							<div class="class-pr-img">
 								<h1><label for="search">Search<label></h1>
 							</div>
-							<div class="class-pr-con">
-								<!-- <h1>Announcments</h1>
-								<h3>THE INSTRUCTOR</h3> -->
-								<div class="leabtn">
-								<form>
-									<input type="text"  placeholder="Search" id="search">
-					 				<button type="submit"><i class="fa fa-search"></i></button>
-					 				<!-- <button type="submit" class="fil"><i class="fa fa-filter"></i></button> -->
-				 				</form>
+								<div class="class-pr-con">
+									<!-- <h1>Announcments</h1>
+									<h3>THE INSTRUCTOR</h3> -->
+									<div class="leabtn">
+									<form>
+										<input id="searchChatInput" type="text"  placeholder="Search" >
+						 				<button id="searchChatButton" type="submit"><i class="fa fa-search"></i></button>
+						 				<!-- <button type="submit" class="fil"><i class="fa fa-filter"></i></button> -->
+					 				</form>
+									</div>
 								</div>
-							</div>
 						</div>
+					  <!--
 						<div class="classmatspro " data-toggle="modal" data-target="#add-coding">
 						
 							<div class="class-pr-img">
@@ -37,6 +39,7 @@
 							</div>
 						
 						</div>
+
 						<div class="classmatspro classmatspr2">
 							<div class="class-pr-img">
 								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
@@ -47,6 +50,8 @@
 								<p>dolorem ipsum porset ellu...</p>
 							</div>
 						</div>
+
+
 						<div class="classmatspro">
 							<div class="class-pr-img">
 								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
@@ -57,6 +62,7 @@
 								<p>dolorem ipsum porset ellu...</p>
 							</div>
 						</div>
+
 						<div class="classmatspro">
 							<div class="class-pr-img">
 								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
@@ -66,8 +72,35 @@
 								<h1>Jason Bontan</h1>
 								<p>dolorem ipsum porset ellu...</p>
 							</div>
-						</div>
-						<div class="classmatspro">
+						</div> -->
+					  @if(isset($user_messages))	
+							@foreach($user_messages as $user_message)
+								<?php $user_friend = explode(',', $user_message->user_ids  );?>
+								
+								<div class="classmatspro getChatLog" data-id="{{ $user_message->id }}">
+									<div class="class-pr-img">
+										<img src="{{ asset('public/img/check.png') }}" class="check-ri">
+									  @if($user_message->is_group == 1)
+										<img src="{{ asset('public/img/group-img.png') }}">							    
+									  @else
+										<img src="{{ asset('public/img/class-pr-1.png') }}">							   
+									  @endif							  	
+									</div>
+									<div class="class-pr-con">
+									  @if($user_message->is_group == 1)	
+										<h1>{{ App\Chat::getFriendName($user_friend[1]) }}, {{ App\Chat::getFriendName($user_friend[2]) }}...</h1>								  
+									  @else
+										<h1>{{ App\Chat::getFriendName($user_friend[1]) }}</h1>
+									  @endif
+										<p></p>
+									</div>
+								</div>
+																				
+							@endforeach
+					@else
+					@endif									
+
+						<!--<div class="classmatspro">
 							<div class="class-pr-img">
 								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
 								<img src="{{ asset('public/img/class-pr-1.png') }}">
@@ -77,6 +110,7 @@
 								<p>dolorem ipsum porset ellu...</p>
 							</div>
 						</div>
+
 						<div class="classmatspro">
 							<div class="class-pr-img">
 								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
@@ -86,87 +120,24 @@
 								<h1>Jason Bontan</h1>
 								<p>dolorem ipsum porset ellu...</p>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
-					<h1 class="h1.user-lover-heading mess">Rebecca Hannah</h1>
+						</div> -->
+
+					</div>	
+			</div>
+
+
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
+					<h1 class="h1.user-lover-heading mess" id="headingChat"></h1>
 					<div class="seprator new-sep ">&nbsp</div> 
 					<a href="#" class="ellip"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
 					<div class="class-mate-pr class-mate-br">
-						<div class="comment-img">
-							<div class="class-pr-img class-pr-img2">
-								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
-								<img src="{{ asset('public/img/class-pr-1.png') }}">
-							</div>
-							<div class="class-pr-con class-pr-con2">
-								<p>dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor ellum proster</p>
-								<span><i class="fa fa-clock-o"></i> 12:30</span>
-							</div>
-						</div>
 
-						<div class="comment-img">
-							<div class="class-pr-con class-pr-con2 class-pr-conex">
-								<p>dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor</p>
-								<span><i class="fa fa-clock-o"></i> 12:30</span>
-							</div>
-							<div class="class-pr-img class-pr-img2 class-pr-imgex">
-								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
-								<img src="{{ asset('public/img/class-pr-1.png') }}">
-							</div>
-						</div>
-
-						<div class="comment-img">
-							<div class="class-pr-img class-pr-img2">
-								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
-								<img src="{{ asset('public/img/class-pr-1.png') }}">
-							</div>
-							<div class="class-pr-con class-pr-con2">
-								<p>dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor ellum proster</p>
-								<span><i class="fa fa-clock-o"></i> 12:30</span>
-							</div>
-						</div>
-
-						<div class="comment-img">
-							<div class="class-pr-con class-pr-con2 class-pr-conex ">
-								<p>dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor</p>
-								<span><i class="fa fa-clock-o"></i> 12:30</span>
-							</div>
-							<div class="class-pr-img class-pr-img2 class-pr-imgex">
-								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
-								<img src="{{ asset('public/img/class-pr-1.png') }}">
-							</div>
-						</div>
-
-						<div class="comment-img">
-							<div class="class-pr-img class-pr-img2">
-								<img src="{{ asset('public/img/check.png') }}" class="check-ri">
-								<img src="{{ asset('public/img/class-pr-1.png') }}">
-							</div>
-							<div class="class-pr-con class-pr-con2">
-								<p>dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor ellum proster dolorem ipsum quia dolor. dolorem ipsum quia dolor. lorem ipsum quia dolor dolor ellum prosterdolorem ipsum quia dolor dolor ellum proster. lorem ipsum quia dolor dolor ellum prosterdolorem ipsum quia dolor dolor ellum proster</p>
-								<span><i class="fa fa-clock-o"></i> 12:30</span>
-							</div>
-						</div>
-
-						<div class="comment-img">
-							<div class="class-pr-con class-pr-con2 reply-com">
-								<textarea placeholder="Type a reply... " data-emojiable="true"></textarea>
-								<!-- <div class="smil-gif">
-									<a href="#"><i class="fa fa-smile-o" ></i></a>
-									<a href="#">GIF</a>
-								</div> -->
-							</div>
-							<div class="class-pr-img class-pr-img2 reply-com-btn slider-center-button">
-								<input type="Submit" value="SUBMIT">
-							</div>
-						</div>
-					</div>
+				<div id="chatDiv">
 				</div>
-			</div>
-			
-
+					    </div>
+					</div>
 		</div>
+
 		<div class="model">
 			<div class="all-modals">
 			<div class="modal fade" id="add-coding" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -202,6 +173,14 @@
 		</div>
 	</section>
 
+<style type="text/css">
+.class-mate-br{
+             max-height: 450px;
+             overflow: hidden;
+             overflow-y: auto;	
+}
+</style>
+
 <script type="text/javascript">
 
 $(document).ready(function(e){
@@ -222,7 +201,9 @@ $(document).ready(function(e){
 		            data: {'userEmails': userEmails},		            
 			        success: function (data) { 
 		           	  toastr.success(data.msg);
-		           	  console.log(data)
+		           	  console.log(data);
+		           	  $("#add-coding").modal('hide');
+		           	  location.reload();
 		            },
 		        	error: function (data) { 
 		        	  console.log(data);
@@ -230,10 +211,151 @@ $(document).ready(function(e){
 			        },	                    
 		           
 		        });
+	});
 
+	$(".getChatLog").on('click', function(e){
+		e.preventDefault();
+		console.log("get Chat Log");
+		var chatId = $(this).data('id');
+		console.log("chatId" + chatId);
+			  
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('getChatLog') }}",
+		            type: 'post', 
+		            data: {'chatId': chatId},		            
+			        success: function (data) { 
+		           	  toastr.success(data.msg);
+		           	  console.log(data);
+		           	  $("#chatDiv").html(data.chatLog);
+		           	  $("#chat_id").val(data.chat_id);		           	  
+		           	  $("#headingChat").text(data.HeadingString);
+		           	  $('.class-mate-br').scrollTop($('.class-mate-br')[0].scrollHeight);
+		           	  chatLogFuncs();
+		            },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },	                    
+		           
+		        });
 	});
 
 
+ function chatLogFuncs(){
+
+	$("#chatMsgForm").submit('click', function(e){
+		e.preventDefault();
+		console.log("get Chat Log");
+		
+		//console.log("chatId" + chatId);
+			var chatId = $("#chat_id").val();
+			var chatMessage = $("#chatFormMsg").val();
+
+			var formData = $("#chatMsgForm").serialize();
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('insertChatMessage') }}",
+		            type: 'post', 
+		            data: {'chatId': chatId, 'chatMessage': chatMessage},		            
+			        success: function (data) { 
+		           	  toastr.success(data.msg);
+		           	  console.log(data);
+		           	  updateChatLog(data.chat_id);
+
+		           	// settimeout(function(){
+		           	 	$('.class-mate-br').scrollTop($('.class-mate-br')[0].scrollHeight);
+		           	// },1000); 
+		           	  		           	  
+		           	  //scroll down
+		           	  //$("#chat_id").val(data.chat_id);
+		           	  
+		            },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },	                    
+		           
+		        });
+	});
+ }//chatlogfunc end
+
+		//Updatin Chat log
+		function updateChatLog(chatId){
+			console.log("update chat log executed");
+
+				  $.ajaxSetup({
+			          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+			      });
+
+			      $.ajax({
+			            url: "{{ route('getChatLog') }}",
+			            type: 'post', 
+			            data: {'chatId': chatId},		            
+				        success: function (data) { 
+			           	  toastr.success(data.msg);
+			           	  console.log(data);
+			           	  $("#chatDiv").html(data.chatLog);
+			           	  $("#chat_id").val(data.chat_id);
+			           	  chatLogFuncs();
+			            },
+			        	error: function (data) { 
+			        	  console.log(data);
+			           	  toastr.error(data.msg);        		
+				        },	                    
+			           
+			        });
+		}
+
+//Search
+
+  $("#searchChatButton").keyup(function(e){
+  		e.preventDefault();
+
+  			console.log($("#searchChatInput").val());
+  				var searchTerm = $("#searchDiscusInput").val();
+
+				  $.ajaxSetup({
+			          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+			      });
+
+			      $.ajax({
+			            url: "{{ route('get_searchChatlist_ajax') }}",
+			            type: 'post',
+			            data: {'searchTerm': searchTerm},
+		                      	            
+				        success: function (data) { 
+				          //console.log(data);
+			           	  //toastr.success(data.msg);
+			           	   //console.log(data.disView);
+			           	  // $(".dynaChat1").find('.inner-chat-here').css('display', 'block');
+			           	   $("#discussionBox").html(data.disView);
+
+			           	   //laoded after ajax
+			           	   $(".replies.yes p").click(function(){
+						       $(".chats.inner-chat-here").toggle();
+						   });
+			           	  // location.reload();
+			           	  // $("html, body").animate({ scrollTop:$(document).height()-700 }, 1000);
+			           	  // $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+			           	   //$("html, body").animate({ scrollTop: $(document).height() }, 200);
+				        },
+			        	error: function (data) { 
+			        	  console.log(data);
+			           	  toastr.error(data.msg);        		
+				        },	                    
+			           
+			     }); 
+
+
+  });
 
 });
 

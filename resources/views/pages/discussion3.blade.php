@@ -481,8 +481,10 @@ $(document).ready(function(e){
 
   		}, 1500);
 
-  });	
+  });
 
+});
+</script>
 
 @endsection
 

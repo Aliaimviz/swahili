@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 use DB;
+
 trait RegistersUsers
 {
     use RedirectsUsers;
@@ -16,10 +17,10 @@ trait RegistersUsers
      * @return \Illuminate\Http\Response
      */
     public function showRegistrationForm()
-    {
-        $lang = DB::table('language')->get();
-        $co = DB::table('country')->get();
-        return view('auth.register', ['lang' => $lang, 'country' => $co]);
+    {   
+       $lang = DB::table('language')->get();
+       $country = DB::table('country')->get();
+       return view('auth.register', ['lang' => $lang, 'country' => $country]);
     }
 
     /**

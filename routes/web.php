@@ -101,3 +101,12 @@ Route::post('/add-image', 'Instructor\CourseController@addImageComment')->name('
 Route::get('/messages', 'ChatController@chat_index')->name('chat_index');
 
 Route::post('/startChat', 'ChatController@startChat')->name('startChat');
+
+Route::post('/chatlog', 'ChatController@getChatLog')->name('getChatLog'); 
+
+
+Route::post('/chatmessage', 'ChatController@insertChatMessage')->name('insertChatMessage');
+
+
+
+Route::post('/get_searchChatlist_ajax', 'ChatController@get_searchChatlist_ajax')->name('get_searchChatlist_ajax');
