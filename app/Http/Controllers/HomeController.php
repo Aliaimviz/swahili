@@ -36,17 +36,13 @@ class HomeController extends Controller
     }
 
     public function singleCourseView($id){
-        //$course = Courses::where('id', $id)->first();
         $course = Courses::leftjoin('users', 'courses.user_id', '=', 'users.id')
                             ->select('users.*', 'courses.*')
                             ->where('courses.id', $id)
                             ->first();
-        $weeks = Week::where('course_id', $id)->get()->count();
-        $lesson = Lesson::where('course_id', $id)->get()->count();
-        $enroll = EnrolledUser::where('course_id', $id)->get()->count();
-        $atts['week'] = $weeks;
-        $atts['lesson'] = $lesson;
-        $atts['enroll'] = $enroll;
+        $atts['week'] = Week::where('course_id', $id)->get()->count();
+        $atts['lesson'] = Lesson::where('course_id', $id)->get()->count();
+        $atts['enroll'] = EnrolledUser::where('course_id', $id)->get()->count();
         return view('pages.singleCourse', ['course' => $course, 'atts' => $atts]);
         /*echo "<pre>";
         print_r($lesson);
