@@ -24,7 +24,7 @@ Route::get('/instructor/add-course/{id?}', 'Instructor\CourseController@addCours
 
 Route::get('/instructor/courses', 'Instructor\CourseController@viewAllCourses')->name('viewAllCourses');
 
-Route::get('/courses', 'HomeController@viewAllCourses')->name('allCourses');
+Route::get('/view-courses', 'HomeController@viewAllCourses')->name('allCourses');
 
 Route::get('/single-course/course/{id}', 'HomeController@singleCourseView')->name('singleCourseView');
 
@@ -110,3 +110,15 @@ Route::post('/chatmessage', 'ChatController@insertChatMessage')->name('insertCha
 
 
 Route::post('/get_searchChatlist_ajax', 'ChatController@get_searchChatlist_ajax')->name('get_searchChatlist_ajax');
+
+
+
+
+
+//shahzaib
+Route::get('/tutor', 'HomeController@languagetutor')->name('languagetutor');
+Route::get('/faq',   'HomeController@faq')->name('faq');
+Route::get('/course',   'HomeController@courses')->name('courses');
+Route::get('/about',   'HomeController@about')->name('about');
+Route::get('/contact',   'HomeController@contact')->name('contact');
+Route::post('/contactEmail',   'HomeController@contactEmail')->name('contactEmail');

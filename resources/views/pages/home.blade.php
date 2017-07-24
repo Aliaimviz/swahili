@@ -20,7 +20,7 @@
 						<h1 class="learn-professional">LEARN PROFESSIONAL SWAHILI ONLINE</h1>
 						<!--  <p class="lead">Only local independent charter booking service</p> -->
 						<div class="slider-center-button">
-							<a href="#">START FREE TRAIL</a>
+							<a href="{{route('allCourses')}}">START FREE TRAIL</a>
 						</div>
 					</div>
 				</div>
@@ -34,7 +34,7 @@
 						<!-- <p class="lead">Only local independent charter booking service</p>
 							-->
 						<div class="slider-center-button">
-							<a href="#">START FREE TRAIL</a>
+							<a href="{{route('allCourses')}}">START FREE TRAIL</a>
 						</div>
 					</div>
 				</div>
@@ -48,7 +48,7 @@
 						<!-- <p class="lead">Only local independent charter booking service</p>
 							-->
 						<div class="slider-center-button">
-							<a href="#">START FREE TRAIL</a>
+							<a href="{{route('allCourses')}}">START FREE TRAIL</a>
 						</div>
 					</div>
 				</div>
@@ -219,7 +219,7 @@
 	<div class="start-learning-today col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<h1>Start Learning Today</h1>
 		<div class="slider-center-button new-bottom-button">
-			<a href="#">Start Learning Today</a>
+			<a href="{{route('allCourses')}}">Start Learning Today</a>
 		</div>
 	</div>
 </section>

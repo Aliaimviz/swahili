@@ -41,9 +41,9 @@
                 <div class="main_menu col-xs-12 col-sm-12 col-md-6 col-lg-8 float-right">
                     <ul class="main-nav">
                         <li><a href="<?php echo e(url('/')); ?>">HOME</a></li>
-                        <li><a href="<?php echo e(route('viewAllCourses')); ?>">COURSES</a></li>
-                        <li><a href="#">LANGUAGE TUTORS</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="<?php echo e(route('courses')); ?>">COURSES</a></li>
+                        <li><a href="<?php echo e(route('languagetutor')); ?>">LANGUAGE TUTORS</a></li>
+                        <li><a href="<?php echo e(route('faq')); ?>">FAQ</a></li>
                         <?php if(Auth::guest()): ?>
                         <li><a href="" data-toggle="modal" data-target="#login">LOGIN</a></li>
                         <li class="sign-in-button"><a href="<?php echo e(route('register')); ?>">REGISTER</a></li>
@@ -137,10 +137,10 @@
                 <div class="footer-area-2 col-xs-12 col-sm-12 col-md-4 col-lg-4 float-left">
                     <h2>Company</h2>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contacts</a></li>
+                        <li><a href="<?php echo e(route('about')); ?>">About</a></li>
+                        <li><a href="<?php echo e(route('contact')); ?>">Contact Us</a></li>
                         <li><a href="#">Transactions</a></li>
-                        <li><a href="#">Language Programmers</a></li>
+                        <li><a href="<?php echo e(route('allCourses')); ?>">Language Programmes</a></li>
                     </ul>
                 </div>
                 <div class="footer-area-3 col-xs-12 col-sm-12 col-md-4 col-lg-4 float-left">

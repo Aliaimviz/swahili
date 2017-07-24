@@ -67,15 +67,6 @@
 			</a>
 		</div> -->
 	</div>
-	<div class="sing-upp">
-		<div class="welcome-text">
-			<div class="container">
-				<h1>START LEARNING TODAY</h1>
-				<a href="#">BEGIN YOUR Free trial</a>
-			</div>
-		</div>
-	</div>
 </section>
-
 
 @endsection

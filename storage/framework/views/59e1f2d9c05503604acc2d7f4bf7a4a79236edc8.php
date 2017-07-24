@@ -66,16 +66,7 @@
 			</a>
 		</div> -->
 	</div>
-	<div class="sing-upp">
-		<div class="welcome-text">
-			<div class="container">
-				<h1>START LEARNING TODAY</h1>
-				<a href="#">BEGIN YOUR Free trial</a>
-			</div>
-		</div>
-	</div>
 </section>
-
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
