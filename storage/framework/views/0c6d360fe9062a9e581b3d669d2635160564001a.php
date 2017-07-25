@@ -1,32 +1,33 @@
-@foreach($weeks as $week)
+<?php $__currentLoopData = $weeks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $week): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
 								<div class="add-week-panel ">
 									<div class="and-all lesson-add">
 										
 										<ul>	
-										 @foreach($week as $we)	
+										 <?php $__currentLoopData = $week; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $we): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>	
 										 	<?php $weekid = $we->week_id; ?>
-										 @if(!empty($we->lesson_id))
+										 <?php if(!empty($we->lesson_id)): ?>
 											<li>
 												
-												<h4>Lesson. {{ $we->lesson_id}}:</h4>
+												<h4>Lesson. <?php echo e($we->lesson_id); ?>:</h4>
 											</li>
 																
 											<li>
-												<p>{{ $we->lesson_title}}.</p>
+												<p><?php echo e($we->lesson_title); ?>.</p>
 											</li>
-											<li class="dissmis-li-edit"><a href="#" class="editLesson"  data-id="{{ $we->lesson_id }}">Edit</a> <button class="deleteLesson" data-id="{{ $we->lesson_id }}" type="button" class="close" data-dismiss="#" aria-label="Close">
+											<li class="dissmis-li-edit"><a href="#" class="editLesson"  data-id="<?php echo e($we->lesson_id); ?>">Edit</a> <button class="deleteLesson" data-id="<?php echo e($we->lesson_id); ?>" type="button" class="close" data-dismiss="#" aria-label="Close">
 												<span aria-hidden="true">&times;</span></button>
 											</li>
 											<br>
-										@else
-											{{ $showFlag = false }}
+										<?php else: ?>
+											<?php echo e($showFlag = false); ?>
+
 											<li>												
 												<h4>No Lessons</h4>
 											</li>										
-										@endif	
-										@endforeach	
+										<?php endif; ?>	
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
 										</ul>
 									</div>
 									<div class="and-all quiz-add">
@@ -47,28 +48,29 @@
 											<li>
 												<h4>Resource: </h4>
 											</li>
-										 @foreach($week as $we)
+										 <?php $__currentLoopData = $week; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $we): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 										 	<?php $weekid = $we->week_id; ?>
-										 @if(!empty($we->resource_id))
+										 <?php if(!empty($we->resource_id)): ?>
 
 											<li>
 
-											  <a href="{{ asset('/public/files/resources/'. $we->resource_file) }}" 
-														download="{{ route('resource_download', ['path' => $we->resource_file]) }}" >{{$we->resource_title}}</a>
+											  <a href="<?php echo e(asset('/public/files/resources/'. $we->resource_file)); ?>" 
+														download="<?php echo e(route('resource_download', ['path' => $we->resource_file])); ?>" ><?php echo e($we->resource_title); ?></a>
 																						
 											</li>
-											<!--<li class="dissmis-li-edit"><a href="#">Edit</a> --> <button type="button" data-id="{{ $we->resource_id }}" class="close deleteResource" data-dismiss="#" aria-label="Close">
+											<!--<li class="dissmis-li-edit"><a href="#">Edit</a> --> <button type="button" data-id="<?php echo e($we->resource_id); ?>" class="close deleteResource" data-dismiss="#" aria-label="Close">
 												<span aria-hidden="true">&times;</span></button>
 											</li>
 											<br>									
-										@else
-											{{ $showFlag = false }}
+										<?php else: ?>
+											<?php echo e($showFlag = false); ?>
+
 											<li>												
 												<h4>No Resources added</h4>
 											</li>										
-										@endif
+										<?php endif; ?>
 
-										 @endforeach											
+										 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>											
 
 
 										</ul>
@@ -90,8 +92,8 @@
 						</div>
 
 	<!-- add-lesson-model -->
-	@foreach($week as $we)
-	<div class="modal fade add-lesson" id="add-lesson{{$we->week_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<?php $__currentLoopData = $week; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $we): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	<div class="modal fade add-lesson" id="add-lesson<?php echo e($we->week_id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -106,7 +108,7 @@
 						<form class="about-course weekLessonForm" enctype="multipart/form-data">
 							<label for="enter-the-week-title">Enter the lesson title</label>
 							<input type="text" id="lessonTitle" name="lessonTitle">
-							<input type="hidden" value="{{$we->week_id}}" id="weekValue" name="weekValue"/>
+							<input type="hidden" value="<?php echo e($we->week_id); ?>" id="weekValue" name="weekValue"/>
 							<label for="attach-file">Attach files</label>
 							<input type="file" id="lessonFile" name="lessonFile">
 							<div class="submit-btn">
@@ -118,10 +120,10 @@
 			</div>
 		</div>
 	</div>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		<!-- add-condo-model -->
-	@foreach($week as $we)		
-		<div class="modal fade" id="add-coding{{$we->week_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<?php $__currentLoopData = $week; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $we): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>		
+		<div class="modal fade" id="add-coding<?php echo e($we->week_id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -137,7 +139,7 @@
 								<label for="enter-the-week-title">Enter the resource title</label>
 								<input type="text" id="resourceTitle" name="resourceTitle">
 								<label for="attach-file">Attach files</label>
-								<input type="hidden" value="{{$we->week_id}}" id="weekValue" name="weekValue"/>							
+								<input type="hidden" value="<?php echo e($we->week_id); ?>" id="weekValue" name="weekValue"/>							
 								<input type="file" id="resourceFile" name="resourceFile">
 								<div class="submit-btn">
 									<input type="Submit" value="Save">	            						            					
@@ -148,11 +150,11 @@
 				</div>
 			</div>
 		</div>
-	@endforeach
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 		<!-- add-lesson-model -->
-	@foreach($week as $we)			
-	<div class="modal fade" id="add-quiz{{$we->week_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<?php $__currentLoopData = $week; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $we): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>			
+	<div class="modal fade" id="add-quiz<?php echo e($we->week_id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -188,7 +190,7 @@
 								            	<!--<span>1.</span>    
 												<p>dolorem ipsum quia dolor. <input type="text"> ipsum quia dol dolor dolorem protos ellum electure decor.Prem ipsum quia dolor. <input type="text"> ipsum quia dolor dolorem ipsum quia dolor. <input type="text"> quia dolor dolor dolorem protos electure decor. Prem ipsum quia dolor. dolorem ipsum quia dolor</p>
 												<form class="about-course">	-->
-												<input type="hidden" name="quiz_week_id" value="{{ $we->week_id }}" id="quiz_week_id" />								     				
+												<input type="hidden" name="quiz_week_id" value="<?php echo e($we->week_id); ?>" id="quiz_week_id" />								     				
 						            				<div class="submit-btn">
 						        						<input type="Submit" value="Save Blanks">	            						            					
 						        					</div>
@@ -209,7 +211,7 @@
 											<form id="mcqForm" class="about-course">
 												<h1><b>MCQ</b></h1>										
 													<textarea name="mcq[]" id="mcqQues"></textarea>
-													<input type="hidden" name="quiz_week_id" value="{{ $we->week_id }}" id="quiz_week_id" /> 
+													<input type="hidden" name="quiz_week_id" value="<?php echo e($we->week_id); ?>" id="quiz_week_id" /> 
 												<hr>
 												 <h1>Options: (Choose only correct Option)</h1>
 													<ul>
@@ -263,8 +265,8 @@
               </div>
             </div>
 	<!-- add-quiz-model -->
-		@endforeach
-@endforeach
+		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 <!-- Edit Lesson Form --> 

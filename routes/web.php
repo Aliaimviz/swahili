@@ -110,3 +110,9 @@ Route::post('/chatmessage', 'ChatController@insertChatMessage')->name('insertCha
 
 
 Route::post('/get_searchChatlist_ajax', 'ChatController@get_searchChatlist_ajax')->name('get_searchChatlist_ajax');
+
+//Quiz Routes
+Route::post('/submit_blanks_form', 'Instructor\CourseController@submit_blanks_form')->name('submit_blanks_form');
+
+//
+Route::post('/submit_mcq_form', 'Instructor\CourseController@submit_mcq_form')->name('submit_mcq_form');
