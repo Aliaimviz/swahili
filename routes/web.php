@@ -119,11 +119,14 @@ Route::post('/submit_mcq_form', 'Instructor\CourseController@submit_mcq_form')->
 //Blank Routes
 Route::post('/submit_week_blank', 'Instructor\CourseController@submit_week_blank')->name('submit_week_blank');
 
-//blanks ajax view 
+//Matches ajax view 
 Route::post('/matchesView', 'Instructor\CourseController@matchesView')->name('matchesView');
 
 //blanks ajax view 
-Route::post('/blanksView', 'Instructor\CourseController@blanksView')->name('blanksView');
+Route::post('/blanksView', 'Instructor\CourseController@blanksView')->name('blanksView'); 
+
+//mcq ajax view 
+Route::post('/mcqsView', 'Instructor\CourseController@mcqsView')->name('mcqsView');
 
 //shahzaib
 Route::get('/tutor', 'HomeController@languagetutor')->name('languagetutor');

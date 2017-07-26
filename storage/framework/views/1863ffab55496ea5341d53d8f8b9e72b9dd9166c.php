@@ -380,7 +380,32 @@ $(document).ready(function(){
 		           	  toastr.error(data.msg);        		
 			        },		           
 		        });
-	}	
+	}
+
+	function mcqView(quizId , Currentscope){
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "<?php echo e(route('mcqsView')); ?>",
+		            type: 'post', 
+		            data: {'quizId': quizId},
+			        success: function (data) {
+			        	console.log(data);
+			        
+		           	    toastr.success(data.msg);
+		           	    Currentscope.closest('.add-blanks').find(".blank_list").html(data.mcqView);
+		           	   //$(".week-list-matches").html(data.matchesView);
+
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });		
+	}
 
 	//WeekLessonForm added with context to Add --------- Farhan
 	function weekLessonFormFunction(){
@@ -665,7 +690,7 @@ $(document).ready(function(){
 				e.preventDefault();
 				console.log("mcq form");
 				var formData = $(this).serialize();
-
+				var currentScope = $(this);
 					      $.ajaxSetup({
 					          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
 					      });
@@ -676,9 +701,10 @@ $(document).ready(function(){
 					            data: formData,
 						        success: function (data) {
 						         console.log(data);
-						         toastr.success(data.msg)	
+						         toastr.success(data.msg);
 						         //Clear input form
-						         $("#mcqForm").closest('form').find("input[type=text], textarea").val("");						         
+						         $(".mcqForm").closest('form').find("input[type=text], textarea").val("");						         
+						         mcqView(data.quiz_id, currentScope);
 						        },
 					        	error: function (data) { 
 					        	  console.log(data);
