@@ -19,8 +19,8 @@
 									<h3>THE INSTRUCTOR</h3> -->
 									<div class="leabtn">
 									<form>
-										<input type="text"  placeholder="Search" id="search">
-						 				<button type="submit"><i class="fa fa-search"></i></button>
+										<input id="searchChatInput" type="text"  placeholder="Search" >
+						 				<button id="searchChatButton" type="submit"><i class="fa fa-search"></i></button>
 						 				<!-- <button type="submit" class="fil"><i class="fa fa-filter"></i></button> -->
 					 				</form>
 									</div>
@@ -312,6 +312,49 @@ $(document).ready(function(e){
 			           
 			        });
 		}
+
+//Search
+
+  $("#searchChatButton").keyup(function(e){
+  		e.preventDefault();
+
+  			console.log($("#searchChatInput").val());
+  				var searchTerm = $("#searchDiscusInput").val();
+
+				  $.ajaxSetup({
+			          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+			      });
+
+			      $.ajax({
+			            url: "<?php echo e(route('get_searchChatlist_ajax')); ?>",
+			            type: 'post',
+			            data: {'searchTerm': searchTerm},
+		                      	            
+				        success: function (data) { 
+				          //console.log(data);
+			           	  //toastr.success(data.msg);
+			           	   //console.log(data.disView);
+			           	  // $(".dynaChat1").find('.inner-chat-here').css('display', 'block');
+			           	   $("#discussionBox").html(data.disView);
+
+			           	   //laoded after ajax
+			           	   $(".replies.yes p").click(function(){
+						       $(".chats.inner-chat-here").toggle();
+						   });
+			           	  // location.reload();
+			           	  // $("html, body").animate({ scrollTop:$(document).height()-700 }, 1000);
+			           	  // $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+			           	   //$("html, body").animate({ scrollTop: $(document).height() }, 200);
+				        },
+			        	error: function (data) { 
+			        	  console.log(data);
+			           	  toastr.error(data.msg);        		
+				        },	                    
+			           
+			     }); 
+
+
+  });
 
 });
 

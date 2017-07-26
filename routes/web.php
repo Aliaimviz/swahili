@@ -115,9 +115,22 @@ Route::post('/chatmessage', 'ChatController@insertChatMessage')->name('insertCha
 
 Route::post('/get_searchChatlist_ajax', 'ChatController@get_searchChatlist_ajax')->name('get_searchChatlist_ajax');
 
+Route::post('/submit_blanks_form', 'Instructor\CourseController@submit_blanks_form')->name('submit_blanks_form');
 
 
+Route::post('/submit_mcq_form', 'Instructor\CourseController@submit_mcq_form')->name('submit_mcq_form');
 
+//Blank Routes
+Route::post('/submit_week_blank', 'Instructor\CourseController@submit_week_blank')->name('submit_week_blank');
+
+//Matches ajax view 
+Route::post('/matchesView', 'Instructor\CourseController@matchesView')->name('matchesView');
+
+//blanks ajax view 
+Route::post('/blanksView', 'Instructor\CourseController@blanksView')->name('blanksView'); 
+
+//mcq ajax view 
+Route::post('/mcqsView', 'Instructor\CourseController@mcqsView')->name('mcqsView');
 
 //shahzaib
 Route::get('/tutor', 'HomeController@languagetutor')->name('languagetutor');
