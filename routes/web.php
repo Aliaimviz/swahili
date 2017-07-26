@@ -14,27 +14,35 @@
 
 Auth::routes();
 
+
+
+/*Common get route*/
 Route::get('/', 'HomeController@index');
-
-Route::get('/profile', 'GeneralController@profile')->name('profile_view');
-
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/profile', 'GeneralController@profile')->name('profile_view');
 Route::get('/instructor/add-course/{id?}', 'Instructor\CourseController@addCourseView')->name('addCourseView');
-
 Route::get('/instructor/courses', 'Instructor\CourseController@viewAllCourses')->name('viewAllCourses');
-
 Route::get('/view-courses', 'HomeController@viewAllCourses')->name('allCourses');
-
 Route::get('/single-course/course/{id}', 'HomeController@singleCourseView')->name('singleCourseView');
 
+
+
+
+/*Common post route*/
 Route::post('/registration', 'Auth\RegisterController@create')->name('registration');
-
 Route::post('/profile_update', 'GeneralController@profileUpdate')->name('profile_update');
-
 Route::post('/creditCard', 'GeneralController@creditCard')->name('creditCard');
-
 Route::post('/change-password', 'GeneralController@changePassword')->name('changePassword');
+
+
+
+/*Student Routes*/
+
+//enrolled user
+Route::post('/student/enrollUser', 'Students\StudentGeneralController@enrolledStudents')->name('addEnrollUser');
+Route::get('/student/enrolled-course', 'Students\StudentGeneralController@enrolledCourses')->name('enrolledCourses');
+Route::get('/sutdent/course-content/{id}', 'Students\StudentGeneralController@courseContent')->name('enrolledCourseContent');
+
 
 /*Instructor*/
 //Add Course
@@ -47,11 +55,9 @@ Route::post('/instructor/addWeek', 'Instructor\CourseController@addWeekForm')->n
 Route::post('/getUpdateWeeks', 'Instructor\CourseController@getWeekView')->name('getUpdateWeeks'); 
 
 //Get Lesson to Week 
-
 Route::post('/addLessonForm', 'Instructor\CourseController@addLessonForm')->name('addLessonForm');
 
 //Get Resource to Week
-
 Route::post('/addResourceForm', 'Instructor\CourseController@addResourceForm')->name('addResourceForm');
 
 //Delete Week
@@ -61,7 +67,6 @@ Route::post('/deleteWeek', 'Instructor\CourseController@delete_week')->name('del
 Route::post('/deletelesson', 'Instructor\CourseController@delete_lesson')->name('delete_lesson');
 
 //Resource Download
-
 Route::get('/resource_download/{path}', 'Instructor\CourseController@resource_download')->name('resource_download');
 
 //Course Editing Routes
@@ -90,8 +95,7 @@ Route::post('/add-discussion', 'Instructor\CourseController@addDiscusForm')->nam
 Route::post('/add-comment', 'Instructor\CourseController@addDiscusComment')->name('addDiscusComment');
 
 
-//enrolled user
-Route::post('/student/enrollUser', 'Students\StudentGeneralController@enrolledStudents')->name('addEnrollUser');
+
 
 //Image
 Route::post('/add-image', 'Instructor\CourseController@addImageComment')->name('addImageComment');
