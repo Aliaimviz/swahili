@@ -168,50 +168,52 @@
 						<div class="seprator new-sep ">&nbsp;</div>
 						<div class="inner-tabs-m col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
 						<ul class="nav nav-pills nav-stacked ">
-						  <li class="active add-btns" href="#tab-a" data-toggle="tab"><a href="#tab-a" data-toggle="tab">Blanks</a></li>
-						  <li class="add-btns" href="#tab-b" data-toggle="tab"><a href="#tab-b" data-toggle="tab">Mcq’s</a></li>
-						  <li class="add-btns" href="#tab-c" data-toggle="tab"><a href="#tab-c" data-toggle="tab">Matches</a></li>						  
+						  <li class="active add-btns" href="#tab-a<?php echo e($we->week_id); ?>" data-toggle="tab"><a href="#tab-a" data-toggle="tab">Blanks</a></li>
+						  <li class="add-btns" href="#tab-b<?php echo e($we->week_id); ?>" data-toggle="tab"><a href="#tab-b" data-toggle="tab">Mcq’s</a></li>
+						  <li class="add-btns" href="#tab-c<?php echo e($we->week_id); ?>" data-toggle="tab"><a href="#tab-c" data-toggle="tab">Matches</a></li>						  
 						</ul>
 						</div>
 						<div class="inner-tabs-m col-xs-12 col-sm-12 col-md-12 col-lg-12 float-left">
 							<div class="tab-content ">
-						        <div class="tab-pane active" id="tab-a">
+						        <div class="tab-pane active" id="tab-a<?php echo e($we->week_id); ?>">
 						        	<div class="add-mcq-fill">
 						            	<div class="add-blanks">
 						            		<div class="quest-ans">
-						            	<form id="blankForm">
-						            		 <button id="addBlank">Add Blank</button>
+						            	<form class="blankForm">
+						            		 <!-- <button id="addBlank">Add Blank</button> -->
 						            		 <b>Note:</b><p>Please use underscore (_) to write blanks</p>
-						            		 <b>Note:</b><p>Please write answers seperated by , in given order</p>
-						            		 <b>Question:</b><textarea id="blankQues" name="blankQues[]"></textarea>
+														<p>Please write answers seperated by , in given order</p>
+						            		 <b>Question:</b><textarea id="blankQues" name="blankQues"></textarea>
 						            		 <br>
-						            		 <b>Answers:</b><input type="text" name="blankAns[]" id="blankAns" data-role="tagsinput"/>
+						            		 <b>Answers:</b><input type="text" name="blankAns" id="blankAns" data-role="tagsinput"/>
 						            		 <br>
 								            	<!--<span>1.</span>    
 												<p>dolorem ipsum quia dolor. <input type="text"> ipsum quia dol dolor dolorem protos ellum electure decor.Prem ipsum quia dolor. <input type="text"> ipsum quia dolor dolorem ipsum quia dolor. <input type="text"> quia dolor dolor dolorem protos electure decor. Prem ipsum quia dolor. dolorem ipsum quia dolor</p>
 												<form class="about-course">	-->
-												<input type="hidden" name="quiz_week_id" value="<?php echo e($we->week_id); ?>" id="quiz_week_id" />								     				
+												<input type="hidden" name="quiz_week_id" value="<?php echo e($we->week_id); ?>" class="quiz_week_id" />								     				
 						            				<div class="submit-btn">
 						        						<input type="Submit" value="Save Blanks">	            						            					
 						        					</div>
 						            	</form>
+						            		 <div class="blank_list">
+						            		 </div>						            		 						            	
 											</div>
 						            	</div>
 									</div>
 						        </div>
-						        <div class="tab-pane" id="tab-b">
+						        <div class="tab-pane" id="tab-b<?php echo e($we->week_id); ?>">
 						            <div class="add-mcq-fill">
 						            	<div class="add-mcqs">
 						            		<div class="quest-ans">
 						            		<!--	
 											<span>1.</span><p style="float: left; width: 95%; padding-top: 6px;">dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor dolorem protos electure decor.Prem ipsum quia dolor. dolorem ipsum quia dolor dolorem ipsum quia dolor. dolorem ipsum quia dolor dolor dolorem protos electure decor. Prem ipsum quia dolor. dolorem ipsum quia dolor ?</p>
 												-->
-											<!--<button class="addMcqForm">Add Mcq</button> -->
+											<!--<button id="addMcqForm">Add Mcq</button> -->
 												
-											<form id="mcqForm" class="about-course">
+											<form class="mcqForm" class="about-course">
 												<h1><b>MCQ</b></h1>										
 													<textarea name="mcq[]" id="mcqQues"></textarea>
-													<input type="hidden" name="quiz_week_id" value="<?php echo e($we->week_id); ?>" id="quiz_week_id" /> 
+													<input type="hidden" name="quiz_week_id" value="<?php echo e($we->week_id); ?>" class="quiz_week_id" /> 
 												<hr>
 												 <h1>Options: (Choose only correct Option)</h1>
 													<ul>
@@ -227,12 +229,16 @@
 						            	</div>
 						            </div>	
 						        </div>
-						        <div class="tab-pane" id="tab-c">
+						        <div class="tab-pane" id="tab-c<?php echo e($we->week_id); ?>">
 						        	<div class="add-mcqs">
 						        		<div class="matc">
 											<div class="matc-inner">
-												<div class="mat-ul">
-													<ul>
+												<input type="text" name="blankLeft" id="blankLeft"/>
+												<input type="text" name="blankRight" id="blankRight"/>												
+												<input type="hidden" value="<?php echo e($we->week_id); ?>" name="quiz_week_id" class="quiz_week_id"/>												
+												<input type="button" class="saveMatch" value="Save">	 
+												<div class="mat-ul week-list-matches">
+													<!--<ul>
 														<li class="draggable" drag" data-id="a"><a href="#">Good  bye!</a></li>
 														<li class="draggable" drag" data-id="b"><a href="#">fine</a></li>
 														<li class="draggable" drag" data-id="c"><a href="#">good night</a></li>
@@ -245,12 +251,12 @@
 														<li class="droppable" data-id="c"><a href="#">Au revoir!</a></li>
 														<li class="droppable" data-id="a"><a href="#" >Daccord</a></li>
 														<li class="droppable" data-id="b"><a href="#">Je suis</a></li>
-													</ul>
+													</ul> -->
 												</div>	
 											</div>
 											<form class="about-course">												     				
 						            				<div class="submit-btn">
-						        						<input type="Submit" value="Save">	            						            					
+						        						<!--<input type="Submit" value="Save">	-->           						            					
 						        					</div>
 						            			</form>
 										</div>

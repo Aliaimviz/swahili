@@ -24,7 +24,7 @@ Route::get('/instructor/add-course/{id?}', 'Instructor\CourseController@addCours
 
 Route::get('/instructor/courses', 'Instructor\CourseController@viewAllCourses')->name('viewAllCourses');
 
-Route::get('/courses', 'HomeController@viewAllCourses')->name('allCourses');
+Route::get('/view-courses', 'HomeController@viewAllCourses')->name('allCourses');
 
 Route::get('/single-course/course/{id}', 'HomeController@singleCourseView')->name('singleCourseView');
 
@@ -111,8 +111,24 @@ Route::post('/chatmessage', 'ChatController@insertChatMessage')->name('insertCha
 
 Route::post('/get_searchChatlist_ajax', 'ChatController@get_searchChatlist_ajax')->name('get_searchChatlist_ajax');
 
-//Quiz Routes
 Route::post('/submit_blanks_form', 'Instructor\CourseController@submit_blanks_form')->name('submit_blanks_form');
 
-//
+
 Route::post('/submit_mcq_form', 'Instructor\CourseController@submit_mcq_form')->name('submit_mcq_form');
+
+//Blank Routes
+Route::post('/submit_week_blank', 'Instructor\CourseController@submit_week_blank')->name('submit_week_blank');
+
+//blanks ajax view 
+Route::post('/matchesView', 'Instructor\CourseController@matchesView')->name('matchesView');
+
+//blanks ajax view 
+Route::post('/blanksView', 'Instructor\CourseController@blanksView')->name('blanksView');
+
+//shahzaib
+Route::get('/tutor', 'HomeController@languagetutor')->name('languagetutor');
+Route::get('/faq',   'HomeController@faq')->name('faq');
+Route::get('/course',   'HomeController@courses')->name('courses');
+Route::get('/about',   'HomeController@about')->name('about');
+Route::get('/contact',   'HomeController@contact')->name('contact');
+Route::post('/contactEmail',   'HomeController@contactEmail')->name('contactEmail');

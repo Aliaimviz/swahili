@@ -288,7 +288,7 @@ $(document).ready(function(){
 		           	  $("#weekIdLesson").val(data.week_id);
 
 		           	  //Assigning week id to Quiz form
-		           	  $("#weekIdLesson").val(data.week_id);
+		           	  $(".quiz_week_id").val(data.week_id);
 
 		           	  //
 		           	  $('#add-week').modal('toggle');
@@ -329,6 +329,81 @@ $(document).ready(function(){
 			        },		           
 		        });
 
+	}
+
+	function matchView(quizId , Currentscope){ //matchesView
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('matchesView') }}",
+		            type: 'post', 
+		            data: {'quizId': quizId},
+			        success: function (data) {
+			        	console.log(data);
+			        
+		           	    toastr.success(data.msg);
+		           	    Currentscope.closest('.matc-inner').find(".week-list-matches").html(data.matchesView);
+		           	   //$(".week-list-matches").html(data.matchesView);
+
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+	}
+
+	function blanksView(quizId , Currentscope){ //matchesView
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('blanksView') }}",
+		            type: 'post', 
+		            data: {'quizId': quizId},
+			        success: function (data) {
+			        	console.log(data);
+			        
+		           	    toastr.success(data.msg);
+		           	    Currentscope.closest('.add-blanks').find(".blank_list").html(data.blanksView);
+		           	   //$(".week-list-matches").html(data.matchesView);
+
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });
+	}
+
+	function mcqView(quizId , Currentscope){
+
+			  $.ajaxSetup({
+		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+		      });
+
+		      $.ajax({
+		            url: "{{ route('mcqsView') }}",
+		            type: 'post', 
+		            data: {'quizId': quizId},
+			        success: function (data) {
+			        	console.log(data);
+			        
+		           	    toastr.success(data.msg);
+		           	    Currentscope.closest('.add-blanks').find(".blank_list").html(data.mcqView);
+		           	   //$(".week-list-matches").html(data.matchesView);
+
+			        },
+		        	error: function (data) { 
+		        	  console.log(data);
+		           	  toastr.error(data.msg);        		
+			        },		           
+		        });		
 	}
 
 	//WeekLessonForm added with context to Add --------- Farhan
@@ -570,15 +645,15 @@ $(document).ready(function(){
 				console.log("add blank");
 
 				var inputFields = '<b>Question:</b><textarea id="blankQues1" name="blankQues[]"></textarea><br><b>Answers:</b><input type="text" name="blankAns[]" id="blankAns1"/><br>';
-						$('#blankForm').append(inputFields); 
+						$('.blankForm').append(inputFields); 
 
 			});
 
-			$("#blankForm").on('submit', function(e){
+			$(".blankForm").on('submit', function(e){
 				e.preventDefault();
 				console.log("blank form");
-				var formData = $("#blankForm").serialize();
-
+				var formData = $(this).serialize();
+				var currentScope = $(this);
 					      $.ajaxSetup({
 					          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
 					      });
@@ -589,18 +664,18 @@ $(document).ready(function(){
 					            data: formData,
 						        success: function (data) {
 						         console.log(data);
+						         $(".blankForm").closest('form').find("input[type=text], textarea").val("");							         
 						         toastr.success(data.msg)	
-
+						         blanksView(data.quiz_id, currentScope);
 						        },
 					        	error: function (data) { 
 					        	  console.log(data);
 					           	  toastr.error(data.msg);        		
 						        },		           
-					        });    	
-
+					        });
 			});
 
-			$(".addMcqForm").on('click', function(e){
+			$("#addMcqForm").on('click', function(e){
 				e.preventDefault();
 				console.log("add mcq");
 				console.log($(this).val());																	//
@@ -610,11 +685,11 @@ $(document).ready(function(){
 
 			});			
  
- 			$("#mcqForm").on('submit', function(e){
+ 			$(".mcqForm").on('submit', function(e){
 				e.preventDefault();
 				console.log("mcq form");
-				var formData = $("#mcqForm").serialize();
-
+				var formData = $(this).serialize();
+				var currentScope = $(this);
 					      $.ajaxSetup({
 					          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
 					      });
@@ -625,8 +700,10 @@ $(document).ready(function(){
 					            data: formData,
 						        success: function (data) {
 						         console.log(data);
-						         toastr.success(data.msg)	
-
+						         toastr.success(data.msg);
+						         //Clear input form
+						         $(".mcqForm").closest('form').find("input[type=text], textarea").val("");						         
+						         mcqView(data.quiz_id, currentScope);
 						        },
 					        	error: function (data) { 
 					        	  console.log(data);
@@ -635,6 +712,45 @@ $(document).ready(function(){
 					        });    	
 
 			});
+
+ 	//blanks ajax code 
+
+ 			$(".saveMatch").on('click', function(e){
+				e.preventDefault();
+				console.log("match form");
+
+				var matchLeft = $(this).closest('.matc-inner').find("[name='blankLeft']").val();
+				var matchRight = $(this).closest('.matc-inner').find("[name='blankRight']").val(); //$("[name='blankRight']").val();
+				var matchWeekId = $(this).closest('.matc-inner').find(".quiz_week_id").val()
+				
+				console.log("checkinggg" + $(this).closest('.matc-inner').find(".quiz_week_id").val());
+				console.log("matchLeft" + matchLeft);
+				console.log("matchRight" + matchRight);
+				var thisz = $(this);
+					      $.ajaxSetup({
+					          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+					      });
+
+					      $.ajax({
+					            url: "{{ route('submit_week_blank') }}",
+					            type: 'post', 
+					            data: {'matchLeft': matchLeft, 'matchRight': matchRight, 'matchWeekId': matchWeekId},
+						        success: function (data) {
+						         console.log(data);
+						         toastr.success(data.msg)	
+						         //Clear input form
+						         $("#blankLeft").val("");
+								 $("#blankRight").val("");
+								 matchView(data.quiz_id, thisz);
+
+						        },
+					        	error: function (data) { 
+					        	  console.log(data);
+					           	  toastr.error(data.msg);        		
+						        },		           
+					        });    	
+
+			}); 	
 
     }// end of ajax javascirpt funciton
 

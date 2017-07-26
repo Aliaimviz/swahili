@@ -17,6 +17,7 @@ use App\Quizs;
 use App\Blank;
 use App\MCQ;
 use App\Mcqs_answer;
+use App\mcqs_matche;
 use DB;
 
 
@@ -566,7 +567,7 @@ class CourseController extends Controller
    }
 
    public function submit_blanks_form(Request $request){ 
-           //return count();
+          // return $request->input();
           //validation
          //   return \Response::json(array('success' => true, 'msg' => 'Image Updated'), 200);
      if($request->has('quiz_week_id')){
@@ -587,23 +588,24 @@ class CourseController extends Controller
             }
      
         }
+
         //return 'billll'.$quiz_id->id;
         $noError = true;
 
-        for($i=0; $i<count($request->input('blankAns'))-1; $i++) {
+       //for($i=0; $i<count($request->input('blankAns')); $i++) {
             $blank = new Blank();
             $blank->quiz_id = $quiz_final_id; //$request->input('quiz_week_id');            
-            $blank->answers = $request->input('blankAns')[$i];
-            $blank->ques = $request->input('blankQues')[$i];
+            $blank->answers = $request->input('blankAns');
+            $blank->ques = $request->input('blankQues');
 
             if(!$blank->save()){
                  $noError = false;
                  break;
             }
-        }
+       //}
 
         if($noError){
-          return \Response::json(array('success' => true, 'msg' => 'Blank added'), 200);
+          return \Response::json(array('success' => true, 'msg' => 'Blank added', 'quiz_id' => $quiz_final_id), 200);
         }else{
           return \Response::json(array('success' => false, 'msg' => 'Blanks couldnot be added'), 422);
         }  
@@ -694,7 +696,7 @@ class CourseController extends Controller
 */
 
                  //if($mcq->save()){
-                    return \Response::json(array('success' => true, 'msg' => 'MCQ added'), 200);
+                    return \Response::json(array('success' => true, 'msg' => 'MCQ added', 'quiz_id' => $quiz_final_id), 200);
                  // }else{
                  //    return \Response::json(array('success' => false, 'msg' => 'MCQ answers added'), 422);
                  // }
@@ -717,5 +719,75 @@ class CourseController extends Controller
    }else{
         return \Response::json(array('success' => false, 'msg' => 'MCQ couldnot be added (Quiz not formed)'), 422);        
    }
-  } 
+  }
+
+  public function submit_week_blank(Request $request){
+    //return $request->input();
+
+        if($request->has('matchLeft') && $request->has('matchRight') && $request->has('matchWeekId')){ //
+             
+
+                    
+                    $ok = Quizs::where('week_id', $request->input('matchWeekId'))->exists();
+                    $quiz_final_id = "";
+
+                    if($ok){
+                        $quiz_id = Quizs::where('week_id', $request->input('matchWeekId'))->first(['id']);
+                        $quiz_final_id = $quiz_id->id;
+
+                    }else{
+                        $quiz = new Quizs();
+                        $quiz->week_id = $request->input('matchWeekId');
+                       
+                        if($quiz->save()){
+                            $quiz_final_id = $quiz->id;  
+                        }
+                 
+                    }
+
+                 $mcqs_matche = new mcqs_matche(); 
+                 $mcqs_matche->quiz_id = $quiz_final_id;
+                 $mcqs_matche->match_left = $request->input('matchLeft');
+                 $mcqs_matche->match_right = $request->input('matchRight');
+
+                 if($mcqs_matche->save() ){
+                     return \Response::json(array('success' => true, 'msg' => 'Match field Added', 'quiz_id' => $quiz_final_id), 200);              
+                 }else{
+                     return \Response::json(array('success' => false, 'msg' => 'Match field couldnot be added'), 422);
+                 }
+
+           
+        }else{
+                return \Response::json(array('success' => false, 'msg' => 'Match field not added'), 422);       
+        }
+  }
+
+  public function matchesView(Request $request){
+
+    $matches_datas = mcqs_matche::where('quiz_id', $request->input('quizId'))->get();
+    $matches_datas = $matches_datas->toArray();
+    $matchesView = view('pages.ajax_week_mcq_match')->with('matches_datas', $matches_datas)->render();
+
+    return \Response::json(array('success' => true, 'matchesView' => $matchesView), 200);    
+  }
+
+  public function blanksView(Request $request){
+    //code
+
+    $blanks_datas = Blank::where('quiz_id', $request->input('quizId'))->get();
+    //$matches_datas = $matches_datas->toArray();
+    $blanksView = view('pages.ajax_week_mcq_blanks')->with('blanks_datas', $blanks_datas)->render();
+
+    return \Response::json(array('success' => true, 'blanksView' => $blanksView), 200); 
+  }
+
+  public function mcqsView(Request $request){
+
+    $blanks_datas = MCQ::where('quiz_id', $request->input('quizId'))->get();
+    //$matches_datas = $matches_datas->toArray();
+    $mcqView = view('pages.ajax_week_mcq_choice')->with('mcq_datas', $blanks_datas)->render();
+
+    return \Response::json(array('success' => true, 'mcqView' => $mcqView), 200);     
+  }
+
 }
