@@ -67,13 +67,7 @@ class StudentGeneralController extends Controller
                    ->get();
                    $lessons[] = $lesson;
                }
-            foreach ($lessons as $we) {
-                echo "<pre>";
-                print_r($we);
-                echo "</pre>";
-            }
-            die();
-            return view('pages.student.courseContent',['weeks', $week]);
+            return view('pages.student.courseContent',['weeks' => $lessons]);
         }
         else{
             return redirect()->route('singleCourseView', ['id' => $id]);
