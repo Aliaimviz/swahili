@@ -3,7 +3,7 @@ var base_url = 'http://localhost/swahili/'
 
 
     
-	$(document).ready(function(){
+$(document).ready(function(){
 
 	$(function() {
 	   // Initializes and creates emoji set from sprite sheet
@@ -20,3 +20,8 @@ var base_url = 'http://localhost/swahili/'
 	    });	 
 });
 
+$(document).ready(function(){
+   $(".open-close-locked").click(function(){
+       $(this).find(".inner-sect").toggle();
+   });   
+});

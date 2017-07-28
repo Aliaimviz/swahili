@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\EnrolledUser;
 use App\Courses;
 use App\Week;
+use App\Lesson;
+use App\Resource;
+use App\Course_status;
 use Auth;
 
 class StudentGeneralController extends Controller
@@ -27,8 +30,15 @@ class StudentGeneralController extends Controller
 	    			'course_id' => $request->course_id
 	    		]);
 	    	if ($enrolled) {
-	    		/*dd($enrolled);*/
-                return redirect()->route('enrolledCourses');
+          $week_id = Week::where('course_id', $request->course_id)->first(['id']);
+          Course_status::create([
+              'user_id' => Auth::user()->id,
+              'course_id' => $request->course_id,
+              'parameter_id' => $week_id,
+              'parameter_table' => 'weeks',
+              'status' => 1
+            ]);
+          return redirect()->route('enrolledCourses');
 	    	}
     	}
     	else {
@@ -41,7 +51,6 @@ class StudentGeneralController extends Controller
                     ->select('courses.*', 'enrolled_users.*')
                     ->where('enrolled_users.user_id', Auth::user()->id)
                     ->get();
-                   // dd($courses);
         return view('pages.student.enrolledCourses',['courses' => $courses]);
     }
 
@@ -56,18 +65,13 @@ class StudentGeneralController extends Controller
             $weeks = Week::select('id')->where('course_id', $course_id)->get();
                $lessons = array();
                foreach ($weeks as $week) {
-                   $lesson = Week::select('weeks.id as week_id', 'weeks.title as week_title'
-                       , 'lessons.id as lesson_id',
-                        'resources.id as resource_id', 'resources.title as resource_title', 'resources.file as resource_file', 
-                      'lessons.title as lesson_title')
-                  ->leftjoin('lessons', 'weeks.id', '=', 'lessons.week_id')
-                  ->leftjoin('resources', 'weeks.id', '=', 'resources.week_id')
-                   ->where('weeks.id', $week->id)
-                   ->orderBy('lessons.week_id')
-                   ->get();
-                   $lessons[] = $lesson;
+                    $atts['week_id'] = $week->id;
+                    $atts['title'] = Week::where('weeks.id', $week->id)->first(['title']);
+                    $atts['lesson'] = Lesson::where('week_id', $week->id)->get()->count();
+                    $atts['resource'] = Resource::where('week_id', $week->id)->get()->count();
+                    $lessons[] = $atts;
                }
-            return view('pages.student.courseContent',['weeks' => $lessons]);
+            return view('pages.student.courseContent',['lessons' => $lessons]);
         }
         else{
             return redirect()->route('singleCourseView', ['id' => $id]);

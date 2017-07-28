@@ -1,6 +1,5 @@
 <?php $__env->startSection('title', 'Courses Content'); ?>
 <?php $__env->startSection('content'); ?>
-<?php dd($weeks); ?>
 <section id="welcome">
 	<div class="dashboard">
 		<div class="container">
@@ -37,6 +36,7 @@
 		</div>
 	</div>
 </section>
+
 <section class="content">
 	<div class="container">
 		<div class="row">
@@ -54,88 +54,16 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 				<div class="less-chec">
-					<div class="open-close-locked">
-						<div class="closed">
-							<div class="lesson">
-								<h5>Week three:</h5>
-							</div>
-							<div class="lesson-title-main">
-								<div class="lesson-title">
-									<h4>Objectives</h4>
-								</div>
-								<div class="comp">
-									<ul>
-										<li class="redo">Redo <i class="fa fa-undo" ></i></li>
-										<li class="c-ompleted">Completed <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="in-progress">In progress <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="c-locked">locked <i class="fa fa-lock lock-d" ></i></li>
-									</ul>
-								</div>
-								<div class="inner-sect">
-									<ul>
-										<li class="video-title">
-											<i class="fa fa-video-camera fir-c" ></i>Video title 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-										<li class="excersise-title">
-											<img src="img/dumble.png">Excersise title 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-										<li class="virtual-classroom">
-											<img src="img/apple.png">Virtual classroom
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- open-close-locked -->
-					<div class="open-close-locked">
-						<div class="closed">
-							<div class="lesson">
-								<h5>lesson 1:</h5>
-							</div>
-							<div class="lesson-title-main">
-								<div class="lesson-title">
-									<h4>Title of lesson</h4>
-								</div>
-								<div class="comp">
-									<ul>
-										<li class="redo">Redo <i class="fa fa-undo" ></i></li>
-										<li class="c-ompleted">Completed <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="in-progress">In progress <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="c-locked">locked <i class="fa fa-lock lock-d" ></i></li>
-									</ul>
-								</div>
-								<div class="inner-sect">
-									<ul>
-										<li class="video-title">
-											<i class="fa fa-video-camera fir-c" ></i>Video title 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-										<li class="excersise-title">
-											<img src="img/dumble.png">Excersise title 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-										<li class="virtual-classroom">
-											<img src="img/apple.png">Virtual classroom
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- open-close-locked -->
+					<?php $i = 1;?>
+					<?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $le): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 					<div class="open-close-locked">
 						<div class="open">
 							<div class="lesson">
-								<h5>Lesson 2:</h5>
+								<h5>Week <?php echo e($i++); ?>:</h5>
 							</div>
 							<div class="lesson-title-main">
 								<div class="lesson-title">
-									<h4>title of lesson</h4>
+									<h4><?php echo e($le['title']->title); ?></h4>
 								</div>
 								<div class="comp">
 									<ul>
@@ -145,104 +73,37 @@
 										<li class="c-locked">locked <i class="fa fa-lock lock-d" ></i></li>
 									</ul>
 								</div>
-								<div class="inner-sect">
+								<div class="inner-sect" style="display: none;">
 									<ul>
 										<li class="video-title">
-											<i class="fa fa-video-camera fir-c" ></i>Video title 
+											<i class="fa fa-video-camera fir-c" ></i>Lessons <?php echo e($le['lesson']); ?> 
 											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
 										</li>
 										<li class="excersise-title">
-											<img src="img/dumble.png">Excersise title 
+											<img src="<?php echo e(asset('public/img/dumble.png')); ?>">Quiz 
 											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
 										</li>
 										<li class="virtual-classroom">
-											<img src="img/apple.png">Virtual classroom
+											<img src="<?php echo e(asset('public/img/apple.png')); ?>">Resources <?php echo e($le['resource']); ?> 
 											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
 										</li>
 									</ul>
+									<form action="" method="post">
+										<?php echo e(csrf_field()); ?>
+
+										<button type="submit" class="pull-right conlearning">Continue</button>
+									</form>
 								</div>
 							</div>
 						</div>
 					</div>
-					<!-- open-close-locked -->
-					<div class="open-close-locked">
-						<div class="lockedd">
-							<div class="lesson">
-								<h5>Lesson 3:</h5>
-							</div>
-							<div class="lesson-title-main">
-								<div class="lesson-title">
-									<h4>title of lesson</h4>
-								</div>
-								<div class="comp">
-									<ul>
-										<li class="redo">Redo <i class="fa fa-undo" ></i></li>
-										<li class="c-ompleted">Completed <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="in-progress">In progress <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="c-locked">locked <i class="fa fa-lock lock-d" ></i></li>
-									</ul>
-								</div>
-								<div class="inner-sect">
-									<ul>
-										<li class="video-title">
-											<i class="fa fa-video-camera fir-c" ></i>Video title 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-										<li class="excersise-title">
-											<img src="img/dumble.png">Excersise title 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-										<li class="virtual-classroom">
-											<img src="img/apple.png">Virtual classroom
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- open-close-locked -->
-					<div class="open-close-locked">
-						<div class="lockedd">
-							<div class="lesson">
-								<h5>final:</h5>
-							</div>
-							<div class="lesson-title-main">
-								<div class="lesson-title">
-									<h4>title of lesson</h4>
-								</div>
-								<div class="comp">
-									<ul>
-										<li class="redo">Redo <i class="fa fa-undo" ></i></li>
-										<li class="c-ompleted">Completed <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="in-progress">In progress <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="c-locked">locked <i class="fa fa-lock lock-d" ></i></li>
-									</ul>
-								</div>
-								<div class="inner-sect">
-									<ul>
-										<li class="video-title">
-											<i class="fa fa-video-camera fir-c" ></i>Video title 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-										<li class="excersise-title">
-											<img src="img/dumble.png">Excersise title 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-										<li class="virtual-classroom">
-											<img src="img/apple.png">Virtual classroom
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- open-close-locked -->
+					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>>
+</section>
+
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -39,3 +39,20 @@ button[type=submit]{
 .form-fields {
     margin: 10px 0;
 }
+button.conlearning {
+    margin-top: 20px;
+    font-weight: normal;
+    text-align: center;
+    font-family: 'Futura LT';
+    padding: 10px 15px !important;
+    background: transparent;
+    color: #ff8868;
+    border: 2px solid #ff8868;
+    font-size: 16px;
+    border-radius: 35px;
+    text-transform: uppercase;
+    width: auto !important;
+}
+div.open{
+    background: #ffffff
+}
