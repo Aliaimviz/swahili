@@ -1,6 +1,5 @@
-@extends('layouts.app')
-@section('title', 'Courses Content')
-@section('content')
+<?php $__env->startSection('title', 'Courses Content'); ?>
+<?php $__env->startSection('content'); ?>
 <?php dd($weeks); ?>
 <section id="welcome">
 	<div class="dashboard">
@@ -245,4 +244,5 @@
 		</div>
 	</div>
 </section>>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
