@@ -181,16 +181,17 @@
 						            		 <!-- <button id="addBlank">Add Blank</button> -->
 						            		 <b>Note:</b><p>Please use underscore (_) to write blanks</p>
 														<p>Please write answers seperated by , in given order</p>
-						            		 <b>Question:</b><textarea id="blankQues" name="blankQues"></textarea>
+						            		 <b>Question:</b><textarea class="blankQues" name="blankQues"></textarea>
 						            		 <br>
-						            		 <b>Answers:</b><input type="text" name="blankAns" id="blankAns" data-role="tagsinput"/>
+						            		 <b>Answers:</b><input type="text" name="blankAns" class="blankAns" data-role="tagsinput"/>
 						            		 <br>
 								            	<!--<span>1.</span>    
 												<p>dolorem ipsum quia dolor. <input type="text"> ipsum quia dol dolor dolorem protos ellum electure decor.Prem ipsum quia dolor. <input type="text"> ipsum quia dolor dolorem ipsum quia dolor. <input type="text"> quia dolor dolor dolorem protos electure decor. Prem ipsum quia dolor. dolorem ipsum quia dolor</p>
 												<form class="about-course">	-->
 												<input type="hidden" name="quiz_week_id" value="{{ $we->week_id }}" class="quiz_week_id" />								     				
+						            			<input type="hidden" value="0" class="editFlag" name="editFlag"/>	
 						            				<div class="submit-btn">
-						        						<input type="Submit" value="Save Blanks">	            						            					
+						        						<input type="Submit" value="Save Blanks" id="blankFormButton">	            						            					
 						        					</div>
 						            	</form>
 						            		 <div class="blank_list">
@@ -210,7 +211,7 @@
 												
 											<form class="mcqForm" class="about-course">
 												<h1><b>MCQ</b></h1>										
-													<textarea name="mcq[]" id="mcqQues"></textarea>
+													<textarea name="mcq[]" class="mcqQues"></textarea>
 													<input type="hidden" name="quiz_week_id" value="{{ $we->week_id }}" class="quiz_week_id" /> 
 												<hr>
 												 <h1>Options: (Choose only correct Option)</h1>
@@ -222,7 +223,7 @@
 						            				<div class="submit-btn">
 						        						<input type="Submit" value="Save MCQS">	            						            					
 						        					</div>
-						        					<div >
+						        					<div class="mcqList">
 						        					</div>
 					            			</form>
 										</div>
@@ -233,9 +234,10 @@
 						        	<div class="add-mcqs">
 						        		<div class="matc">
 											<div class="matc-inner">
-												<input type="text" name="blankLeft" id="blankLeft"/>
-												<input type="text" name="blankRight" id="blankRight"/>												
-												<input type="hidden" value="{{$we->week_id}}" name="quiz_week_id" class="quiz_week_id"/>												
+												<input type="text" name="blankLeft" class="blankLeft"/>
+												<input type="text" name="blankRight" class="blankRight"/>												
+												<input type="hidden" value="{{$we->week_id}}" name="quiz_week_id" class="quiz_week_id"/>
+												<input type="hidden" value="0" name="editFlagMatch" class="editFlagMatch" />												
 												<input type="button" class="saveMatch" value="Save">	 
 												<div class="mat-ul week-list-matches">
 													<!--<ul>

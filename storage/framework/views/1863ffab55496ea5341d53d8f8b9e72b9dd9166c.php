@@ -348,7 +348,7 @@ $(document).ready(function(){
 		           	    toastr.success(data.msg);
 		           	    Currentscope.closest('.matc-inner').find(".week-list-matches").html(data.matchesView);
 		           	   //$(".week-list-matches").html(data.matchesView);
-
+	           	        editAjaxQuizJS();		           	   
 			        },
 		        	error: function (data) { 
 		        	  console.log(data);
@@ -372,6 +372,7 @@ $(document).ready(function(){
 			        
 		           	    toastr.success(data.msg);
 		           	    Currentscope.closest('.add-blanks').find(".blank_list").html(data.blanksView);
+		           	    editAjaxQuizJS();
 		           	   //$(".week-list-matches").html(data.matchesView);
 
 			        },
@@ -383,7 +384,7 @@ $(document).ready(function(){
 	}
 
 	function mcqView(quizId , Currentscope){
-
+			console.log('quizz id mcq view ' + quizId);
 			  $.ajaxSetup({
 		          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
 		      });
@@ -396,7 +397,8 @@ $(document).ready(function(){
 			        	console.log(data);
 			        
 		           	    toastr.success(data.msg);
-		           	    Currentscope.closest('.add-blanks').find(".blank_list").html(data.mcqView);
+		           	    Currentscope.closest('.quest-ans').find(".mcqList").html(data.mcqView);
+		           	    editAjaxQuizJS();
 		           	   //$(".week-list-matches").html(data.matchesView);
 
 			        },
@@ -666,7 +668,9 @@ $(document).ready(function(){
 						        success: function (data) {
 						         console.log(data);
 						         $(".blankForm").closest('form').find("input[type=text], textarea").val("");							         
-						         toastr.success(data.msg)	
+						         toastr.success(data.msg);
+						         $("#blankFormButton").val("SAVE BLANK");
+						         $(".editFlag").val(0);
 						         blanksView(data.quiz_id, currentScope);
 						        },
 					        	error: function (data) { 
@@ -702,6 +706,7 @@ $(document).ready(function(){
 						        success: function (data) {
 						         console.log(data);
 						         toastr.success(data.msg);
+						         editAjaxQuizJS();
 						         //Clear input form
 						         $(".mcqForm").closest('form').find("input[type=text], textarea").val("");						         
 						         mcqView(data.quiz_id, currentScope);
@@ -727,7 +732,9 @@ $(document).ready(function(){
 				console.log("checkinggg" + $(this).closest('.matc-inner').find(".quiz_week_id").val());
 				console.log("matchLeft" + matchLeft);
 				console.log("matchRight" + matchRight);
+				var editFlagMatch = $(this).closest('.matc-inner').find(".editFlagMatch").val()
 				var thisz = $(this);
+
 					      $.ajaxSetup({
 					          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
 					      });
@@ -735,14 +742,15 @@ $(document).ready(function(){
 					      $.ajax({
 					            url: "<?php echo e(route('submit_week_blank')); ?>",
 					            type: 'post', 
-					            data: {'matchLeft': matchLeft, 'matchRight': matchRight, 'matchWeekId': matchWeekId},
+					            data: {'matchLeft': matchLeft, 'matchRight': matchRight, 'matchWeekId': matchWeekId, 'editFlagMatch': editFlagMatch},
 						        success: function (data) {
 						         console.log(data);
 						         toastr.success(data.msg)	
 						         //Clear input form
-						         $("#blankLeft").val("");
-								 $("#blankRight").val("");
+						         $(".blankLeft").val("");
+								 $(".blankRight").val("");
 								 matchView(data.quiz_id, thisz);
+						         $(".editFlagMatch").val(0);								 
 
 						        },
 					        	error: function (data) { 
@@ -751,9 +759,49 @@ $(document).ready(function(){
 						        },		           
 					        });    	
 
-			}); 	
+			});
 
     }// end of ajax javascirpt funciton
+
+	function editAjaxQuizJS(){
+
+			//Quiz EDIT Code
+			$(".ajaxBlankEdit").click(function(e){
+				e.preventDefault();
+				//console.log($(this).html());
+				//console.log("here text" + $(this).closest('.blank_ajax_div').find('.ajax_blank_ques').text());
+				
+				$(this).closest('.quest-ans').find('.blankQues').val( $(this).closest('.blank_ajax_div').find('.ajax_blank_ques').text() );
+				$(this).closest('.quest-ans').find('.blankAns').val( $(this).closest('.blank_ajax_div').find('.ajax_blank_ans').text() );
+				$(".editFlag").val($(this).closest('.blank_ajax_div').find('.blankId').val());
+				$("#blankFormButton").val("Edit Blank");
+
+			});
+
+			//Quiz EDIT Code
+			$(".ajaxMatchEdit").click(function(e){
+				e.preventDefault();
+				console.log($(this).html());
+				//console.log("here text" + $(this).closest('.blank_ajax_div').find('.ajax_blank_ques').text());
+				
+				$(this).closest('.matc-inner').find('.blankLeft').val( $(this).closest('.week-list-matches').find('.mcqHeading').text() );
+				$(this).closest('.matc-inner').find('.blankRight').val( $(this).closest('.week-list-matches').find('.ajax_blank_right').text() );
+				$(".editFlagMatch").val($(this).closest('.week-list-matches').find('.matchId').val());
+				//$("#blankFormButton").val("Edit Blank");
+
+			});
+
+			$(".ajaxMcqEdit").click(function(e){
+				e.preventDefault();
+				console.log("mcq edit");
+				//console.log("here text" + $(this).closest('.blank_ajax_div').find('.ajax_blank_ques').text());				
+				$(this).closest('.quest-ans').find('.mcqQues').val( $(this).closest('.mcqDiv').find('.mcqHeading').text() );
+				//$(this).closest('.matc-inner').find('.blankRight').val( $(this).closest('.week-list-matches').find('.ajax_blank_right').text() );
+				//$(".editFlagMatch").val($(this).closest('.week-list-matches').find('.matchId').val());
+				//$("#blankFormButton").val("Edit Blank");
+
+			});
+	}
 
     //Course Price Pane
     $("#priceTab").click(function(e){
