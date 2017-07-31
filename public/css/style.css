@@ -1355,9 +1355,9 @@ li.c-locked {
 
 
 /*************/
-.closed .inner-sect ul, .closed li.in-progress, .closed li.c-locked, .open li.c-locked, .lockedd .inner-sect ul, .lockedd li.redo, .lockedd li.c-ompleted, .lockedd li.in-progress  {
+/*.closed .inner-sect ul, .closed li.in-progress, .closed li.c-locked, .open li.c-locked, .lockedd .inner-sect ul, .lockedd li.redo, .lockedd li.c-ompleted, .lockedd li.in-progress  {
     display: none;
-}
+}*/
 /*************/
 h1 i.fa.fa-plus-circle {
     color: #ff8868;

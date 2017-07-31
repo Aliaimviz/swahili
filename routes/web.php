@@ -40,8 +40,9 @@ Route::post('/change-password', 'GeneralController@changePassword')->name('chang
 
 //enrolled user
 Route::post('/student/enrollUser', 'Students\StudentGeneralController@enrolledStudents')->name('addEnrollUser');
-Route::get('/student/enrolled-course', 'Students\StudentGeneralController@enrolledCourses')->name('enrolledCourses');
-Route::get('/sutdent/course-content/{id}', 'Students\StudentGeneralController@courseContent')->name('enrolledCourseContent');
+Route::get('/student/course/enrolled-course', 'Students\StudentGeneralController@enrolledCourses')->name('enrolledCourses');
+Route::get('/sutdent/course/course-content/{id}', 'Students\StudentGeneralController@courseContent')->name('enrolledCourseContent');
+Route::post('/student/course/week-content', 'Students\StudentGeneralController@weekContent')->name('weekContent');
 
 
 /*Instructor*/

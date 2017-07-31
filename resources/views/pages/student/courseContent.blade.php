@@ -68,31 +68,37 @@
 								</div>
 								<div class="comp">
 									<ul>
-										<li class="redo">Redo <i class="fa fa-undo" ></i></li>
-										<li class="c-ompleted">Completed <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="in-progress">In progress <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
+									@if($le['status'])
+										@if($le['status']->status == 2)
+										<li class="c-ompleted">Completed <i class="fa fa-check-circle check-d" ></i></li>
+										@elseif($le['status']->status == 1)
+										<li class="in-progress">In progress </i><i class="fa fa-circle-o un-check-d" ></i></li>
+										@endif
+									@else
 										<li class="c-locked">locked <i class="fa fa-lock lock-d" ></i></li>
+									@endif
 									</ul>
 								</div>
 								<div class="inner-sect" style="display: none;">
 									<ul>
 										<li class="video-title">
-											<i class="fa fa-video-camera fir-c" ></i>Lessons {{ $le['lesson']}} 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
+											<i class="fa fa-video-camera fir-c" ></i>Lessons {{ $le['lesson']}}
 										</li>
 										<li class="excersise-title">
 											<img src="{{ asset('public/img/dumble.png') }}">Quiz 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
 										</li>
 										<li class="virtual-classroom">
 											<img src="{{ asset('public/img/apple.png') }}">Resources {{ $le['resource']}} 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
 										</li>
 									</ul>
-									<form action="" method="post">
+									@if($le['status'])
+									<form action="{{ route('weekContent')}}" method="post">
 										{{ csrf_field() }}
+										<input type="hidden" name="weekID" value="{{ $le['title']->id}}">
+										<input type="hidden" name="courseID" value="{{ $le['title']->course_id}}">
 										<button type="submit" class="pull-right conlearning">Continue</button>
 									</form>
+									@endif
 								</div>
 							</div>
 						</div>

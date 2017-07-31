@@ -56,3 +56,9 @@ button.conlearning {
 div.open{
     background: #ffffff
 }
+.week-content .lesson h5{
+    display: inline;
+}
+.week-content .font-awe{
+    padding-right: 25px;
+}

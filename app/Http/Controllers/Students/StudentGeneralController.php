@@ -34,7 +34,7 @@ class StudentGeneralController extends Controller
           Course_status::create([
               'user_id' => Auth::user()->id,
               'course_id' => $request->course_id,
-              'parameter_id' => $week_id,
+              'parameter_id' => $week_id->id,
               'parameter_table' => 'weeks',
               'status' => 1
             ]);
@@ -66,15 +66,33 @@ class StudentGeneralController extends Controller
                $lessons = array();
                foreach ($weeks as $week) {
                     $atts['week_id'] = $week->id;
-                    $atts['title'] = Week::where('weeks.id', $week->id)->first(['title']);
+                    $atts['title'] = Week::where('weeks.id', $week->id)->first(['title', 'id', 'course_id']);
                     $atts['lesson'] = Lesson::where('week_id', $week->id)->get()->count();
                     $atts['resource'] = Resource::where('week_id', $week->id)->get()->count();
+                    $atts['status'] = Course_status::where([['course_id', '=', $course_id],['user_id', '=', Auth::user()->id], ['parameter_id', '=', $week->id], ['parameter_table', '=', 'weeks']])->first(['status']);
                     $lessons[] = $atts;
                }
+               //dd($lessons);
             return view('pages.student.courseContent',['lessons' => $lessons]);
         }
         else{
             return redirect()->route('singleCourseView', ['id' => $id]);
         }
+    }
+
+    public function weekContent(Request $request){
+      $check = Course_status::where([['course_id', '=', $request->courseID],['user_id', '=', Auth::user()->id], ['parameter_id', '=', $request->weekID], ['parameter_table', '=', 'weeks']])->first(['status']);
+      if($check){
+        $lesson = Week::rightjoin('lessons', 'weeks.id', '=', 'lessons.week_id')
+                  ->select('lessons.*', 'weeks.*', 'lessons.title as lesson_title', 'lessons.id as lesson_id', 'lessons.file as lesson_file')
+                  ->where('lessons.week_id', $request->weekID)
+                  ->get();
+        $resource = Resource::where('week_id', $request->weekID)->get();
+        //dd($lesson);
+        return view('pages.student.weekContent', ['lesson' => $lesson, 'resource' => $resource]);
+      }
+      else{
+        dd('this is wrong');
+      }
     }
 }

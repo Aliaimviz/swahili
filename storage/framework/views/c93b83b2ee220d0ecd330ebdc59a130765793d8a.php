@@ -67,32 +67,39 @@
 								</div>
 								<div class="comp">
 									<ul>
-										<li class="redo">Redo <i class="fa fa-undo" ></i></li>
-										<li class="c-ompleted">Completed <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
-										<li class="in-progress">In progress <i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></li>
+									<?php if($le['status']): ?>
+										<?php if($le['status']->status == 2): ?>
+										<li class="c-ompleted">Completed <i class="fa fa-check-circle check-d" ></i></li>
+										<?php elseif($le['status']->status == 1): ?>
+										<li class="in-progress">In progress </i><i class="fa fa-circle-o un-check-d" ></i></li>
+										<?php endif; ?>
+									<?php else: ?>
 										<li class="c-locked">locked <i class="fa fa-lock lock-d" ></i></li>
+									<?php endif; ?>
 									</ul>
 								</div>
 								<div class="inner-sect" style="display: none;">
 									<ul>
 										<li class="video-title">
-											<i class="fa fa-video-camera fir-c" ></i>Lessons <?php echo e($le['lesson']); ?> 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
+											<i class="fa fa-video-camera fir-c" ></i>Lessons <?php echo e($le['lesson']); ?>
+
 										</li>
 										<li class="excersise-title">
 											<img src="<?php echo e(asset('public/img/dumble.png')); ?>">Quiz 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
 										</li>
 										<li class="virtual-classroom">
 											<img src="<?php echo e(asset('public/img/apple.png')); ?>">Resources <?php echo e($le['resource']); ?> 
-											<p><i class="fa fa-check-circle check-d" ></i><i class="fa fa-circle-o un-check-d" ></i></p>
 										</li>
 									</ul>
-									<form action="" method="post">
+									<?php if($le['status']): ?>
+									<form action="<?php echo e(route('weekContent')); ?>" method="post">
 										<?php echo e(csrf_field()); ?>
 
+										<input type="hidden" name="weekID" value="<?php echo e($le['title']->id); ?>">
+										<input type="hidden" name="courseID" value="<?php echo e($le['title']->course_id); ?>">
 										<button type="submit" class="pull-right conlearning">Continue</button>
 									</form>
+									<?php endif; ?>
 								</div>
 							</div>
 						</div>
